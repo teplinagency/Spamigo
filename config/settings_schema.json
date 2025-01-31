@@ -23,27 +23,15 @@
     "settings": [
       {
         "type": "color",
-        "id": "color_background",
-        "label": "Background color",
+        "id": "primary-background",
+        "label": "Primary Background color",
+        "default": "#1B315A"
+      },
+      {
+        "type": "color",
+        "id": "primary-text",
+        "label": "Primary Text color",
         "default": "#FFFFFF"
-      },
-      {
-        "type": "color",
-        "id": "color_text",
-        "label": "Text color",
-        "default": "#000000"
-      },
-      {
-        "type": "color",
-        "id": "color_heading",
-        "label": "Headings color",
-        "default": "#000000"
-      },
-      {
-        "type": "color",
-        "id": "color_link",
-        "label": "Links color",
-        "default": "#000000"
       }
     ]
   },

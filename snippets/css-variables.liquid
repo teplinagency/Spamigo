@@ -27,37 +27,87 @@
 
     {% if settings.font_heading == 'example-font' or settings.font_body == 'example-font' %}
 	    @font-face {
-	        font-family: 'Example Font';
-	        src: url({{ 'ExampleFont.ttf' | asset_url }}) format('truetype')
-                url({{ 'ExampleFont.otf' | asset_url }}) format('opentype')
-                url({{ 'ExampleFont.woff2' | asset_url }}) format('woff2')
-                url({{ 'ExampleFont.woff' | asset_url }}) format('woff');
-	        font-weight: 400;
-	        font-style: normal;
-	        font-display: swap; {% comment %} Remove this for the main font weight/style {% endcomment %}
-	    }
+				font-family: 'Outfit';
+				src: url({{ 'Outfit-Black.ttf' | asset_url }}) format('truetype');
+				font-weight: 900;
+				font-style: normal;
+			}
+
+		@font-face {
+			font-family: 'Outfit';
+			src: url({{ 'Outfit-ExtraBold.ttf'| asset_url }}) format('truetype');
+			font-weight: 800;
+			font-style: normal;
+		}
+		
+		@font-face {
+			font-family: 'Outfit';
+			src: url({{ 'Outfit-Bold.ttf'| asset_url }}) format('truetype');
+			font-weight: 700;
+			font-style: normal;
+		}
+
+		@font-face {
+			font-family: 'Outfit';
+			src: url({{ 'Outfit-SemiBold.ttf'| asset_url }}) format('truetype');
+			font-weight: 600;
+			font-style: normal;
+		}
+
+		@font-face {
+			font-family: 'Outfit';
+			src: url({{ 'Outfit-Medium.ttf'| asset_url }}) format('truetype');
+			font-weight: 500;
+			font-style: normal;
+		}
+	
+		@font-face {
+			font-family: 'Outfit';
+			src: url({{ 'Outfit-Regular.ttf'| asset_url }}) format('truetype');
+			font-weight: 400;
+			font-style: normal;
+		}
+
+		@font-face {
+			font-family: 'Outfit';
+			src: url({{ 'Outfit-Light.ttf'| asset_url }}) format('truetype');
+			font-weight: 300;
+			font-style: normal;
+		}
+		
+		@font-face {
+			font-family: 'Outfit';
+			src: url({{ 'Outfit-ExtraLight.ttf'| asset_url }}) format('truetype');
+			font-weight: 200;
+			font-style: normal;
+		}
+		
+		@font-face {
+			font-family: 'Outfit';
+			src: url({{ 'Outfit-Thin.ttf'| asset_url }}) format('truetype');
+			font-weight: 100;
+			font-style: normal;
+		}
     {% endif %}
 
 	{% comment %} CSS variables {% endcomment %}
 
     :root {
-        --color-background: {{ settings.color_background }};
-        --color-text: {{ settings.color_text }};
-        --color-heading: {{ settings.color_heading }};
-        --color-link: {{ settings.color_link }};
+				--primary-background: {{ settings.primary-background }};
+				--primary-text: {{ settings.primary-text }};
 
 		{% case settings.font_heading %}
 			{% when 'shopify' %}
 		        --font-heading: {{ settings.font_heading_shopify.family }}, {{ settings.font_heading.fallback_families }};
 			{% when 'example-font' %}
-		        --font-heading: 'Example Font', sans-serif;
+		        --font-heading: 'Outfit', sans-serif;
 		{% endcase %}
 
 		{% case settings.font_body %}
 			{% when 'shopify' %}
 		        --font-body: {{ settings.font_body_shopify.family }}, {{ settings.font_body.fallback_families }};
 			{% when 'example-font' %}
-		        --font-body: 'Example Font', sans-serif;
+		        --font-body: 'Outfit', sans-serif;
 		{% endcase %}
     }
 </style>
