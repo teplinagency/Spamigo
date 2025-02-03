@@ -62,6 +62,8 @@
 	<a class="skip-to-content-link visually-hidden" href="#MainContent">
 		{{ 'accessibility.skip_to_text' | t }}
 	</a>
+	
+	{%- sections 'header-group' -%}
 
 	<main id="MainContent" class="focus-none" role="main" tabindex="-1">
 		{{ content_for_layout }}

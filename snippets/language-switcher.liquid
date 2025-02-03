@@ -1,0 +1,46 @@
+{% assign type = type | default: "language" %}
+
+<c-language-switcher class="c-language-switcher {{ class }}">
+  {%- form 'localization' -%}
+    {% case type %}
+      {% when "language" %}
+        <select class="c-language-switcher__list js-language-switcher__list" 
+          name="locale_code"
+        >
+          {%- for language in localization.available_languages -%}
+    
+            <option
+              id="language-{{ forloop.index }}"
+              value="{{ language.iso_code }}"
+              {% if language.iso_code == localization.language.iso_code %}
+                selected
+              {% endif %}
+              >
+              {{ language.iso_code }}
+            </option>
+          {%- endfor -%}
+        </select>
+
+      {% when "country" %}
+        <select class="c-language-switcher__list js-language-switcher__list" 
+          name="country_code"
+        >
+          {%- for country in localization.available_countries -%}
+  
+            <option
+              id="country-{{ forloop.index }}"
+              value="{{ country.iso_code }}"
+              {% if country.iso_code == localization.country.iso_code %}
+                selected
+              {% endif %}
+              >
+                {{- country.name }} 
+                ({{ country.currency.iso_code }}
+                {{ country.currency.symbol -}})
+            </option>
+          {%- endfor -%}
+        </select>
+    {% endcase %}
+    
+  {%- endform -%}
+</c-language-switcher>

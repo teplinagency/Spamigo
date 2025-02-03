@@ -13,6 +13,7 @@
 body {
   font-family: var(--font-body);
   overscroll-behavior-y: none;
+  margin: 0;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -92,4 +93,24 @@ main {
 
 img {
   max-width: 100%;
+}
+
+.container-m {
+  padding-inline: 20px;
+  max-width: 1440px;
+}
+
+.container-l {
+  padding-inline: 8px;
+  max-width: 1440px;
+}
+
+@media (min-width: 992px) {
+  .container-m {
+    padding-inline: 52px;
+  }
+
+  .container-l {
+    padding-inline: 20px;
+  }
 }

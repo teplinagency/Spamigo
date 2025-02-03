@@ -1,0 +1,44 @@
+{
+  "type": "header",
+  "name": "Header group",
+  "sections": {
+    "announcement_bar_gUfmm8": {
+      "type": "announcement-bar",
+      "blocks": {
+        "link_ptEQif": {
+          "type": "link",
+          "settings": {
+            "text": "Track my Order",
+            "link": "#",
+            "show_mobile": false
+          }
+        },
+        "link_mRC778": {
+          "type": "link",
+          "settings": {
+            "text": "+1 (866) 515-MIGO (6446)",
+            "link": "tel:+1 (866) 515-(6446)",
+            "show_mobile": true
+          }
+        },
+        "link_XcbhFJ": {
+          "type": "link",
+          "settings": {
+            "text": "info@spamigo.com",
+            "link": "mailto:info@spamigo.com",
+            "show_mobile": true
+          }
+        }
+      },
+      "block_order": [
+        "link_ptEQif",
+        "link_mRC778",
+        "link_XcbhFJ"
+      ],
+      "settings": {}
+    }
+  },
+  "order": [
+    "announcement_bar_gUfmm8"
+  ]
+}

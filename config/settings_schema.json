@@ -1,9 +1,9 @@
 [
   {
     "name": "theme_info",
-    "theme_name": "Starter Theme",
+    "theme_name": "Spamigo Custom Theme",
     "theme_version": "1.0",
-    "theme_author": "Shopify",
+    "theme_author": "Teplin Agency",
     "theme_documentation_url": "https:\/\/help.shopify.com\/manual\/online-store\/themes",
     "theme_support_url": "https:\/\/support.shopify.com\/"
   },
@@ -31,7 +31,7 @@
         "type": "color",
         "id": "primary-text",
         "label": "Primary Text color",
-        "default": "#FFFFFF"
+        "default": "#EDEFF2"
       }
     ]
   },
@@ -129,7 +129,7 @@
         "type": "text",
         "id": "social_linkedin_link",
         "label": "linkedin",
-        "info": "https://linkedin.com/@shopify"
+        "info": "https:\/\/linkedin.com\/@shopify"
       },
       {
         "type": "text",
