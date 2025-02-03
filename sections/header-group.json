@@ -36,9 +36,51 @@
         "link_XcbhFJ"
       ],
       "settings": {}
+    },
+    "header": {
+      "type": "header",
+      "blocks": {
+        "card_WHzHFh": {
+          "type": "card",
+          "settings": {
+            "link": "#",
+            "image": "shopify:\/\/shop_images\/Rectangle_7.png",
+            "title": "Custom Cover",
+            "button_text": "configure"
+          }
+        },
+        "card_Cq3JaN": {
+          "type": "card",
+          "settings": {
+            "link": "#",
+            "image": "shopify:\/\/shop_images\/Rectangle_8.png",
+            "title": "Swim Spa Covers",
+            "button_text": "Explore"
+          }
+        },
+        "card_Kd49TK": {
+          "type": "card",
+          "settings": {
+            "link": "#",
+            "image": "shopify:\/\/shop_images\/Rectangle_8_1.png",
+            "title": "Specialty Covers",
+            "button_text": "Explore"
+          }
+        }
+      },
+      "block_order": [
+        "card_WHzHFh",
+        "card_Cq3JaN",
+        "card_Kd49TK"
+      ],
+      "settings": {
+        "logo": "shopify:\/\/shop_images\/Full-logo-dark.png",
+        "menu": "main-menu"
+      }
     }
   },
   "order": [
-    "announcement_bar_gUfmm8"
+    "announcement_bar_gUfmm8",
+    "header"
   ]
 }

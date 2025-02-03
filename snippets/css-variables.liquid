@@ -96,6 +96,17 @@
 				--primary-background: {{ settings.primary-background }};
 				--primary-text: {{ settings.primary-text }};
 
+				--secondary-background: {{ settings.secondary-background }};
+				--secondary-text: {{ settings.secondary-text }};
+
+				--accent-1: {{ settings.accent-1 }};
+
+				--icon-color-1: {{ settings.icon-color-1 }};
+				--icon-color-1-active: {{ settings.icon-color-1-active }};
+
+				--button-light-bg: {{ settings.button-light-bg }};
+				--button-light-text: {{ settings.button-light-text }};
+
 		{% case settings.font_heading %}
 			{% when 'shopify' %}
 		        --font-heading: {{ settings.font_heading_shopify.family }}, {{ settings.font_heading.fallback_families }};

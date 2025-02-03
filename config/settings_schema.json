@@ -32,7 +32,48 @@
         "id": "primary-text",
         "label": "Primary Text color",
         "default": "#EDEFF2"
-      }
+      },
+      {
+        "type": "color",
+        "id": "secondary-background",
+        "label": "Secondary Background color",
+        "default": "#FFFFFF"
+      },
+      {
+        "type": "color",
+        "id": "secondary-text",
+        "label": "Secondary Text color",
+        "default": "#1B315A"
+      },
+      {
+        "type": "color",
+        "id": "accent-1",
+        "label": "Accent Color 1",
+        "default": "#4285F4"
+      },
+      {
+        "type": "color",
+        "id": "icon-color-1",
+        "label": "Icon Color 1",
+        "default": "#76839C"
+      },
+      {
+        "type": "color",
+        "id": "icon-color-1-active",
+        "label": "Icon Color 1 Active",
+        "default": "#1B315A"
+      },
+      {
+        "type": "color",
+        "id": "button-light-bg",
+        "label": "Button Background Light",
+        "default": "#EDF3FF"
+      },{
+        "type": "color",
+        "id": "button-light-text",
+        "label": "Button Text Light",
+        "default": "#1B315A"
+      },
     ]
   },
   {

@@ -114,3 +114,17 @@ img {
     padding-inline: 20px;
   }
 }
+
+.js-overlay {
+  z-index: 5;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100dvw;
+  height: 100dvh;
+  display: none;
+
+  &.is-open {
+    display: block;
+  }
+}
