@@ -1,4 +1,7 @@
 .c-language-switcher {
+  position: relative;
+  padding-inline-end: 24px;
+  color: var(--primary-text);
 
   &__list {
     background: transparent;
@@ -10,7 +13,29 @@
     border: none;
     outline: none;
     width: auto;
-    min-width: 40px;
     max-width: 100%;
+    appearance: none;
+
+    & option {
+      background-color: var(--secondary-background);
+      color: var(--secondary-text);
+      padding: 2px 4px;
+      text-align: center;
+    }
+
+    &:focus {
+      &+svg {
+        transform: rotate(-180deg) translateY(50%);
+      }
+    }
+  }
+
+  & svg {
+    color: inherit;
+    position: absolute;
+    right: 0px;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: 0.3s all;
   }
 }

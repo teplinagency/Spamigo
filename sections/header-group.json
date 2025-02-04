@@ -75,7 +75,7 @@
       ],
       "settings": {
         "logo": "shopify:\/\/shop_images\/Full-logo-dark.png",
-        "menu": "main-menu"
+        "menu": "new-header-menu"
       }
     }
   },

@@ -53,13 +53,13 @@
       },
       {
         "type": "color",
-        "id": "icon-color-1",
+        "id": "accent-color-2",
         "label": "Icon Color 1",
         "default": "#76839C"
       },
       {
         "type": "color",
-        "id": "icon-color-1-active",
+        "id": "accent-color-3",
         "label": "Icon Color 1 Active",
         "default": "#1B315A"
       },

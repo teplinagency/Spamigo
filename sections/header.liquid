@@ -1,19 +1,23 @@
-{{ "sections-header.css" | asset_url | stylesheet_tag }}
+{{ "section-header.css" | asset_url | stylesheet_tag }}
+{{ "component-mobile-menu.css" | asset_url | stylesheet_tag }}
+
+<script src="{{ "section-header.js" | asset_url }}" defer></script>
+<script src="{{ "component-mobile-menu.js" | asset_url }}" defer></script>
 
 <s-header class="s-header container-l">
   <div class="s-header__wrapper">
     <div class="s-header__mobile-buttons">
-      <button type="button" class="s-header__burger-button js-header__burger-button">
+      <button type="button" class="s-header__burger-button js-header__burger-button" aria-label="Toggle menu">
         {% render "icon-burger" %}
         {% render "icon-burger-close" %}
       </button>
 
-      <button type="button" class="s-header__search-button js-header__search-button">
+      <button type="button" class="s-header__search-button js-header__search-button" aria-label="Search">
         {% render "icon-search" %}
       </button>
     </div>
 
-    <a href="{{ routes.root_url }}" class="s-header__logo-container">
+    <a href="{{ routes.root_url }}" class="s-header__logo-container" aria-label="Home">
       {% case localization.country.iso_code %}
         {% when "US" %}
           <div class="s-header__country-logo">
@@ -23,8 +27,6 @@
           <div class="s-header__country-logo">
             {% render 'icon-country-ca' %}
           </div>
-        {% else %}
-
       {% endcase %}
       {% if section.settings.logo != blank %}
         <div class="s-header__logo">
@@ -34,18 +36,32 @@
     </a>
 
     {% if section.settings.menu != blank %}
-      <div class="s-header__linklist">
-        {% for first_deep_link in section.settings.menu.links limit: 4 %}
+      <nav class="s-header__linklist" aria-label="Main navigation">
+        {% for first_deep_link in section.settings.menu.links %}
           {% if first_deep_link.links.size > 0 %} 
-            <div class="s-header__linklist-link s-header__linklist-link--hover">
+            <div class="s-header__linklist-link s-header__linklist-link--hover" tabindex="0" role="button" aria-haspopup="true" aria-expanded="false">
               {{ first_deep_link.title }} 
               {% render "icon-chevron" %}
             </div>
-            <div class="s-header__megamenu">
+            <div class="s-header__megamenu" role="menu">
               <div class="s-header__megamenu-content">
-
+                {% for second_deep_link in first_deep_link.links %}
+                  <div class="s-header__megamenu-wrapper">
+                    <h3 class="s-header__megamenu-title">
+                      {{ second_deep_link.title }}
+                    </h3>
+                    <ul class="s-header__megamenu-list">
+                      {% for third_deep_link in second_deep_link.links %}
+                        <li class="s-header__megamenu-item">
+                          <a href="{{ third_deep_link.url }}">
+                            {{ third_deep_link.title }}
+                          </a>
+                        </li>
+                      {% endfor %}
+                    </ul>
+                  </div>
+                {% endfor %}
               </div>
-
               <div class="s-header__megamenu-cards">
                 {% for block in section.blocks %}
                   {% if block.settings.link != blank %}
@@ -55,13 +71,11 @@
                           {% render 'image-lazy', image: block.settings.image %}
                         </div>
                       {% endif %}
-
                       {% if block.settings.title != blank %}
                         <h3 class="s-header__megamenu-card-title">
                           {{ block.settings.title }}
                         </h3>
                       {% endif %}
-
                       {% if block.settings.button_text != blank %}
                         <div class="s-header__megamenu-card-link">
                           {{ block.settings.button_text }}
@@ -79,22 +93,22 @@
             </a>
           {% endif %}
         {% endfor %}
-      </div>
+      </nav>
     {% endif %}
 
     <div class="s-header__container">
-      <div class="s-header__search-field">
-        <input type="text" class="s-header__search-input js-header__search-input" placeholder="{{ "sections.header.search-placeholder" | t }}">
-        <button type="button" class="s-header__search-field-button js-header__search-button">
+      <form class="s-header__search-field" role="search">
+        <input type="text" class="s-header__search-input js-header__search-input" placeholder="{{ "sections.header.search-placeholder" | t }}" aria-label="Search">
+        <button type="submit" class="s-header__search-field-button js-header__search-button" aria-label="Submit search">
           {% render "icon-search" %}
         </button>
-      </div>
+      </form>
 
-      <a class="s-header__account" href="{{ routes.account_url }}">
+      <a class="s-header__account" href="{{ routes.account_url }}" aria-label="Account">
         {% render "icon-account" %}
       </a>
 
-      <button type="button" class="s-header__cart-button">
+      <button type="button" class="s-header__cart-button" aria-label="Cart">
         {% render "icon-cart" %}
         <span>
           {{ cart.item_count }}
@@ -102,7 +116,8 @@
       </button>
     </div>
   </div>
-  <div class="s-header__overlay"></div>
+  {% render "mobile-menu", section: section %}
+  <div class="s-header__overlay" role="presentation"></div>
 </s-header>
 
 {% schema %}
