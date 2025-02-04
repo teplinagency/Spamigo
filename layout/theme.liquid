@@ -62,10 +62,16 @@
 	<a class="skip-to-content-link visually-hidden" href="#MainContent">
 		{{ 'accessibility.skip_to_text' | t }}
 	</a>
+	
+	{%- sections 'header-group' -%}
 
 	<main id="MainContent" class="focus-none" role="main" tabindex="-1">
 		{{ content_for_layout }}
 	</main>
+
+	<div class="modals">
+		<div class="js-overlay"></div>
+	</div>
 
 	<ul hidden>
 		<li id="a11y-refresh-page-message">{{ 'accessibility.refresh_page' | t }}</li>

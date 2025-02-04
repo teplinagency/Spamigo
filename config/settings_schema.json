@@ -1,9 +1,9 @@
 [
   {
     "name": "theme_info",
-    "theme_name": "Starter Theme",
+    "theme_name": "Spamigo Custom Theme",
     "theme_version": "1.0",
-    "theme_author": "Shopify",
+    "theme_author": "Teplin Agency",
     "theme_documentation_url": "https:\/\/help.shopify.com\/manual\/online-store\/themes",
     "theme_support_url": "https:\/\/support.shopify.com\/"
   },
@@ -23,28 +23,57 @@
     "settings": [
       {
         "type": "color",
-        "id": "color_background",
-        "label": "Background color",
+        "id": "primary-background",
+        "label": "Primary Background color",
+        "default": "#1B315A"
+      },
+      {
+        "type": "color",
+        "id": "primary-text",
+        "label": "Primary Text color",
+        "default": "#EDEFF2"
+      },
+      {
+        "type": "color",
+        "id": "secondary-background",
+        "label": "Secondary Background color",
         "default": "#FFFFFF"
       },
       {
         "type": "color",
-        "id": "color_text",
-        "label": "Text color",
-        "default": "#000000"
+        "id": "secondary-text",
+        "label": "Secondary Text color",
+        "default": "#1B315A"
       },
       {
         "type": "color",
-        "id": "color_heading",
-        "label": "Headings color",
-        "default": "#000000"
+        "id": "accent-1",
+        "label": "Accent Color 1",
+        "default": "#4285F4"
       },
       {
         "type": "color",
-        "id": "color_link",
-        "label": "Links color",
-        "default": "#000000"
-      }
+        "id": "accent-color-2",
+        "label": "Icon Color 1",
+        "default": "#76839C"
+      },
+      {
+        "type": "color",
+        "id": "accent-color-3",
+        "label": "Icon Color 1 Active",
+        "default": "#1B315A"
+      },
+      {
+        "type": "color",
+        "id": "button-light-bg",
+        "label": "Button Background Light",
+        "default": "#EDF3FF"
+      },{
+        "type": "color",
+        "id": "button-light-text",
+        "label": "Button Text Light",
+        "default": "#1B315A"
+      },
     ]
   },
   {
@@ -141,7 +170,7 @@
         "type": "text",
         "id": "social_linkedin_link",
         "label": "linkedin",
-        "info": "https://linkedin.com/@shopify"
+        "info": "https:\/\/linkedin.com\/@shopify"
       },
       {
         "type": "text",

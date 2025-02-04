@@ -13,6 +13,13 @@
 body {
   font-family: var(--font-body);
   overscroll-behavior-y: none;
+  margin: 0;
+
+  &.modal-open {
+    overflow-y: hidden;
+    touch-action: none;
+    -ms-touch-action: none;
+  }
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -92,4 +99,38 @@ main {
 
 img {
   max-width: 100%;
+}
+
+.container-m {
+  padding-inline: 20px;
+  max-width: 1440px;
+}
+
+.container-l {
+  padding-inline: 8px;
+  max-width: 1440px;
+}
+
+@media (min-width: 992px) {
+  .container-m {
+    padding-inline: 52px;
+  }
+
+  .container-l {
+    padding-inline: 20px;
+  }
+}
+
+.js-overlay {
+  z-index: 5;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100dvw;
+  height: 100dvh;
+  display: none;
+
+  &.is-open {
+    display: block;
+  }
 }

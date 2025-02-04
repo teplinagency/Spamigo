@@ -1,0 +1,76 @@
+<c-mobile-menu class="c-mobile-menu" aria-label="Mobile menu">
+  <div class="c-mobile-menu__wrapper">
+
+    {% if section.settings.menu != blank %}
+      <nav class="c-mobile-menu__navigation" aria-label="Main navigation">
+        {% for first_deep_link in section.settings.menu.links %}
+          {% if first_deep_link.links.size > 0 %} 
+            <details class="c-mobile-menu__details">
+              <summary aria-label="Open submenu {{ first_deep_link.title }}">
+                {{ first_deep_link.title }}
+
+                {% render "icon-chevron" %}
+              </summary>
+
+              <div class="c-mobile-menu__content">
+                {% for second_deep_link in first_deep_link.links %}
+                  <div class="c-mobile-menu__element">
+                    <h3 class="c-mobile-menu__title">
+                      {{ second_deep_link.title }}
+                    </h3>
+                    <ul class="c-mobile-menu__list">
+                      {% for third_deep_link in second_deep_link.links %}
+                        <li class="c-mobile-menu__item">
+                          <a href="{{ third_deep_link.url }}" aria-label="Go to {{ third_deep_link.title }}">
+                            {{ third_deep_link.title }}
+                          </a>
+                        </li>
+                      {% endfor %}
+                    </ul>
+                  </div>
+                {% endfor %}
+              </div>
+            </details>
+          {% else %}
+            <a href="{{ first_deep_link.url }}" class="c-mobile-menu__link" aria-label="Go to {{ first_deep_link.title }}">
+              {{ first_deep_link.title }}
+            </a>
+          {% endif %}
+        {% endfor %}
+      </nav>
+    {% endif %}
+
+    <div class="c-mobile-menu__cards" aria-label="Featured cards">
+      {% for block in section.blocks %}
+        {% if block.settings.link != blank %}
+          <a class="c-mobile-menu__card" href="{{ block.settings.link }}" aria-label="Go to {{ block.settings.title }}">
+            {% if block.settings.image != blank %}
+              <div class="c-mobile-menu__card-img">
+                {% render 'image-lazy', image: block.settings.image %}
+              </div>
+            {% endif %}
+            <div class="c-mobile-menu__card-content">
+              {% if block.settings.title != blank %}
+                <h3 class="c-mobile-menu__card-title">
+                  {{ block.settings.title }}
+                </h3>
+              {% endif %}
+              {% if block.settings.button_text != blank %}
+                <div class="c-mobile-menu__card-link">
+                  {{ block.settings.button_text }}
+                  {% render "icon-chevron" %}
+                </div>
+              {% endif %}
+            </div>
+          </a>
+        {% endif %}
+      {% endfor %}
+    </div>
+
+    <div class="c-mobile-menu__localization-wrapper" aria-label="Language and country selection">
+      {% render "language-switcher", class: "c-mobile-menu__locales" %}
+      {% render "language-switcher", class: "c-mobile-menu__locales", type: "country" %}
+    </div>
+
+  </div>
+</c-mobile-menu>

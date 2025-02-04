@@ -1,0 +1,92 @@
+{{ "section-announcement-bar.css" | asset_url | stylesheet_tag }}
+{{ "component-language-switcher.css" | asset_url | stylesheet_tag }}
+
+<script src="{{ "component-language-switcher.js" | asset_url }}" defer></script>
+
+<div class="s-announcement-bar container-m">
+  <ul class="s-announcement-bar__list">
+    {% for block in section.blocks %}
+      {% if block.settings.text != blank and block.settings.link != blank %}
+        <li class="s-announcement-bar__item {% if block.settings.show_mobile == true %}s-announcement-bar__item--mobile-show{% endif %}">
+          <a href="{{ block.settings.link }}">
+            {{ block.settings.text }}
+          </a>
+        </li>
+      {% endif %}
+    {% endfor %}
+  </ul>
+
+  <div class="s-announcement-bar__localization-wrapper">
+    {% render "language-switcher", class: "s-announcement-bar__locales" %}
+    {% render "language-switcher", class: "s-announcement-bar__locales", type: "country" %}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Announcement Bar",
+  "class": "section-announcement-bar",
+  "settings": [
+    
+  ],
+  "blocks": [
+    {
+      "type": "link",
+      "name": "Link",
+      "settings": [
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Link Text"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Link URL"
+        },
+        {
+          "type": "checkbox",
+          "id": "show_mobile",
+          "default": true,
+          "label": "Show Link on Mobile"
+        }
+      ]
+    }
+  ],
+  "enabled_on": {
+    "templates": ["*"],
+    "groups": ["header"]
+  },
+  "presets": [
+    {
+      "name": "Announcement Bar",
+      "blocks": [
+        {
+          "type": "link",
+          "settings": {
+            "text": "Track my Order",
+            "link": "#",
+            "show_mobile": false
+          }
+        },
+        {
+          "type": "link",
+          "settings": {
+            "text": "+1 (866) 515-MIGO (6446)",
+            "link": "tel:+1 (866) 515-(6446)",
+            "show_mobile": true
+          }
+        },
+        {
+          "type": "link",
+          "settings": {
+            "text": "info@spamigo.com",
+            "link": "mailto:info@spamigo.com",
+            "show_mobile": true
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

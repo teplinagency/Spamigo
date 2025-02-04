@@ -8,5 +8,9 @@
     }
   },
   "components": {},
-  "sections": {}
+  "sections": {
+    "header": {
+      "search-placeholder": "Search product or product code..."
+    }
+  }
 }
