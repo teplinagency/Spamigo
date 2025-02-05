@@ -1,9 +1,9 @@
 {
   "type": "header",
-  "name": "Header group",
+  "name": "New Header group",
   "sections": {
     "announcement_bar_gUfmm8": {
-      "type": "announcement-bar",
+      "type": "s-announcement-bar",
       "blocks": {
         "link_ptEQif": {
           "type": "link",
@@ -38,7 +38,7 @@
       "settings": {}
     },
     "header": {
-      "type": "header",
+      "type": "s-header",
       "blocks": {
         "card_WHzHFh": {
           "type": "card",

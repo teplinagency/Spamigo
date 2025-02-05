@@ -1,0 +1,24 @@
+{
+  "parent": "product.specialized-hot-tub-cover.json",
+  "context": {
+    "market": "us"
+  },
+  "sections": {
+    "main-product": {
+      "settings": {},
+      "blocks": {
+        "icon_list_nFjC3x": {
+          "settings": {
+            "icon_2_text": "Free Shipping in the U.S.",
+            "icon_3_text": "Built for Tough Climate"
+          }
+        },
+        "custom_liquid_FbLbTY": {
+          "settings": {
+            "custom_liquid": "<p><a href=\"https:\/\/spamigo.com\/en-us\/products\/premium-hot-tub-cover\"><b>Need a different size?<\/b> Click here to configure your custom cover!<\/a><\/p>"
+          }
+        }
+      }
+    }
+  }
+}

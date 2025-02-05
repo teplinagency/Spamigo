@@ -1,0 +1,18 @@
+{
+  "parent": "product.rollaway-swim-spa-covers.json",
+  "context": {
+    "market": "us"
+  },
+  "sections": {
+    "main-product": {
+      "settings": {},
+      "blocks": {
+        "icon_list_nFjC3x": {
+          "settings": {
+            "icon_3_text": "Free Shipping"
+          }
+        }
+      }
+    }
+  }
+}

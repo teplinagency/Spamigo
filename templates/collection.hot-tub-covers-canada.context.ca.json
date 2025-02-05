@@ -1,0 +1,27 @@
+{
+  "parent": "collection.hot-tub-covers-canada.json",
+  "context": {
+    "market": "ca"
+  },
+  "sections": {
+    "rich_text_BKtXxk": {
+      "settings": {},
+      "blocks": {
+        "badge_JcBkE": {
+          "type": "badge",
+          "disabled": false,
+          "settings": {
+            "text": "Proudly Made in Ontario, Canada",
+            "color_bg": "#d40000",
+            "color_text": "#ffffff"
+          }
+        }
+      },
+      "block_order": [
+        "badge_JcBkE",
+        "subheading_ptwkYW",
+        "heading_XHthzL"
+      ]
+    }
+  }
+}

@@ -2,6 +2,13 @@
   position: relative;
   padding-inline-end: 24px;
   color: var(--primary-text);
+  display: flex;
+  align-items: center;
+
+  & form { 
+    display: flex;
+    align-items: center;
+  }
 
   &__list {
     background: transparent;
@@ -15,6 +22,8 @@
     width: auto;
     max-width: 100%;
     appearance: none;
+    padding: 0;
+    height: fit-content;
 
     & option {
       background-color: var(--secondary-background);

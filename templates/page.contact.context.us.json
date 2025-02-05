@@ -1,0 +1,23 @@
+{
+  "parent": "page.contact.json",
+  "context": {
+    "market": "us"
+  },
+  "sections": {
+    "contact_form_ncc7TF": {
+      "settings": {},
+      "blocks": {
+        "text_Mn866U": {
+          "settings": {
+            "text": "<p>17A Enterprise Ave<br\/>Nepean, ON K2G 0A7<br\/>Canada<\/p>"
+          }
+        },
+        "text_aCD47V": {
+          "settings": {
+            "text": "<p><strong>Distribution Warehouses:<br\/><\/strong>San Diego, California<br\/>Clearwater, Florida<\/p>"
+          }
+        }
+      }
+    }
+  }
+}

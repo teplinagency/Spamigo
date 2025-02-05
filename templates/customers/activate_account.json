@@ -1,11 +1,11 @@
 {
   "sections": {
-    "main": {
-      "type": "empty-section",
+    "main-activate-account": {
+      "type": "main-activate-account",
       "settings": {}
     }
   },
   "order": [
-    "main"
+    "main-activate-account"
   ]
 }

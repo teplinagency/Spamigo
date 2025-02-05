@@ -1,0 +1,34 @@
+{
+  "parent": "product.specialized-hot-tub-cover.json",
+  "context": {
+    "market": "ca"
+  },
+  "sections": {
+    "main-product": {
+      "settings": {},
+      "blocks": {
+        "icon_list_nFjC3x": {
+          "settings": {
+            "icon_1_icon": "snowflake",
+            "icon_1_text": "Proudly Made in Canada 🇨🇦",
+            "icon_3_icon": "ruler",
+            "icon_3_text": "Perfect Fit Guaranteed"
+          }
+        }
+      }
+    },
+    "media_with_tabs_k3n7yx": {
+      "settings": {
+        "color_bg": "#00706e"
+      },
+      "blocks": {
+        "badge_xyagrB": {
+          "disabled": false,
+          "settings": {
+            "color_bg": "#c90101"
+          }
+        }
+      }
+    }
+  }
+}

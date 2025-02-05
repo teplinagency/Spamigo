@@ -1,0 +1,24 @@
+{
+  "parent": "header-group.json",
+  "context": {
+    "market": "us"
+  },
+  "sections": {
+    "announcement-bar": {
+      "settings": {},
+      "blocks": {
+        "text_8bXYf4": {
+          "settings": {
+            "text": "Free Shipping on orders over $500"
+          }
+        }
+      }
+    },
+    "header": {
+      "settings": {
+        "logo": "shopify:\/\/shop_images\/spamigo_7.svg"
+      },
+      "blocks": {}
+    }
+  }
+}

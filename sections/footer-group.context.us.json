@@ -1,0 +1,19 @@
+{
+  "parent": "footer-group.json",
+  "context": {
+    "market": "us"
+  },
+  "sections": {
+    "footer": {
+      "settings": {},
+      "blocks": {
+        "ebdaaa5c-c47c-42ac-a830-30a799694755": {
+          "settings": {
+            "text": "<p><strong>Head Office: <\/strong><br\/>17A Enterprise Ave<br\/>Nepean, ON K2G 0A7<br\/>Canada<br\/><br\/><strong>Distribution Warehouses:<br\/><\/strong>San Diego, California<br\/>Clearwater, Florida<br\/><br\/><a href=\"tel:18665156446\" title=\"tel:18665156446\">+1 (866) 515-MIGO (6446)<\/a><br\/><a href=\"mailto:info@spamigo.com\" title=\"Email\">info@spamigo.com<\/a><br\/><\/p>",
+            "image": "shopify:\/\/shop_images\/spamigo_10.svg"
+          }
+        }
+      }
+    }
+  }
+}

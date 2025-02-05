@@ -1,0 +1,786 @@
+{
+  "sections": {
+    "spacer_LHpdjn": {
+      "type": "spacer",
+      "disabled": true,
+      "settings": {
+        "spacer_mobile": 15,
+        "spacer_desktop": 100,
+        "border_separator": false,
+        "border_separator_full": false
+      }
+    },
+    "countdown_banner_PkaX3T": {
+      "type": "countdown-banner",
+      "disabled": true,
+      "settings": {
+        "full_width": false,
+        "section_layout": "horizontal",
+        "desktop_height": "desktop-height-auto",
+        "mobile_height": "mobile-height-auto",
+        "subheading": "HOLIDAY ORDER CUT-OFF",
+        "heading": "Receive Your Cover Before Christmas! 🎅",
+        "heading_size": "h2",
+        "content": "Order before the timer ends to receive your order before December 24th.",
+        "content_size": "medium",
+        "button_text": "",
+        "button_link": "",
+        "timer_year": 2024,
+        "timer_month": "12",
+        "timer_day": "02",
+        "timer_hour": "00",
+        "timer_minute": "00",
+        "color_bg": "#3c8d0d",
+        "color_text": "#ffffff",
+        "overlay_color": "#000000",
+        "overlay_opacity": 10,
+        "disable_top_spacing": true,
+        "disable_bottom_spacing": true
+      }
+    },
+    "breadcrumbs": {
+      "type": "breadcrumbs",
+      "settings": {}
+    },
+    "main-product": {
+      "type": "main-product",
+      "blocks": {
+        "side_panel_FNYHLr": {
+          "type": "side_panel",
+          "settings": {
+            "side_panel_1_label": "10-Year Warranty",
+            "side_panel_1_icon": "heart",
+            "side_panel_1_page": "cover-warranty",
+            "side_panel_2_label": "Shipping & Returns",
+            "side_panel_2_icon": "box",
+            "side_panel_2_page": "shipping-returns",
+            "side_panel_3_label": "Cover Measuring Guide",
+            "side_panel_3_icon": "ruler",
+            "side_panel_3_page": "how-to-measure-hot-tub-cover"
+          }
+        },
+        "loox_reviews_loox_rating_kHGMRr": {
+          "type": "shopify:\/\/apps\/loox-reviews\/blocks\/loox-rating\/5c3b337f-fd14-4df5-b1d6-80ec13e6e28e",
+          "settings": {
+            "contentSize": 16,
+            "pattern": "[rating] ([count] reviews)",
+            "hideText": false,
+            "alignment": "",
+            "layout": "",
+            "textColor": "#e7711b",
+            "starColor": "#e7711b",
+            "showAllReviews": false,
+            "looxOpenFloatingWidget": true,
+            "emptyRatingWidget": false
+          }
+        },
+        "title": {
+          "type": "title",
+          "settings": {
+            "show_products_rating": false,
+            "show_products_rating_average": true,
+            "show_custom_badges": true
+          }
+        },
+        "label_bDhVEG": {
+          "type": "label",
+          "settings": {}
+        },
+        "icon_list_nFjC3x": {
+          "type": "icon_list",
+          "settings": {
+            "icon_1_icon": "snowflake",
+            "icon_1_text": "Built for Canadian Winters 🇨🇦",
+            "icon_2_icon": "truck",
+            "icon_2_text": "Free Shipping on orders over $595",
+            "icon_3_icon": "ruler",
+            "icon_3_text": "Perfect Fit, Guaranteed",
+            "icon_4_icon": "chat_bubble",
+            "icon_4_text": "Expert Customer Service"
+          }
+        },
+        "coupon_code_n6pgGk": {
+          "type": "coupon_code",
+          "disabled": true,
+          "settings": {
+            "icon": "price_tag",
+            "has_background": true,
+            "text": "<p><strong>BOXING DAY PRICE!<\/strong><br\/>SAVE AN ADDITIONAL 5% AT CHECKOUT<\/p>",
+            "coupon_text": "BOXINGDAY",
+            "copy_text": "Copy Code",
+            "coupon_box_color": "#233367",
+            "coupon_box_color_link": "#3f72e5"
+          }
+        },
+        "custom_liquid_XGAFTH": {
+          "type": "custom_liquid",
+          "settings": {
+            "custom_liquid": "<div class=\"product-search-widget\">\n  <h3>🔍 Find Your Hot Tub Cover<\/h3>\n  <p>Search your hot tub model to find the perfect cover:<\/p>\n  <input\n    type=\"text\"\n    id=\"model-search-input\"\n    placeholder=\"Enter your hot tub model...\"\n    aria-label=\"Search by model\"\n  \/>\n  <ul id=\"model-search-results\"><\/ul>\n<\/div>\n\n<script>\n  document.addEventListener(\"DOMContentLoaded\", () => {\n    const searchInput = document.getElementById(\"model-search-input\");\n    const resultsContainer = document.getElementById(\"model-search-results\");\n\n    searchInput.addEventListener(\"input\", async (event) => {\n      const query = event.target.value.trim().toLowerCase();\n\n      \/\/ Clear results if input is empty\n      if (query === \"\") {\n        resultsContainer.innerHTML = \"\";\n        return;\n      }\n\n      try {\n        \/\/ Fetch results from Shopify's Predictive Search API\n        const response = await fetch(\n          `\/search\/suggest.json?q=${encodeURIComponent(query)}&resources[type]=product&resources[limit]=50`\n        );\n        const data = await response.json();\n\n        \/\/ Replace hyphens with spaces and split into keywords\n        const keywords = query\n          .replace(\/[-]\/g, \" \")\n          .split(\" \")\n          .filter((word) => word.length > 0); \/\/ Remove empty keywords\n\n        \/\/ Normalize product titles and descriptions\n        const products = data.resources.results.products.filter((product) => {\n          const title = product.title.toLowerCase().replace(\/[-]\/g, \" \");\n          const description = product.description\n            ? product.description.toLowerCase().replace(\/[-]\/g, \" \")\n            : \"\";\n\n          \/\/ Match if any keyword appears in the title or description\n          return (\n            title.includes(\"hot tub cover\") &&\n            keywords.some((keyword) => title.includes(keyword) || description.includes(keyword))\n          );\n        });\n\n        \/\/ Render results\n        resultsContainer.innerHTML = products.length\n          ? products\n              .map(\n                (product) =>\n                  `<li class=\"search-result-item\">\n                    <a href=\"${product.url}\">\n                      <img src=\"${product.featured_image.url}\" alt=\"${product.title}\" class=\"result-thumbnail\" \/>\n                      <span>${product.title}<\/span>\n                    <\/a>\n                  <\/li>`\n              )\n              .join(\"\")\n          : `<li>\n              We cannot find this model in our website database. \n              Please enter your measurements below or \n              <a href=\"\/pages\/contact-us\" class=\"custom-cover-link\">contact us<\/a> for assistance.\n            <\/li>`;\n      } catch (error) {\n        console.error(\"Error fetching search results:\", error);\n        resultsContainer.innerHTML = \"<li>Something went wrong. Please try again.<\/li>\";\n      }\n    });\n  });\n<\/script>\n\n<style>\n  .product-search-widget {\n    margin-top: 20px;\n    text-align: left;\n    background-color: #f9f9f9;\n    padding: 20px;\n    border-radius: 5px;\n    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);\n  }\n\n  .product-search-widget h3 {\n    font-size: 18px;\n    font-weight: bold;\n    margin-bottom: 10px;\n  }\n\n  .product-search-widget p {\n    font-size: 14px;\n    margin-bottom: 15px;\n  }\n\n  #model-search-input {\n    width: 100%;\n    padding: 10px;\n    font-size: 16px;\n    border: 1px solid #ddd;\n    border-radius: 5px;\n    margin-bottom: 15px;\n  }\n\n  #model-search-results {\n    list-style-type: none;\n    padding: 0;\n    margin: 0;\n  }\n\n  .search-result-item {\n    display: flex;\n    align-items: center;\n    padding: 10px;\n    margin: 5px 0;\n    border: 1px solid #ddd;\n    border-radius: 5px;\n    cursor: pointer;\n    background-color: #fff;\n    transition: background-color 0.3s ease, box-shadow 0.3s ease;\n  }\n\n  .search-result-item:hover {\n    background-color: #f0f8ff;\n    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);\n  }\n\n  .search-result-item img.result-thumbnail {\n    width: 40px;\n    height: 40px;\n    margin-right: 10px;\n    border-radius: 5px;\n    object-fit: cover;\n  }\n\n  .search-result-item a {\n    text-decoration: none;\n    color: #333;\n    font-size: 16px;\n    display: flex;\n    align-items: center;\n    width: 100%;\n  }\n\n  .search-result-item a:hover {\n    text-decoration: none;\n  }\n\n  .search-result-item span {\n    flex-grow: 1;\n  }\n\n  .custom-cover-link {\n    color: #007bff;\n    text-decoration: underline;\n  }\n\n  .custom-cover-link:hover {\n    text-decoration: none;\n    color: #0056b3;\n  }\n<\/style>"
+          }
+        },
+        "info_box_x3Jy6A": {
+          "type": "info_box",
+          "settings": {
+            "icon": "question_mark",
+            "text": "QUESTIONS BEFORE ORDERING?  CALL OR TEXT US +1 (866) 515-6446",
+            "link": "tel:18665156446",
+            "info_box_bg": "#eb4f45",
+            "info_box_color": "#ffffff"
+          }
+        },
+        "buy_buttons": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": true,
+            "show_gift_card_recipient": false
+          }
+        },
+        "separator_DDEH3Q": {
+          "type": "separator",
+          "settings": {}
+        },
+        "a92a5f09-ca58-42f5-be74-9043d4f99bf9": {
+          "type": "description",
+          "settings": {
+            "seo_text_max_height": 1000,
+            "seo_text_read_more": "Read more",
+            "seo_text_read_less": "Read less"
+          }
+        },
+        "collapsible_tab_f4gz9d": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "Product Features",
+            "open": true,
+            "content": "<ul><li>Foam inserts wrapped in poly bags and heat sealed for minimal water absorption over the life of your cover.<\/li><li>Manufactured using durable marine grade top vinyl with UV and mildew inhibitors to help your cover last for many years<\/li><li>Supreme moisture runoff with and added support from the metal \"C\" channel that runs the entire length of the fold<\/li><li>Folding hinge with double reinforcement and reinforced handles to assist in proper cover removal<\/li><li>Extensive stitching throughout and extra reinforcing of critical areas<\/li><li>4 lockable child safety straps helps protect your children and pets while meeting all ASTM standards for hot tub covers<\/li><li>Includes male-female clips and stainless steel screws<\/li><\/ul>",
+            "page": "",
+            "custom_liquid": ""
+          }
+        },
+        "complementary_cYwg4X": {
+          "type": "complementary",
+          "settings": {
+            "block_heading": "Pairs well with",
+            "product_list_limit": 10
+          }
+        }
+      },
+      "block_order": [
+        "side_panel_FNYHLr",
+        "loox_reviews_loox_rating_kHGMRr",
+        "title",
+        "label_bDhVEG",
+        "icon_list_nFjC3x",
+        "coupon_code_n6pgGk",
+        "custom_liquid_XGAFTH",
+        "info_box_x3Jy6A",
+        "buy_buttons",
+        "separator_DDEH3Q",
+        "a92a5f09-ca58-42f5-be74-9043d4f99bf9",
+        "collapsible_tab_f4gz9d",
+        "complementary_cYwg4X"
+      ],
+      "custom_css": [],
+      "settings": {
+        "enable_sticky_add_to_cart": false,
+        "show_taxes_included": false,
+        "thumbnail_position": "left",
+        "media_aspect_ratio": "landscape",
+        "display_captions": false,
+        "hide_variants": false,
+        "lightbox": true,
+        "enable_video_looping": false,
+        "media_fullwidth_mobile": true,
+        "media_show_prevnext_mobile": true
+      }
+    },
+    "product-recommendations": {
+      "type": "product-recommendations",
+      "settings": {
+        "heading": "You may also like",
+        "description": "<p>View our product recommendations<\/p>",
+        "mobile_swipe": true,
+        "product_limit": 4,
+        "columns_desktop": 6,
+        "disable_top_spacing": false,
+        "disable_bottom_spacing": false
+      }
+    },
+    "106d082c-28d1-450d-b7ba-7cb284df8dab": {
+      "type": "scrolling-text",
+      "blocks": {
+        "template--14745674022970__106d082c-28d1-450d-b7ba-7cb284df8dab-text-1": {
+          "type": "text",
+          "settings": {
+            "text": "✅ 10-Year Warranty",
+            "link": "shopify:\/\/pages\/cover-warranty",
+            "outline_text": false
+          }
+        },
+        "template--14745674022970__106d082c-28d1-450d-b7ba-7cb284df8dab-text-2": {
+          "type": "text",
+          "settings": {
+            "text": "🧵 Double-Stitched Covers",
+            "link": "",
+            "outline_text": false
+          }
+        },
+        "template--14745674022970__106d082c-28d1-450d-b7ba-7cb284df8dab-text-3": {
+          "type": "text",
+          "settings": {
+            "text": "☁️ Thick & Dense Foam",
+            "link": "",
+            "outline_text": false
+          }
+        }
+      },
+      "block_order": [
+        "template--14745674022970__106d082c-28d1-450d-b7ba-7cb284df8dab-text-1",
+        "template--14745674022970__106d082c-28d1-450d-b7ba-7cb284df8dab-text-2",
+        "template--14745674022970__106d082c-28d1-450d-b7ba-7cb284df8dab-text-3"
+      ],
+      "settings": {
+        "height": "height-auto",
+        "full_width": true,
+        "direction": "left",
+        "speed": "50s",
+        "rotation": 0,
+        "negative_rotation": false,
+        "font_family": "heading",
+        "text_size": 54,
+        "text_uppercase": false,
+        "image_size": "medium",
+        "color_bg": "rgba(0,0,0,0)",
+        "color_text": "#adb3bb",
+        "overlay_color": "#000000",
+        "overlay_opacity": 0,
+        "disable_top_spacing": true,
+        "disable_bottom_spacing": true
+      }
+    },
+    "media_with_tabs_k3n7yx": {
+      "type": "media-with-tabs",
+      "blocks": {
+        "badge_xyagrB": {
+          "type": "badge",
+          "disabled": true,
+          "settings": {
+            "text": "Designed for the",
+            "color_bg": "{{ shop.brand.colors.primary[0].background }}",
+            "color_text": "#ffffff"
+          }
+        },
+        "heading_MXdz3T": {
+          "type": "heading",
+          "settings": {
+            "text": "Made-To-Measure Spa Covers - Engineered for Peak Performance & Durability",
+            "heading_size": "h3"
+          }
+        },
+        "tab_XEDcKf": {
+          "type": "tab",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/classic-hot-tub-cover-507439.jpg",
+            "use_video": false,
+            "video_hosted": "shopify:\/\/files\/videos\/15363855-hd_1920_1080_50fps (1) (1).mp4",
+            "heading_icon": "lightning_bolt",
+            "heading": "Unmatched Insulation",
+            "description": "Our hot tub covers in Canada are designed for maximum energy efficiency with eco-friendly, CFC-free closed cell foam insulation. This high-density foam core (1.5 lb) offers a top-tier R21 insulation rating, perfect for retaining heat in both moderate and colder climates. With superior insulation, these custom-fit covers provide significant energy savings, reducing your heating costs and enhancing your hot tub experience, even in the harshest Canadian climate.",
+            "video_autoplay": true
+          }
+        },
+        "tab_zkCAcA": {
+          "type": "tab",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/maxresdefault.jpg",
+            "use_video": true,
+            "video_hosted": "shopify:\/\/files\/videos\/15363855-hd_1920_1080_50fps (1) (1).mp4",
+            "heading_icon": "leather",
+            "heading": "Durable Design for Canadian Climates",
+            "description": "Our products are crafted with heavy-duty vinyl and built to withstand snow, rain, and intense UV exposure. The durable cover includes UV and mildew inhibitors to resist the elements, ensuring your tub cover remains looking great for years. An internal reinforcement stitching and high-quality materials provide added strength, making it the ideal choice for Canadian climates, where winter temperatures and heavy snow loads demand quality cover solutions for durability and protection.",
+            "video_autoplay": true
+          }
+        },
+        "tab_w9B3Cx": {
+          "type": "tab",
+          "settings": {
+            "use_video": true,
+            "video_hosted": "shopify:\/\/files\/videos\/15363855-hd_1920_1080_50fps (1) (1).mp4",
+            "heading_icon": "check_mark",
+            "heading": "Peace of Mind Guaranteed",
+            "description": "All of our custom hot tub covers come with a robust 10-year warranty, covering repair or replacement for any defects, with coverage decreasing over time. Our quality covers ensure that your investment is protected, providing you with peace of mind in case of unforeseen damage due to Canadian winters, heavy snow, or other elements. For full details on warranty services, check our replacement hot cover policy for your custom-fit needs.",
+            "video_autoplay": true
+          }
+        }
+      },
+      "block_order": [
+        "badge_xyagrB",
+        "heading_MXdz3T",
+        "tab_XEDcKf",
+        "tab_zkCAcA",
+        "tab_w9B3Cx"
+      ],
+      "custom_css": [
+        "h4 {color: white;}"
+      ],
+      "settings": {
+        "desktop_height": "desktop-height-650",
+        "mobile_height": "mobile-height-500",
+        "height": "small",
+        "desktop_layout": "image_first",
+        "color_bg": "#00706e",
+        "color_text": "#ffffff",
+        "color_link": "#ffffff",
+        "color_border": "#827471",
+        "disable_top_spacing": true,
+        "disable_bottom_spacing": false
+      }
+    },
+    "28dc155d-c542-4ea3-9649-23d253d08ad6": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_zwgTem": {
+          "type": "heading",
+          "settings": {
+            "text": "Our Covers Fit |All Hot Tub Brands|",
+            "marker_style": "style1",
+            "size": "h2",
+            "marker_color": "#fd6262"
+          }
+        },
+        "text_bNiTW8": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Our team verifies all measurements provided to guarantee a precise fit for your hot tub cover.<\/p>",
+            "custom_liquid": "",
+            "size": "text-size-large"
+          }
+        }
+      },
+      "block_order": [
+        "heading_zwgTem",
+        "text_bNiTW8"
+      ],
+      "settings": {
+        "text_width": "xlarge",
+        "text_position": "center",
+        "text_alignment": "center",
+        "color_bg": "rgba(0,0,0,0)",
+        "color_heading": "#1a1c1d",
+        "color_text": "#35393d",
+        "color_links": "#2c2d2e",
+        "disable_top_spacing": true,
+        "disable_bottom_spacing": true
+      }
+    },
+    "23eef362-d778-4250-9d08-b5c9cf650a77": {
+      "type": "spacer",
+      "settings": {
+        "spacer_mobile": 5,
+        "spacer_desktop": 15,
+        "border_separator": false,
+        "border_separator_full": false
+      }
+    },
+    "2c1df25b-3c9b-4858-a475-5d202e337a39": {
+      "type": "logo-list",
+      "blocks": {
+        "template--14745674022970__2c1df25b-3c9b-4858-a475-5d202e337a39-logo-1": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/hot-tub-hot-springs-spas-logo.webp",
+            "link": "#"
+          }
+        },
+        "template--14745674022970__2c1df25b-3c9b-4858-a475-5d202e337a39-logo-2": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/arcticspas-logo.webp",
+            "link": "#"
+          }
+        },
+        "template--14745674022970__2c1df25b-3c9b-4858-a475-5d202e337a39-logo-3": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/03_allspas.webp",
+            "link": "#"
+          }
+        },
+        "template--14745674022970__2c1df25b-3c9b-4858-a475-5d202e337a39-logo-5": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/jacuzzi-logo-2102.webp",
+            "link": "#"
+          }
+        }
+      },
+      "block_order": [
+        "template--14745674022970__2c1df25b-3c9b-4858-a475-5d202e337a39-logo-1",
+        "template--14745674022970__2c1df25b-3c9b-4858-a475-5d202e337a39-logo-2",
+        "template--14745674022970__2c1df25b-3c9b-4858-a475-5d202e337a39-logo-3",
+        "template--14745674022970__2c1df25b-3c9b-4858-a475-5d202e337a39-logo-5"
+      ],
+      "settings": {
+        "heading": "",
+        "marker_style": "style1",
+        "description": "",
+        "columns": 4,
+        "mobile_swipe": true,
+        "center_align": true,
+        "disable_top_spacing": true,
+        "disable_bottom_spacing": false,
+        "color_logo_bg": "#ffffff",
+        "marker_color": "#fd6262"
+      }
+    },
+    "171459806859a0fad4": {
+      "type": "apps",
+      "blocks": {
+        "loox_reviews_loox_dynamic_section_bP443e": {
+          "type": "shopify:\/\/apps\/loox-reviews\/blocks\/loox-dynamic-section\/5c3b337f-fd14-4df5-b1d6-80ec13e6e28e",
+          "settings": {
+            "only_photos": false,
+            "aggregated": false,
+            "limit": 15,
+            "hide_thumbnails": false,
+            "maxwidth": 1080,
+            "is_sample": false
+          }
+        }
+      },
+      "block_order": [
+        "loox_reviews_loox_dynamic_section_bP443e"
+      ],
+      "settings": {}
+    },
+    "rich_text_d9TQQ4": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_K8itbX": {
+          "type": "heading",
+          "settings": {
+            "text": "<h2>The Importance of a Custom Hot Tub Cover<\/h2>",
+            "marker_style": "style1",
+            "size": "h3",
+            "marker_color": "#fd6262"
+          }
+        }
+      },
+      "block_order": [
+        "heading_K8itbX"
+      ],
+      "disabled": true,
+      "settings": {
+        "text_width": "xlarge",
+        "text_position": "center",
+        "text_alignment": "center",
+        "color_bg": "rgba(0,0,0,0)",
+        "color_heading": "#1a1c1d",
+        "color_text": "#2c2d2e",
+        "color_links": "#2c2d2e",
+        "disable_top_spacing": false,
+        "disable_bottom_spacing": true
+      }
+    },
+    "text_with_icons_JmDzBc": {
+      "type": "text-with-icons",
+      "blocks": {
+        "icon_BPx3X8": {
+          "type": "icon",
+          "settings": {
+            "icon": "star",
+            "heading": "Improved Energy Efficiency with a Custom-Fit Seal",
+            "text": "<p>A snug hot tub cover provides an airtight seal, which helps retain heat more effectively in cold to moderate climates. By minimizing heat loss, our custom-fit covers reduce energy consumption, lowering heating costs and maintaining a comfortable temperature for your hot tub experience, especially during cold Canadian winters.<\/p>"
+          }
+        },
+        "icon_7ymtxK": {
+          "type": "icon",
+          "settings": {
+            "icon": "star",
+            "heading": "<h3>Moisture Protection and Water Conservation<\/h3>",
+            "text": "<p>Our quality covers come with barriers to minimize water and moisture absorption, conserving water and helping prevent frequent refills. This also maintains chemical balance, extending the life of your hot tub water and reducing the need for chemical products. The closed cell foam ensures that your tub is protected from water absorption, reducing the risk of moisture damage over time.<\/p>"
+          }
+        },
+        "icon_bBexdQ": {
+          "type": "icon",
+          "settings": {
+            "icon": "star",
+            "heading": "<h3>Protection from Debris and Environmental Factors<\/h3>",
+            "text": "<p>With custom-fit dimensions, these covers keep dirt, leaves, and other debris out of your hot tub, enhancing cleanliness and lowering maintenance requirements. This debris protection is essential for Canadian outdoor hot tubs, where wind and snowfall can quickly contaminate an uncovered spa, making custom-fit solutions essential for every hot tub owner.<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "icon_BPx3X8",
+        "icon_7ymtxK",
+        "icon_bBexdQ"
+      ],
+      "disabled": true,
+      "custom_css": [],
+      "settings": {
+        "text_alignment": "center",
+        "icon_position": "top",
+        "icon_size": "small",
+        "heading_size": "large",
+        "mobile_swipe": true,
+        "color_bg": "rgba(0,0,0,0)",
+        "color_heading": "#1a1c1d",
+        "color_text": "#2c2d2e",
+        "disable_top_spacing": false,
+        "disable_bottom_spacing": false
+      }
+    },
+    "text_with_icons_QJmDtr": {
+      "type": "text-with-icons",
+      "blocks": {
+        "icon_R83x46": {
+          "type": "icon",
+          "settings": {
+            "icon": "star",
+            "heading": "<h3>Enhanced Safety with Lockable Child Safety Straps<\/h3>",
+            "text": "<p>Our covers are designed with safety in mind. Lockable child safety straps offer an added layer of protection for families, keeping the tub securely closed and preventing accidental falls. This makes our covers a reliable safety solution for any household.<\/p>"
+          }
+        },
+        "icon_wUVUfA": {
+          "type": "icon",
+          "settings": {
+            "icon": "star",
+            "heading": "<h3>Longer Lifespan and Reduced Damage<\/h3>",
+            "text": "<p>A well-fitting cover distributes weight and pressure evenly, particularly important in regions with heavy snow loads. This reduces the stress on materials, prolonging the lifespan of the cover and preventing damage that often affects traditional covers. Custom features, such as reinforcements and high-quality material, ensure lasting performance and meet standards for strength and durability.<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "icon_R83x46",
+        "icon_wUVUfA"
+      ],
+      "disabled": true,
+      "settings": {
+        "text_alignment": "center",
+        "icon_position": "top",
+        "icon_size": "small",
+        "heading_size": "large",
+        "mobile_swipe": true,
+        "color_bg": "rgba(0,0,0,0)",
+        "color_heading": "#1a1c1d",
+        "color_text": "#2c2d2e",
+        "disable_top_spacing": false,
+        "disable_bottom_spacing": false
+      }
+    },
+    "fd5c7a63-be6c-43da-a9c0-a887e1ab06dd": {
+      "type": "media-grid",
+      "blocks": {
+        "template--14745674022970__fd5c7a63-be6c-43da-a9c0-a887e1ab06dd-media-1": {
+          "type": "media",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/premium-hot-tub-cover-806373.jpg",
+            "slide_link": "",
+            "use_video": false,
+            "video_autoplay": true,
+            "column": 2,
+            "row": 2,
+            "subheading": "",
+            "heading": "",
+            "heading_size": "h4",
+            "button_text": "",
+            "button_link": "",
+            "content_position": "bottom-left",
+            "text_alignment": "left",
+            "color_bg": "#eaeaea",
+            "color_bg_gradient": "",
+            "color_text": "#ffffff",
+            "color_link": "#3f72e5",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0
+          }
+        },
+        "template--14745674022970__fd5c7a63-be6c-43da-a9c0-a887e1ab06dd-media-2": {
+          "type": "media",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/1f2829901d3fefecfe1422644760f88d.jpg",
+            "slide_link": "",
+            "use_video": false,
+            "video_autoplay": true,
+            "column": 2,
+            "row": 3,
+            "subheading": "",
+            "heading": "",
+            "heading_size": "h3",
+            "button_text": "",
+            "button_link": "",
+            "content_position": "middle-center",
+            "text_alignment": "center",
+            "color_bg": "#eaeaea",
+            "color_bg_gradient": "",
+            "color_text": "#2c2d2e",
+            "color_link": "#3f72e5",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0
+          }
+        },
+        "2e5ac462-81a3-4194-b445-a2afd14c80d7": {
+          "type": "media",
+          "settings": {
+            "slide_link": "",
+            "use_video": false,
+            "video_autoplay": true,
+            "column": 1,
+            "row": 1,
+            "subheading": "",
+            "heading": "❄<br><br>Made for Canadian Winters",
+            "heading_size": "h4",
+            "button_text": "",
+            "button_link": "",
+            "content_position": "bottom-left",
+            "text_alignment": "left",
+            "color_bg": "{{ shop.brand.colors.primary[0].background }}",
+            "color_bg_gradient": "",
+            "color_text": "#ffffff",
+            "color_link": "#3f72e5",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0
+          }
+        },
+        "916f6918-46df-4a4d-bfe5-d1962f9e2f94": {
+          "type": "media",
+          "settings": {
+            "slide_link": "",
+            "use_video": false,
+            "video_autoplay": true,
+            "column": 1,
+            "row": 1,
+            "subheading": "",
+            "heading": "⚡<br><br>Maximum Efficiency",
+            "heading_size": "h4",
+            "button_text": "",
+            "button_link": "",
+            "content_position": "bottom-left",
+            "text_alignment": "left",
+            "color_bg": "{{ shop.brand.colors.primary[0].background }}",
+            "color_bg_gradient": "",
+            "color_text": "#ffffff",
+            "color_link": "#3f72e5",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0
+          }
+        }
+      },
+      "block_order": [
+        "template--14745674022970__fd5c7a63-be6c-43da-a9c0-a887e1ab06dd-media-1",
+        "template--14745674022970__fd5c7a63-be6c-43da-a9c0-a887e1ab06dd-media-2",
+        "2e5ac462-81a3-4194-b445-a2afd14c80d7",
+        "916f6918-46df-4a4d-bfe5-d1962f9e2f94"
+      ],
+      "settings": {
+        "desktop_height": 230,
+        "mobile_height": 250,
+        "column_spacing": "medium",
+        "mobile_swipe": true,
+        "color_bg": "#ffffff",
+        "color_text": "#2c2d2e",
+        "color_link": "#3f72e5",
+        "disable_top_spacing": true,
+        "disable_bottom_spacing": false
+      }
+    },
+    "rich_text_QA3dr6": {
+      "type": "rich-text",
+      "blocks": {
+        "subheading_xjyD8A": {
+          "type": "subheading",
+          "settings": {
+            "text": ""
+          }
+        },
+        "heading_6BaYcL": {
+          "type": "heading",
+          "settings": {
+            "text": "<h3>Customizable Elements of Spa-Migo's High-Quality Hot Tub Covers<\/h3>",
+            "marker_style": "style1",
+            "size": "h3",
+            "marker_color": "#fd6262"
+          }
+        },
+        "text_DVyJEr": {
+          "type": "text",
+          "settings": {
+            "text": "<p>When you order a custom hot tub cover, several elements can be tailored for your hot tub experience, ensuring the best insulation, durability, and protection against Canadian climates. Here are the primary customizable features:<\/p><ul><li><strong>Size and Shape<\/strong>: Custom-fit covers can be created for any spa shape—square, rectangular, round, or more unique dimensions. Precise measurements ensure the perfect fit, optimizing energy efficiency and climate protection.<br\/><\/li><li><strong>Foam Density and Thickness<\/strong>: Choose from various foam densities and thicknesses to match your needs. Our high-density closed cell foam offers superior insulation ratings, keeping heat in and ensuring efficiency even in colder temperatures.<br\/><\/li><li><strong>Vinyl Material and Color Options<\/strong>: Made with marine-grade vinyl, our covers come in colors like black, chestnut brown, and charcoal grey, blending seamlessly with any outdoor decor. The vinyl includes moisture, mildew, and UV inhibitors for added protection in Canada’s variable climates.<br\/><\/li><li><strong>Taper and Drainage Design<\/strong>: Custom tapers can be added to your cover, allowing snow and rain to slide off efficiently, preventing water pooling and protecting the cover from weight damage during Canadian winters.<br\/><\/li><li><strong>Reinforced Handles and Lockable Straps<\/strong>: For added convenience, handles and lockable child safety straps are placed strategically for easy lifting and securing. Reinforced stitching meets high standards for strength, keeping the cover in place even under heavy snow loads.<br\/><\/li><li><strong>Skirt Length for Extra Protection<\/strong>: The adjustable skirt provides extra insulation, protecting the tub’s sides from moisture absorption and damage. This feature enhances both appearance and functionality.<br\/><\/li><li><strong>Internal Reinforcement for Canadian Winters<\/strong>: Covers can include additional internal reinforcements to prevent collapse under heavy snow loads. This strength and durability make them ideal for winter use, maintaining performance even in challenging conditions.<br\/><\/li><\/ul><h4>Custom Hot Tub Covers Canada - Order From Spa-Migo<\/h4>",
+            "custom_liquid": "",
+            "size": "text-size-small"
+          }
+        }
+      },
+      "block_order": [
+        "subheading_xjyD8A",
+        "heading_6BaYcL",
+        "text_DVyJEr"
+      ],
+      "disabled": true,
+      "settings": {
+        "text_width": "grid",
+        "text_position": "left",
+        "text_alignment": "left",
+        "color_bg": "#f5f5f5",
+        "color_heading": "#1a1c1d",
+        "color_text": "#2c2d2e",
+        "color_links": "#2c2d2e",
+        "disable_top_spacing": false,
+        "disable_bottom_spacing": false
+      }
+    },
+    "collapsible_content_zaCHU8": {
+      "type": "collapsible-content",
+      "blocks": {
+        "collapsible_tab_QHmTgB": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "Frequently Asked Questions About Our Custom Spa Covers",
+            "open": false,
+            "content": "<h2>The Importance of a Custom Hot Tub Cover<\/h2><h3>Improved Energy Efficiency with a Custom-Fit Seal<\/h3><p>A snug hot tub cover provides an airtight seal, which helps retain heat more effectively in cold to moderate climates. By minimizing heat loss, our custom-fit covers reduce energy consumption, lowering heating costs and maintaining a comfortable temperature for your hot tub experience, especially during cold Canadian winters.<\/p><h3>Moisture Protection and Water Conservation<\/h3><p>Our quality covers come with barriers to minimize water and moisture absorption, conserving water and helping prevent frequent refills. This also maintains chemical balance, extending the life of your hot tub water and reducing the need for chemical products. The closed cell foam ensures that your tub is protected from water absorption, reducing the risk of moisture damage over time.<\/p><h3>Protection from Debris and Environmental Factors<\/h3><p>With custom-fit dimensions, these covers keep dirt, leaves, and other debris out of your hot tub, enhancing cleanliness and lowering maintenance requirements. This debris protection is essential for Canadian outdoor hot tubs, where wind and snowfall can quickly contaminate an uncovered spa, making custom-fit solutions essential for every hot tub owner.<\/p><h3>Enhanced Safety with Lockable Child Safety Straps<\/h3><p>Our covers are designed with safety in mind. Lockable child safety straps offer an added layer of protection for families, keeping the tub securely closed and preventing accidental falls. This makes our covers a reliable safety solution for any household.<\/p><h3>Longer Lifespan and Reduced Damage<\/h3><p>A well-fitting cover distributes weight and pressure evenly, particularly important in regions with heavy snow loads. This reduces the stress on materials, prolonging the lifespan of the cover and preventing damage that often affects traditional covers. Custom features, such as reinforcements and high-quality material, ensure lasting performance and meet standards for strength and durability.<\/p><h3>Customizable Elements of Spa-Migo's High-Quality Hot Tub Covers<\/h3><p>When you order a custom hot tub cover, several elements can be tailored for your hot tub experience, ensuring the best insulation, durability, and protection against Canadian climates. Here are the primary customizable features:<\/p><ul><li><strong>Size and Shape<\/strong>: Custom-fit covers can be created for any spa shape—square, rectangular, round, or more unique dimensions. Precise measurements ensure the perfect fit, optimizing energy efficiency and climate protection.<\/li><li><strong>Foam Density and Thickness<\/strong>: Choose from various foam densities and thicknesses to match your needs. Our high-density closed cell foam offers superior insulation ratings, keeping heat in and ensuring efficiency even in colder temperatures.<\/li><li><strong>Vinyl Material and Color Options<\/strong>: Made with marine-grade vinyl, our covers come in colors like black, chestnut brown, and charcoal grey, blending seamlessly with any outdoor decor. The vinyl includes moisture, mildew, and UV inhibitors for added protection in Canada’s variable climates.<\/li><li><strong>Taper and Drainage Design<\/strong>: Custom tapers can be added to your cover, allowing snow and rain to slide off efficiently, preventing water pooling and protecting the cover from weight damage during Canadian winters.<\/li><li><strong>Reinforced Handles and Lockable Straps<\/strong>: For added convenience, handles and lockable child safety straps are placed strategically for easy lifting and securing. Reinforced stitching meets high standards for strength, keeping the cover in place even under heavy snow loads.<\/li><li><strong>Skirt Length for Extra Protection<\/strong>: The adjustable skirt provides extra insulation, protecting the tub’s sides from moisture absorption and damage. This feature enhances both appearance and functionality.<\/li><li><strong>Internal Reinforcement for Canadian Winters<\/strong>: Covers can include additional internal reinforcements to prevent collapse under heavy snow loads. This strength and durability make them ideal for winter use, maintaining performance even in challenging conditions.<br\/><br\/><\/li><\/ul><h4>Custom Hot Tub Covers Canada - Order From Spa-Migo<\/h4><p> <\/p><h2>Frequently Asked Questions About Our Custom Spa Covers<\/h2><h3>What materials are used in Spa-Migo hot tub covers?<\/h3><p>Spa-Migo hot tub covers are crafted from high-quality marine-grade vinyl, resistant to UV and mildew, for extended durability in Canadian climates. The core is made of energy-efficient closed cell foam, delivering exceptional insulation and keeping your energy bills low, while enhancing your hot tub experience.<\/p><h3>How do I know which cover size to order?<\/h3><p>Measure the length and width of your hot tub, including any edge overhangs, for a precise fit. Spa-Migo offers custom covers as well as standard sizes, including 80x80, 84x84, and 86x86. For unique shapes or measurement assistance, our customer service team is here to help you select the right dimensions.<\/p><h3>What is the difference between the 4 mil and 8 mil barriers?<\/h3><p>The vapor barrier prevents moisture from entering the foam core, reducing water absorption and extending cover life. The 4 mil barrier offers basic protection, while the 8 mil barrier provides the highest level of moisture resistance for demanding climates and frequent use.<\/p><h3>Can I customize the color of my hot tub cover?<\/h3><p>Yes, SpaMigo offers covers in popular colors such as black, chestnut brown, and charcoal grey. These neutral tones complement any spa design or outdoor setting, allowing you to select the color that best suits your hot tub experience.<\/p><h3>How long will it take to receive my custom hot tub cover?<\/h3><p>Custom spa covers typically ship within 4-6 weeks. If you need faster delivery, opt for a rush order to receive it in as little as 2 weeks. Once your order is in production, we’ll provide a tracking number so you can monitor its progress.<\/p><h3>Is there a warranty on Spa-Migo hot tub covers?<\/h3><p>Yes, all Spa-Migo hot tub covers come with a 10-year warranty, covering repair or replacement costs with coverage that gradually decreases over time. For full details on our warranty and protection policy, please consult our warranty page.<\/p><h3>What is the price of a custom spa cover in Canada?<\/h3><p>At Spa-Migo, the price of a custom hot tub cover depends on factors such as the cover model, selected features, and customizations. The final cost reflects the quality materials, insulation options, and weather-resistant features designed to withstand Canadian climates. Spa-Migo's high-quality, custom-fit covers offer excellent value by enhancing energy efficiency, reducing maintenance needs, and extending the lifespan of your hot tub. For specific pricing details, please contact Spa-Migo’s customer service team, who can guide you through options to meet your budget and needs.<\/p><p> <\/p><p> <\/p><p> <\/p>",
+            "page": "",
+            "custom_liquid": ""
+          }
+        }
+      },
+      "block_order": [
+        "collapsible_tab_QHmTgB"
+      ],
+      "custom_css": [
+        "h3 {font-size: 18px;}"
+      ],
+      "settings": {
+        "heading": "",
+        "marker_style": "style1",
+        "description": "",
+        "color_bg": "rgba(0,0,0,0)",
+        "color_heading": "#1a1c1d",
+        "marker_color": "#fd6262",
+        "color_text": "#2c2d2e",
+        "color_links": "#2c2d2e",
+        "color_border": "#dadce0",
+        "disable_top_spacing": false,
+        "disable_bottom_spacing": false
+      }
+    }
+  },
+  "order": [
+    "spacer_LHpdjn",
+    "countdown_banner_PkaX3T",
+    "breadcrumbs",
+    "main-product",
+    "product-recommendations",
+    "106d082c-28d1-450d-b7ba-7cb284df8dab",
+    "media_with_tabs_k3n7yx",
+    "28dc155d-c542-4ea3-9649-23d253d08ad6",
+    "23eef362-d778-4250-9d08-b5c9cf650a77",
+    "2c1df25b-3c9b-4858-a475-5d202e337a39",
+    "171459806859a0fad4",
+    "rich_text_d9TQQ4",
+    "text_with_icons_JmDzBc",
+    "text_with_icons_QJmDtr",
+    "fd5c7a63-be6c-43da-a9c0-a887e1ab06dd",
+    "rich_text_QA3dr6",
+    "collapsible_content_zaCHU8"
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "parent": "header-group.json",
+  "context": {
+    "market": "ca"
+  },
+  "sections": {
+    "announcement-bar": {
+      "settings": {},
+      "blocks": {
+        "text_BPR9D": {
+          "type": "text",
+          "disabled": false,
+          "settings": {
+            "icon": "none",
+            "text": "Proudly Made in Ontario, Canada! Discount Code: MADEINCANADA",
+            "link": "",
+            "header-5cbcd7716131f2632f48dce2e80049d9": null,
+            "color_bg": "#d40000",
+            "color_text": "#ffffff"
+          }
+        }
+      },
+      "block_order": [
+        "text_BPR9D",
+        "text_MycLnh",
+        "text_8bXYf4",
+        "text_FjQt8A"
+      ]
+    }
+  }
+}

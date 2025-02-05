@@ -1,11 +1,21 @@
 {
   "sections": {
-    "main": {
-      "type": "empty-section",
+    "breadcrumbs": {
+      "type": "breadcrumbs",
+      "settings": {}
+    },
+    "template-header": {
+      "type": "template-header",
+      "settings": {}
+    },
+    "main-addresses": {
+      "type": "main-addresses",
       "settings": {}
     }
   },
   "order": [
-    "main"
+    "breadcrumbs",
+    "template-header",
+    "main-addresses"
   ]
 }

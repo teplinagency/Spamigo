@@ -1,0 +1,85 @@
+{
+  "sections": {
+    "1661619382b4020fa2": {
+      "type": "rich-text",
+      "blocks": {
+        "166161938159ca8988-1": {
+          "type": "heading",
+          "settings": {
+            "text": "Get in Touch",
+            "marker_style": "style1",
+            "size": "h2",
+            "marker_color": "#fd6262"
+          }
+        },
+        "166161938159ca8988-2": {
+          "type": "text",
+          "settings": {
+            "text": "<p>If you need help measuring, have questions about our products, or need to get in touch for any reason, our friendly team is available.<\/p>",
+            "custom_liquid": "",
+            "size": "text-size-regular"
+          }
+        }
+      },
+      "block_order": [
+        "166161938159ca8988-1",
+        "166161938159ca8988-2"
+      ],
+      "settings": {
+        "text_width": "medium",
+        "text_position": "center",
+        "text_alignment": "center",
+        "color_bg": "rgba(0,0,0,0)",
+        "color_heading": "#1a1c1d",
+        "color_text": "#151515",
+        "color_links": "#151515",
+        "disable_top_spacing": false,
+        "disable_bottom_spacing": true
+      }
+    },
+    "contact_form_ncc7TF": {
+      "type": "contact-form",
+      "blocks": {
+        "text_PwqUik": {
+          "type": "text",
+          "settings": {
+            "heading": "Contact Information",
+            "text": "<p><a href=\"tel:18665156446\" title=\"tel:18665156446\">+1 (866) 515-MIGO (6446)<\/a><a href=\"tel:1-866-666-7727\" title=\"Phone number\"><br\/><\/a><a href=\"mailto:info@spamigo.com\" title=\"info@spamigo.com\">info@spamigo.com<\/a><br\/>Monday - Friday 9am-5pm EST<\/p>"
+          }
+        },
+        "text_Mn866U": {
+          "type": "text",
+          "settings": {
+            "heading": "Head Office",
+            "text": "<p>2967 Dundas St. W. #334D<br\/>Toronto, ON M6P 1Z2<\/p>"
+          }
+        },
+        "text_aCD47V": {
+          "type": "text",
+          "settings": {
+            "heading": "Locations",
+            "text": "<p>Distribution Warehouses:<br\/>Montreal, QC<br\/>Ottawa, ON<br\/>Toronto, ON<br\/>Calgary, AB<br\/>Vancouver, BC<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "text_PwqUik",
+        "text_Mn866U",
+        "text_aCD47V"
+      ],
+      "settings": {
+        "heading": "",
+        "marker_style": "style1",
+        "description": "<p>  <\/p>",
+        "show_phone_number": true,
+        "marker_color": "#fd6262",
+        "disable_top_spacing": false,
+        "disable_bottom_spacing": false
+      }
+    }
+  },
+  "order": [
+    "1661619382b4020fa2",
+    "contact_form_ncc7TF"
+  ]
+}

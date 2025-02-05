@@ -1,0 +1,50 @@
+{
+  "parent": "index.json",
+  "context": {
+    "market": "us"
+  },
+  "sections": {
+    "8ba47ba3-de7f-4f0a-b30d-6f2a540748c3": {
+      "settings": {},
+      "blocks": {
+        "slide_yGHxTT": {
+          "disabled": false,
+          "settings": {
+            "heading": "WINTER SALE ❄️"
+          }
+        }
+      }
+    },
+    "16620983071df6eb29": {
+      "settings": {},
+      "blocks": {
+        "1662098307788ca717-1": {
+          "settings": {
+            "heading": "Built for North America",
+            "text": "<p>Based in Canada.<br\/>Sold throughout North America.<\/p>"
+          }
+        },
+        "2c4a636c-cb89-4faf-82e6-13a0e7241006": {
+          "settings": {
+            "text": "<p>We ship across the USA.<br\/>Exceptions may apply for rural areas.<\/p>"
+          }
+        }
+      }
+    },
+    "image_with_text_mp4bF6": {
+      "settings": {},
+      "blocks": {
+        "heading_CGtUGn": {
+          "settings": {
+            "text": "Premium Hot Tub Covers Starting at |$434.99|"
+          }
+        },
+        "text_EwHdeL": {
+          "settings": {
+            "text": "<p>Engineered to handle the toughest North American winters, our premium hot tub covers are built for unmatched durability and support. Featuring a sealed vapor barrier and a 10-year warranty, they’re designed to last.<\/p>"
+          }
+        }
+      }
+    }
+  }
+}

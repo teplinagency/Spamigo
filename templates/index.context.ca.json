@@ -1,0 +1,72 @@
+{
+  "parent": "index.json",
+  "context": {
+    "market": "ca"
+  },
+  "sections": {
+    "16620983071df6eb29": {
+      "settings": {},
+      "blocks": {
+        "1662098307788ca717-1": {
+          "settings": {
+            "heading": "Made in Canada"
+          }
+        }
+      }
+    },
+    "image_with_text_mp4bF6": {
+      "settings": {},
+      "blocks": {
+        "text_EwHdeL": {
+          "settings": {
+            "text": "<p>Our spa covers are engineered to handle the toughest Canadian winters. They are built for unmatched durability and support. Featuring a sealed vapor barrier, high density foam and a 10-year warranty, they’re designed to last.<\/p>"
+          }
+        },
+        "text_DK9dNG": {
+          "settings": {
+            "text": "<p>✅ Made in Canada<br\/>✅ Designed for Harsh Winters<br\/>✅ Over 1,000 Covers In Stock<br\/>✅ Factory-Direct Savings<br\/>✅ Marine-Grade Vinyl<br\/>✅ Custom Skirt Length Options<br\/>✅ 4 Straps<br\/>✅ 10-Year Warranty<\/p>"
+          }
+        }
+      }
+    },
+    "1661426105a80f3333": {
+      "settings": {},
+      "blocks": {
+        "text_cAPH6": {
+          "type": "text",
+          "disabled": false,
+          "settings": {
+            "image": null,
+            "text": "Made in Canada",
+            "link": "",
+            "outline_text": false
+          }
+        }
+      },
+      "block_order": [
+        "1ca83ea2-5e93-4db4-a6e6-8fcf06ee541b",
+        "26518d78-5502-4bdf-a933-0020b59a8d9e",
+        "text_nWaqR9",
+        "c2cf6d75-da2e-4ba7-9791-6b681127eeff",
+        "text_cAPH6"
+      ]
+    },
+    "f896bcf0-40bd-4c23-8c79-b4d0863d7715": {
+      "settings": {},
+      "blocks": {
+        "template--17918041129242__f896bcf0-40bd-4c23-8c79-b4d0863d7715-167639056582313b87-1": {
+          "settings": {
+            "subheading": "BUILDING A MORE DURABLE HOT TUB COVER",
+            "heading": "The production of our spa covers is supported by years of research and expertise."
+          }
+        }
+      }
+    },
+    "e64d388d-d7ce-40d4-9265-98b1b32fb9de": {
+      "settings": {
+        "heading": "|Perfect| Spa Cover for Any Hot Tub"
+      },
+      "blocks": {}
+    }
+  }
+}

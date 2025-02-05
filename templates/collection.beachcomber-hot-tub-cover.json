@@ -1,0 +1,369 @@
+{
+  "sections": {
+    "breadcrumbs": {
+      "type": "breadcrumbs",
+      "disabled": true,
+      "settings": {}
+    },
+    "image_with_text_overlay_G3UnrD": {
+      "type": "image-with-text-overlay",
+      "blocks": {
+        "badge_wXVCcT": {
+          "type": "badge",
+          "settings": {
+            "text": "❄️ Built for Canadian Winters",
+            "color_bg": "{{ shop.brand.colors.primary[0].background }}",
+            "color_text": "#ffffff"
+          }
+        },
+        "heading_R3KaBd": {
+          "type": "heading",
+          "settings": {
+            "text": "{{ collection.title }}",
+            "heading_size": "h1-large"
+          }
+        },
+        "text_YgimNN": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Long-lasting protection for your hot tub. Perfect fit, guaranteed. Built to maximize energy efficiency.<\/p>",
+            "description_size": "large"
+          }
+        }
+      },
+      "block_order": [
+        "badge_wXVCcT",
+        "heading_R3KaBd",
+        "text_YgimNN"
+      ],
+      "settings": {
+        "image": "{{ collection.image }}",
+        "image_parallax": true,
+        "desktop_height": "desktop-height-450",
+        "mobile_height": "mobile-height-350",
+        "full_width": true,
+        "content_width": "large",
+        "content_position": "middle-center",
+        "text_alignment": "center",
+        "text_color": "#ffffff",
+        "overlay_color": "{{ shop.brand.colors.primary[0].background }}",
+        "overlay_opacity": 70,
+        "disable_top_spacing": true,
+        "disable_bottom_spacing": true
+      }
+    },
+    "template-header": {
+      "type": "template-header",
+      "settings": {
+        "show_collection_image": false,
+        "collection_image_ratio": "adapt",
+        "collection_image_width": "standard",
+        "show_collection_description": true,
+        "seo_text_read_more": "Read more",
+        "seo_text_read_less": "Read less",
+        "seo_text_max_height": 150,
+        "show_subcollections": true,
+        "color_subcollection_bg": "#ffffff",
+        "color_subcollection_text": "#303c43",
+        "display_description": true
+      }
+    },
+    "custom_liquid_7g6ecC": {
+      "type": "custom-liquid",
+      "settings": {
+        "full_width": true,
+        "custom_liquid": "<div class=\"search-discovery-widget\">\n  <h2>🔍 Search Cover Dimensions by Hot Tub Model<\/h2>\n  <p>\n    Search our hot tub cover database to find the perfect fit. We are continously adding models to our online database.<br \/>\n    <b>\n      Can't find your model? Call us at \n      <a href=\"tel:18665156446\">+1-866-515-6446<\/a>\n    <\/b>\n  <\/p>\n  <input\n    type=\"text\"\n    id=\"search-input\"\n    placeholder=\"Search for your model...\"\n    aria-label=\"Search for your model\"\n  \/>\n  <ul id=\"search-results\"><\/ul>\n<\/div>\n\n<script>\n  document.addEventListener(\"DOMContentLoaded\", () => {\n    const searchInput = document.getElementById(\"search-input\");\n    const resultsContainer = document.getElementById(\"search-results\");\n\n    searchInput.addEventListener(\"input\", async (event) => {\n      const query = event.target.value.trim().toLowerCase();\n\n      if (query === \"\") {\n        resultsContainer.innerHTML = \"\";\n        return;\n      }\n\n      try {\n        const response = await fetch(\n          `\/search\/suggest.json?q=${encodeURIComponent(query)}&resources[type]=product&resources[limit]=10`\n        );\n        const data = await response.json();\n\n        const keywords = query.split(\" \");\n        const products = data.resources.results.products.filter((product) => {\n          const title = product.title.toLowerCase();\n          const description = product.description ? product.description.toLowerCase() : \"\";\n          return keywords.every(\n            (keyword) => title.includes(keyword) || description.includes(keyword)\n          );\n        });\n\n        resultsContainer.innerHTML = products.length\n          ? products\n              .map(\n                (product) => `\n              <li class=\"search-result-item\">\n                <a href=\"${product.url}\">\n                  <img src=\"${product.featured_image.url}\" alt=\"${product.title}\" class=\"result-thumbnail\" \/>\n                  <span class=\"result-title\">${product.title}<\/span>\n                <\/a>\n              <\/li>\n            `\n              )\n              .join(\"\")\n          : `\n            <li>\n              We couldn't find your model. \n              <a href=\"https:\/\/spamigo.com\/products\/hot-tub-cover\" class=\"custom-cover-link\">\n                Click here to build a custom cover.\n              <\/a>\n            <\/li>`;\n      } catch (error) {\n        console.error(\"Error fetching search results:\", error);\n        resultsContainer.innerHTML = \"<li>Something went wrong. Please try again.<\/li>\";\n      }\n    });\n  });\n<\/script>\n\n<style>\n  .search-discovery-widget {\n    margin: 20px auto;\n    text-align: center;\n    max-width: 100%;\n    padding: 20px;\n    background-color: #223367; \/* Blue background *\/\n    color: white; \/* White text *\/\n    border-radius: 8px;\n    box-sizing: border-box;\n  }\n\n  .search-discovery-widget h2 {\n    color: white;\n  }\n\n  .search-discovery-widget p {\n    color: white;\n    font-size: 14px;\n    margin: 10px 0 20px;\n  }\n\n  .search-discovery-widget a {\n    color: white; \/* White link text *\/\n    text-decoration: underline;\n  }\n\n  .search-discovery-widget a:hover {\n    color: #cbe7ff; \/* Light blue hover color *\/\n    text-decoration: none;\n  }\n\n  #search-input {\n    width: 80%;\n    max-width: 600px;\n    padding: 12px;\n    font-size: 16px;\n    border: 1px solid white; \/* White border *\/\n    border-radius: 5px;\n    margin-bottom: 15px;\n    background-color: #1b2a4a; \/* Darker blue input background *\/\n    color: white; \/* White input text *\/\n  }\n\n  #search-input::placeholder {\n    color: #cbd3e1; \/* Light placeholder color *\/\n  }\n\n  #search-results {\n    list-style-type: none;\n    padding: 0;\n    margin: 0;\n    text-align: left;\n    max-width: 600px;\n    margin: 0 auto;\n  }\n\n  .search-result-item {\n    display: flex;\n    align-items: center;\n    padding: 10px 15px;\n    border-bottom: 1px solid #ccc;\n    background-color: #1b2a4a; \/* Background for results *\/\n    color: white; \/* White text *\/\n    border-radius: 5px;\n    margin-bottom: 10px;\n  }\n\n  .search-result-item a {\n    text-decoration: none;\n    color: white; \/* Link color *\/\n    width: 100%;\n    display: flex;\n    align-items: center;\n  }\n\n  .result-thumbnail {\n    width: 50px;\n    height: 50px;\n    margin-right: 15px;\n    border-radius: 5px;\n    object-fit: cover; \/* Ensure images are not distorted *\/\n  }\n\n  .result-title {\n    font-size: 16px;\n    font-weight: 500;\n  }\n\n  .search-result-item:hover {\n    background-color: #2c3e65; \/* Lighter hover background *\/\n  }\n\n  .custom-cover-link {\n    color: #4db8ff; \/* Light blue link *\/\n    text-decoration: underline;\n    font-weight: bold;\n  }\n\n  .custom-cover-link:hover {\n    text-decoration: none;\n    color: #cbe7ff; \/* Hover link color *\/\n  }\n<\/style>"
+      }
+    },
+    "product-grid": {
+      "type": "main-collection-product-grid",
+      "blocks": {
+        "promotion_dGeR8g": {
+          "type": "promotion",
+          "settings": {
+            "promotion_collection": "",
+            "promotion_position": 1,
+            "promotion_width": "1",
+            "image": "shopify:\/\/shop_images\/Scene_1_test.jpg",
+            "title": "Can't find your hot tub model here?",
+            "text": "Build your custom hot tub cover online with our step-by-step tool.",
+            "link_label": "Shop Now",
+            "content_position": "bottom-left",
+            "text_alignment": "left",
+            "link": "shopify:\/\/products\/hot-tub-cover",
+            "use_text_button": true,
+            "block_link": "",
+            "overlay_color": "{{ shop.brand.colors.primary[0].background }}",
+            "overlay_opacity": 75
+          }
+        }
+      },
+      "block_order": [
+        "promotion_dGeR8g"
+      ],
+      "custom_css": [],
+      "settings": {
+        "products_per_page": 48,
+        "columns_desktop": 3,
+        "pagination_type": "infinite",
+        "enable_filtering": false,
+        "enable_sorting": false,
+        "show_counts": false,
+        "filter_color_swatches": false,
+        "filters_collapsed": true,
+        "facets_desktop": "sidebar"
+      }
+    },
+    "spacer_C66dnC": {
+      "type": "spacer",
+      "disabled": true,
+      "settings": {
+        "spacer_mobile": 20,
+        "spacer_desktop": 50,
+        "border_separator": false,
+        "border_separator_full": false
+      }
+    },
+    "scrolling_content_gCUNQY": {
+      "type": "scrolling-content",
+      "blocks": {
+        "section_grjqkU": {
+          "type": "section",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/92x92-5-in-3-in-taper-hot-tub-cover-188796.jpg",
+            "badge": "More Durable Covers",
+            "subheading": "",
+            "heading": "Hot Tub Cover Performance & Quality",
+            "marker_style": "style1",
+            "heading_size": "small",
+            "content": "<p>Hot tub covers are crucial for maintaining your spa, and it's vital that they fit perfectly to be effective. Our user-friendly customization tool ensures that you get a hot tub cover that fits perfectly and withstands all weather conditions.<\/p><ul><li>Exclusive stitching patterns enhance durability.<\/li><li>2-inch tapered design helps moisture and debris slide off easily.<\/li><li>Top-quality water-repellent materials used inside and out.<\/li><li>Energy-efficient underside maximizes heat retention.<\/li><li>Suitable for all weather conditions, from harsh winters to sunny summers.<\/li><\/ul>",
+            "description_size": "h3",
+            "button_text": "Shop Now",
+            "button_link": "shopify:\/\/products\/hot-tub-cover",
+            "marker_color": "#fd6262",
+            "color_bg_badge": "{{ shop.brand.colors.primary[0].background }}",
+            "color_badge": "#ffffff"
+          }
+        },
+        "section_Heg4hG": {
+          "type": "section",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/2.1.webp",
+            "badge": "Minimizing Heat Loss",
+            "subheading": "",
+            "heading": "Invest in Energy-Efficient Options",
+            "marker_style": "style1",
+            "heading_size": "small",
+            "content": "<p>We utilize the finest materials to deliver the highest insulating values in the market. Our covers feature closed-cell foam and energy-reflective materials that minimize heat loss and help reduce your monthly energy costs. The reflective energy shield directs heat back into the hot tub, enhancing efficiency. Choose from three cover models, each available in different thicknesses and optional upgrades, to find the perfect insulating solution for your climate.<\/p>",
+            "description_size": "h3",
+            "button_text": "Shop Now",
+            "button_link": "shopify:\/\/products\/hot-tub-cover",
+            "marker_color": "#fd6262",
+            "color_bg_badge": "{{ shop.brand.colors.primary[0].background }}",
+            "color_badge": "#ffffff"
+          }
+        },
+        "section_KFYcLJ": {
+          "type": "section",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/classic-hot-tub-cover-507439.jpg",
+            "badge": "Made for Canadian Winters",
+            "subheading": "",
+            "heading": "Covers for any Climate",
+            "marker_style": "style1",
+            "heading_size": "small",
+            "content": "<p>The environment is a major factor in deciding which cover best fits your needs. We know which are the colder areas of Canada, and all snow belt areas have been identified. This means that we know which cover will be the best option for you based on your location. Our specialists may suggest a different cover based on local temperatures or snow fall. We want to ensure you are purchasing the best cover option for your needs. If you have any hesitation about which cover to choose, please reach out to our customer service.<\/p>",
+            "description_size": "h3",
+            "button_text": "Shop Now",
+            "button_link": "shopify:\/\/products\/hot-tub-cover",
+            "marker_color": "#fd6262",
+            "color_bg_badge": "{{ shop.brand.colors.primary[0].background }}",
+            "color_badge": "#ffffff"
+          }
+        }
+      },
+      "block_order": [
+        "section_grjqkU",
+        "section_Heg4hG",
+        "section_KFYcLJ"
+      ],
+      "settings": {
+        "desktop_layout": "text_first",
+        "mobile_swipe": true,
+        "dots": true,
+        "color_bg": "rgba(0,0,0,0)",
+        "color_heading": "#1a1c1d",
+        "color_text": "#2c2d2e",
+        "color_links": "#2c2d2e",
+        "disable_top_spacing": true,
+        "disable_bottom_spacing": false
+      }
+    },
+    "spacer_dVFyND": {
+      "type": "spacer",
+      "disabled": true,
+      "settings": {
+        "spacer_mobile": 0,
+        "spacer_desktop": 0,
+        "border_separator": true,
+        "border_separator_full": false
+      }
+    },
+    "rich_text_ahAGKh": {
+      "type": "rich-text",
+      "blocks": {
+        "subheading_3jFhqE": {
+          "type": "subheading",
+          "settings": {
+            "text": "Benefit from factory direct pricing"
+          }
+        },
+        "heading_HXH3ga": {
+          "type": "heading",
+          "settings": {
+            "text": "Manufacturing Hot Tub Covers Since 2004",
+            "marker_style": "style1",
+            "size": "h3",
+            "marker_color": "#fd6262"
+          }
+        }
+      },
+      "block_order": [
+        "subheading_3jFhqE",
+        "heading_HXH3ga"
+      ],
+      "disabled": true,
+      "settings": {
+        "text_width": "xlarge",
+        "text_position": "center",
+        "text_alignment": "center",
+        "color_bg": "rgba(0,0,0,0)",
+        "color_heading": "#1a1c1d",
+        "color_text": "#2c2d2e",
+        "color_links": "#2c2d2e",
+        "disable_top_spacing": false,
+        "disable_bottom_spacing": true
+      }
+    },
+    "text_with_icons_j98MG3": {
+      "type": "text-with-icons",
+      "blocks": {
+        "icon_yyqXM7": {
+          "type": "icon",
+          "settings": {
+            "icon": "box",
+            "heading": "1,000+ Covers In Stock",
+            "text": "<p>We proudly offer an extensive selection of over 1,000+ hot tub covers in stock, ready to ship to meet your needs swiftly and efficiently. With our commitment to rapid service, we guarantee that your order will be processed and shipped within 10 days.<\/p>"
+          }
+        },
+        "icon_BGFTBC": {
+          "type": "icon",
+          "settings": {
+            "icon": "silhouette",
+            "heading": "Personal Support For Every Order",
+            "text": "<p>For each order received, our experts conduct an in-depth examination of your custom hot tub cover requirements. This includes verifying the brand and model to ensure an impeccable fit every time.<\/p>"
+          }
+        },
+        "icon_eWwiR3": {
+          "type": "icon",
+          "settings": {
+            "icon": "price_tag",
+            "heading": "Guaranteed Best Prices",
+            "text": "<p>We sell over 5,000 hot tub covers annually, allowing us to buy high-quality materials at lower prices. Our large volume also helps us maintain reasonable shipping costs.<\/p>"
+          }
+        },
+        "icon_GDq3h3": {
+          "type": "icon",
+          "settings": {
+            "icon": "star",
+            "heading": "10-Year Warranty",
+            "text": "<p>We provide a ten-year pro-rated warranty against manufacturing defects. Rest assured, our covers are crafted by expert artisans using exclusive Spamigo patterns and the finest materials available.<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "icon_yyqXM7",
+        "icon_BGFTBC",
+        "icon_eWwiR3",
+        "icon_GDq3h3"
+      ],
+      "settings": {
+        "text_alignment": "center",
+        "icon_position": "top",
+        "icon_size": "medium",
+        "heading_size": "large",
+        "mobile_swipe": true,
+        "color_bg": "#f8f5f5",
+        "color_heading": "{{ shop.brand.colors.primary[0].background }}",
+        "color_text": "#000000",
+        "disable_top_spacing": false,
+        "disable_bottom_spacing": false
+      }
+    },
+    "spacer_FYEzFY": {
+      "type": "spacer",
+      "settings": {
+        "spacer_mobile": 0,
+        "spacer_desktop": 0,
+        "border_separator": true,
+        "border_separator_full": true
+      }
+    },
+    "spacer_eE9zJR": {
+      "type": "spacer",
+      "disabled": true,
+      "settings": {
+        "spacer_mobile": 50,
+        "spacer_desktop": 100,
+        "border_separator": false,
+        "border_separator_full": false
+      }
+    },
+    "collapsible_content_ii3UMi": {
+      "type": "collapsible-content",
+      "blocks": {
+        "collapsible_tab_8Mcfd4": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "Learn more about Beachcomber Hot Tub Covers",
+            "open": false,
+            "content": "<h2>Choose the #1 Beachcomber Hot Tub Replacement Covers in Canada<\/h2><p>Spa-Migo offers the best <strong>Beachcomber hot tub covers<\/strong> in Canada, designed to meet the unique demands of our climate while enhancing the quality of your hot tub experience. Whether you own a Beachcomber 720, Beachcomber 380, or any other model, our covers are built to provide unrivaled energy efficiency, superior heat retention, and maximum protection. <\/p><p>Crafted with durable vinyl, they prevent excess heat loss and water absorption, ensuring your spa maintains its ideal conditions. With options for customizations like cover thickness to withstand extra loads and snow load, our <strong>Beachcomber spa covers<\/strong> are made to last, even in the harshest conditions.<\/p><h2>What Size Cover Should I Buy for My Beachcomber Hot Tub?<\/h2><p><em>Finding the right Beachcomber hot tub cover size is essential for protecting your investment and maintaining the quality of your Beachcomber hot tub. Let us guide you through the process:<\/em><\/p><h3>Find the Model of Your Beachcomber Hot Tub<\/h3><p>Start by identifying your Beachcomber spa model, such as the Beachcomber 720 or Beachcomber 380. Knowing your specific model ensures you choose a cover that fits perfectly. For those unsure, measure the dimensions of your tub, including the corner of the cover, to match your hot tub cover need. This precise fit helps prevent heat loss and optimizes the flow of heat, keeping your water warm while reducing energy costs.<\/p><h3>Choose the Material and Specifications of Your Spa Cover<\/h3><p>Our covers feature high-density foam cores encased in weather-resistant vinyl to provide maximum insulation and durability. For climates with heavy snow loads, select thicker foam options for added strength. In addition to fold orientation, skirt length and vapour barriers, our covers also include straps to secure them in place and maintain efficacy in water, ensuring your warm water remains at the right water temperature, even in freezing conditions. Consider adding an original cover lifter for easy handling and convenience during installation.<\/p><h3>Consider Our Complementary Products<\/h3><p>At Spa-Migo, we offer more than just Beachcomber hot tub covers. Explore our range of products designed to enhance your spa experience, including traditional water care products, heaters, and maintenance kits. Whether you need to replace a heater element, manage the heater inlet, or protect your spa from a complete drain that could freeze into the floor drain, our complementary items make spa ownership worry-free. Pair your new cover with water treatment solutions to ensure the current water temp and the flow of heat remain optimized for your hot tub water.<\/p><h2>How Much Does a Beachcomber Hot Tub Cover Cost?<\/h2><p>The <strong>cost of a Beachcomber hot tub cover<\/strong> depends on your chosen options, from standard quality covers to those built to handle extreme conditions. Spa-Migo’s covers start at around <strong>$499<\/strong>, with additional features such as reinforced vinyl for climates with snow load or covers slightly increasing the price. Every cover is backed by our quality guarantee, ensuring long-term efficacy in water and energy savings.<\/p><h3>Beachcomber Hot Tub Models Compatible with Spa-Migo Covers<\/h3><ul><li><strong>Beachcomber 340<\/strong><\/li><li><strong>Beachcomber 530<\/strong><\/li><li><strong>Beachcomber 530L<\/strong><\/li><li><strong>Beachcomber 538<\/strong><\/li><li><strong>Beachcomber 540<\/strong><\/li><li><strong>Beachcomber 710<\/strong><\/li><li><strong>Beachcomber 715<\/strong><\/li><li><strong>Beachcomber 350<\/strong><\/li><li><strong>Beachcomber 360<\/strong><\/li><li><strong>Beachcomber 550<\/strong><\/li><li><strong>Beachcomber 570<\/strong><\/li><li><strong>Beachcomber 655<\/strong><\/li><li><strong>Beachcomber 656<\/strong><\/li><li><strong>Beachcomber 667<\/strong><\/li><li><strong>Beachcomber 675<\/strong><\/li><li><strong>Beachcomber 676<\/strong><\/li><li><strong>Beachcomber 685<\/strong><\/li><li><strong>Beachcomber 687<\/strong><\/li><li><strong>Beachcomber 720<\/strong><\/li><li><strong>Beachcomber 730<\/strong><\/li><li><strong>Beachcomber 380<\/strong><\/li><li><strong>Beachcomber 589<\/strong><\/li><li><strong>Beachcomber 590<\/strong><\/li><li><strong>Beachcomber 658<\/strong><\/li><li><strong>Beachcomber 669<\/strong><\/li><li><strong>Beachcomber 678<\/strong><\/li><li><strong>Beachcomber 740<\/strong><\/li><li><strong>Beachcomber 750<\/strong><\/li><\/ul><h4>Order a Beachcomber Hot Tub Cover in Canada with Spa-Migo<\/h4><p>Ordering your <strong>Beachcomber spa cover<\/strong> is quick and easy with Spa-Migo. Our team ensures every cover meets the highest standards for unmatched heat retention and water protection. For those struggling with lack of maintenance or overdue maintenance schedules, upgrading to a Spa-Migo cover is the perfect solution. <\/p><p><em>Protect your hot tub, save on energy, and enjoy warm water year-round with Spa-Migo’s Beachcomber hot tub covers!<\/em><\/p>",
+            "page": "",
+            "custom_liquid": ""
+          }
+        }
+      },
+      "block_order": [
+        "collapsible_tab_8Mcfd4"
+      ],
+      "settings": {
+        "heading": "",
+        "marker_style": "style1",
+        "description": "",
+        "color_bg": "transparent",
+        "color_heading": "#1a1c1d",
+        "marker_color": "#FD6262",
+        "color_text": "#2c2d2e",
+        "color_links": "#2c2d2e",
+        "color_border": "#DADCE0",
+        "disable_top_spacing": false,
+        "disable_bottom_spacing": false
+      }
+    }
+  },
+  "order": [
+    "breadcrumbs",
+    "image_with_text_overlay_G3UnrD",
+    "template-header",
+    "custom_liquid_7g6ecC",
+    "product-grid",
+    "spacer_C66dnC",
+    "scrolling_content_gCUNQY",
+    "spacer_dVFyND",
+    "rich_text_ahAGKh",
+    "text_with_icons_j98MG3",
+    "spacer_FYEzFY",
+    "spacer_eE9zJR",
+    "collapsible_content_ii3UMi"
+  ]
+}

@@ -1,0 +1,66 @@
+{
+  "parent": "product.hot-tub-cover.json",
+  "context": {
+    "market": "ca"
+  },
+  "sections": {
+    "main-product": {
+      "settings": {},
+      "blocks": {
+        "icon_list_nFjC3x": {
+          "settings": {
+            "icon_1_text": "Proudly Made in Canada 🇨🇦"
+          }
+        }
+      }
+    },
+    "106d082c-28d1-450d-b7ba-7cb284df8dab": {
+      "settings": {},
+      "blocks": {
+        "text_DhMfD": {
+          "type": "text",
+          "disabled": false,
+          "settings": {
+            "image": null,
+            "text": "🇨🇦 Made in Canada",
+            "link": "",
+            "outline_text": false
+          }
+        }
+      },
+      "block_order": [
+        "template--14745674022970__106d082c-28d1-450d-b7ba-7cb284df8dab-text-2",
+        "template--14745674022970__106d082c-28d1-450d-b7ba-7cb284df8dab-text-1",
+        "text_DhMfD",
+        "template--14745674022970__106d082c-28d1-450d-b7ba-7cb284df8dab-text-3"
+      ]
+    },
+    "media_with_tabs_k3n7yx": {
+      "settings": {},
+      "blocks": {
+        "badge_xyagrB": {
+          "disabled": false,
+          "settings": {
+            "text": "Made in Canada",
+            "color_bg": "#c90101"
+          }
+        }
+      }
+    },
+    "28dc155d-c542-4ea3-9649-23d253d08ad6": {
+      "settings": {},
+      "blocks": {
+        "heading_zwgTem": {
+          "settings": {
+            "text": "Our Spa Covers Fit |All Hot Tub Brands|"
+          }
+        },
+        "text_bNiTW8": {
+          "settings": {
+            "text": "<p>Our team verifies all hot tub cover measurements provided to guarantee a precise fit for your spa cover.<\/p>"
+          }
+        }
+      }
+    }
+  }
+}

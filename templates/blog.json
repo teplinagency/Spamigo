@@ -1,11 +1,31 @@
 {
   "sections": {
-    "main": {
-      "type": "empty-section",
+    "breadcrumbs": {
+      "type": "breadcrumbs",
       "settings": {}
+    },
+    "main-blog-header": {
+      "type": "main-blog-header",
+      "settings": {
+        "heading": "{{ blog.title }}",
+        "description": "<p>Dive into the Spamigo Splash blog for expert advice on choosing, maintaining, and replacing your hot tub cover. Discover tips, tricks, and insider knowledge to keep your spa protected and energy-efficient. Learn from the hot tub cover specialists at Spamigo.<\/p>",
+        "show_category_list": true
+      }
+    },
+    "main-blog": {
+      "type": "main-blog",
+      "settings": {
+        "blog_layout": "style3",
+        "image_ratio": "square",
+        "show_date": false,
+        "show_excerpt": true,
+        "show_read_more": true
+      }
     }
   },
   "order": [
-    "main"
+    "breadcrumbs",
+    "main-blog-header",
+    "main-blog"
   ]
 }

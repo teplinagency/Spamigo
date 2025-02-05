@@ -1,0 +1,144 @@
+{
+  "type": "header",
+  "name": "Header group",
+  "sections": {
+    "announcement-bar": {
+      "type": "announcement-bar",
+      "blocks": {
+        "text_MycLnh": {
+          "type": "text",
+          "settings": {
+            "icon": "price_tag",
+            "text": "Buy Now & Pay Later Available | 4 Payments, 0% APR",
+            "link": "shopify:\/\/pages\/buy-now-pay-later-powered-by-sezzle",
+            "color_bg": "{{ shop.brand.colors.primary[0].background }}",
+            "color_text": "{{ shop.brand.colors.primary[0].foreground }}"
+          }
+        },
+        "text_8bXYf4": {
+          "type": "text",
+          "settings": {
+            "icon": "truck",
+            "text": "Free Shipping on orders over $595",
+            "link": "tel:18665156446",
+            "color_bg": "{{ shop.brand.colors.primary[0].background }}",
+            "color_text": "#ffffff"
+          }
+        },
+        "text_FjQt8A": {
+          "type": "text",
+          "disabled": true,
+          "settings": {
+            "icon": "none",
+            "text": "★★★★★ 300+ 5 Star Reviews",
+            "link": "shopify:\/\/products\/hot-tub-cover",
+            "color_bg": "{{ shop.brand.colors.primary[0].background }}",
+            "color_text": "#ffffff"
+          }
+        }
+      },
+      "block_order": [
+        "text_MycLnh",
+        "text_8bXYf4",
+        "text_FjQt8A"
+      ],
+      "settings": {
+        "announcement_bar": true,
+        "announcement_bar_homepage_only": false,
+        "announcement_bar_layout": "carousel",
+        "direction": "left",
+        "speed": "20s",
+        "use_block_colors": true,
+        "autoplay": true,
+        "autoplay_length": 5
+      }
+    },
+    "header-secondary-menu": {
+      "type": "header-secondary-menu",
+      "settings": {
+        "full_width": false,
+        "secondary_menu": "secondary-menu",
+        "show_language_switcher": true,
+        "show_currency_switcher": true,
+        "show_social_media": true
+      }
+    },
+    "header": {
+      "type": "header",
+      "blocks": {
+        "menu_badge_Y4UEWm": {
+          "type": "menu_badge",
+          "settings": {
+            "badge_position": "2",
+            "text": "SALE",
+            "color_bg": "#eb4f45",
+            "color_text": "#ffffff"
+          }
+        }
+      },
+      "block_order": [
+        "menu_badge_Y4UEWm"
+      ],
+      "settings": {
+        "sticky_header": true,
+        "full_width": false,
+        "logo": "shopify:\/\/shop_images\/1.svg",
+        "logo_height_range": 50,
+        "logo_height_range_mobile": 45,
+        "style": "style4",
+        "header_shadow": "header--shadow-small",
+        "menu": "main-menu",
+        "cart_icon": "cart",
+        "minimized_search": true,
+        "transparent_header": false,
+        "mobile_secondary_menu": "secondary-menu",
+        "show_social_links": true,
+        "show_language_switcher": true,
+        "show_currency_switcher": true
+      }
+    },
+    "header-mobile-navigation": {
+      "type": "header-mobile-navigation",
+      "settings": {
+        "mobile_nav": "main-menu",
+        "color_links": "#ffffff",
+        "color_bg": "{{ shop.brand.colors.primary[0].background }}"
+      }
+    },
+    "countdown_banner_w68HyY": {
+      "type": "countdown-banner",
+      "disabled": true,
+      "settings": {
+        "full_width": true,
+        "section_layout": "vertical",
+        "desktop_height": "desktop-height-auto",
+        "mobile_height": "mobile-height-auto",
+        "subheading": "",
+        "heading": "GET YOUR COVER BEFORE CHRISTMAS 🎅",
+        "heading_size": "h1",
+        "content": "Place your order now to receive your cover before the holidays.",
+        "content_size": "small",
+        "button_text": "",
+        "button_link": "",
+        "timer_year": 2024,
+        "timer_month": "12",
+        "timer_day": "01",
+        "timer_hour": "00",
+        "timer_minute": "00",
+        "color_bg": "#3c8d0d",
+        "color_text": "#ffffff",
+        "overlay_color": "#000000",
+        "overlay_opacity": 10,
+        "disable_top_spacing": true,
+        "disable_bottom_spacing": true
+      }
+    }
+  },
+  "order": [
+    "announcement-bar",
+    "header-secondary-menu",
+    "header",
+    "header-mobile-navigation",
+    "countdown_banner_w68HyY"
+  ]
+}

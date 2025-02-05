@@ -1,0 +1,459 @@
+{
+  "sections": {
+    "breadcrumbs": {
+      "type": "breadcrumbs",
+      "settings": {}
+    },
+    "template-header": {
+      "type": "template-header",
+      "settings": {
+        "show_collection_image": false,
+        "collection_image_ratio": "adapt",
+        "collection_image_width": "standard",
+        "show_collection_description": true,
+        "seo_text_read_more": "Read more",
+        "seo_text_read_less": "Read less",
+        "seo_text_max_height": 150,
+        "show_subcollections": false,
+        "color_subcollection_bg": "#ffffff",
+        "color_subcollection_text": "#303c43",
+        "display_description": true
+      }
+    },
+    "rich_text_yGqyrV": {
+      "type": "rich-text",
+      "blocks": {
+        "subheading_8DRCmx": {
+          "type": "subheading",
+          "settings": {
+            "text": "BUILT FOR CANADIAN WINTERS 🇨🇦"
+          }
+        },
+        "heading_p6R8Jd": {
+          "type": "heading",
+          "settings": {
+            "text": "Build Your Hot Tub Cover",
+            "marker_style": "style1",
+            "size": "h1",
+            "marker_color": "#fd6262"
+          }
+        },
+        "text_cPreU7": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Begin building your hot tub cover by selecting one of the styles below, and be guided through the steps to order your replacement cover.<\/p>",
+            "custom_liquid": "",
+            "size": "text-size-regular"
+          }
+        }
+      },
+      "block_order": [
+        "subheading_8DRCmx",
+        "heading_p6R8Jd",
+        "text_cPreU7"
+      ],
+      "disabled": true,
+      "custom_css": [],
+      "settings": {
+        "text_width": "grid",
+        "text_position": "center",
+        "text_alignment": "center",
+        "color_bg": "rgba(0,0,0,0)",
+        "color_heading": "#1a1c1d",
+        "color_text": "#2c2d2e",
+        "color_links": "#2c2d2e",
+        "disable_top_spacing": true,
+        "disable_bottom_spacing": true
+      }
+    },
+    "featured_collection_fmA7bg": {
+      "type": "featured-collection",
+      "settings": {
+        "heading": "Choose Your |Swim Spa Cover| Type",
+        "marker_style": "style1",
+        "description": "<p>Choosing the right cover for your swim spa is essential for maintaining water quality, conserving heat, and ensuring safety. We offer two high-quality cover options: rolling covers and traditional covers. <\/p><p><\/p>",
+        "collection": "custom-swim-spa-covers",
+        "display_type": "grid",
+        "product_limit": 4,
+        "columns_desktop": 4,
+        "show_view_all": true,
+        "mobile_swipe": true,
+        "show_progress_bar": true,
+        "marker_color": "#fd6262",
+        "disable_top_spacing": false,
+        "disable_bottom_spacing": false
+      }
+    },
+    "scrolling_content_gCUNQY": {
+      "type": "scrolling-content",
+      "blocks": {
+        "section_grjqkU": {
+          "type": "section",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/92x92-5-in-3-in-taper-hot-tub-cover-188796.jpg",
+            "badge": "More Durable Covers",
+            "subheading": "",
+            "heading": "",
+            "marker_style": "style1",
+            "heading_size": "small",
+            "content": "<h2>Swim Spa Cover Performance & Quality<\/h2><p><strong>Swim spa covers <\/strong>are essential for maintaining your hot tub water temperature and energy efficiency, and it’s crucial that they fit perfectly for optimal performance. Our user-friendly customization tool ensures you get a swim spa cover that fits snugly and withstands all Canadian weather conditions.<\/p><ul><li>Exclusive stitching patterns enhance spa cover durability.<\/li><li>2-inch tapered design helps moisture and debris slide off easily.<\/li><li>Top-quality water-repellent materials used inside and out.<\/li><li>Energy-efficient underside maximizes heat retention.<\/li><li>Suitable for all weather conditions, from harsh winters to sunny summers.<\/li><\/ul>",
+            "description_size": "h3",
+            "button_text": "Shop Now",
+            "button_link": "shopify:\/\/products\/hot-tub-cover",
+            "marker_color": "#fd6262",
+            "color_bg_badge": "{{ shop.brand.colors.primary[0].background }}",
+            "color_badge": "#ffffff"
+          }
+        },
+        "section_Heg4hG": {
+          "type": "section",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/2.1.webp",
+            "badge": "Minimizing Heat Loss",
+            "subheading": "",
+            "heading": "",
+            "marker_style": "style1",
+            "heading_size": "small",
+            "content": "<h2>Invest in Energy-Efficient Cover Options<\/h2><p>We utilize the finest materials, including closed-cell foam and energy-reflective solutions, delivering the highest insulation ratings in the market. These features minimize heat loss and reduce monthly energy costs by reflecting excess heat back into your swim spa. You can choose from two cover models, available in different thicknesses and optional upgrades, to find the perfect insulating solution for your specific climate.<\/p>",
+            "description_size": "h3",
+            "button_text": "Shop Now",
+            "button_link": "shopify:\/\/products\/hot-tub-cover",
+            "marker_color": "#fd6262",
+            "color_bg_badge": "{{ shop.brand.colors.primary[0].background }}",
+            "color_badge": "#ffffff"
+          }
+        },
+        "section_KFYcLJ": {
+          "type": "section",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/classic-hot-tub-cover-507439.jpg",
+            "badge": "Made for Canadian Winters",
+            "subheading": "",
+            "heading": "",
+            "marker_style": "style1",
+            "heading_size": "small",
+            "content": "<h2>Swim Spa Covers for any Climate in Canada<\/h2><p>The environment is a major factor in deciding which cover best fits your needs. We understand which regions of Canada experience colder temperatures and heavy snowfall, and our specialists can recommend the best spa <strong>cover<\/strong> for your area.<\/p><p>We want to ensure you are purchasing the <strong>best swim spa cover option<\/strong> for your needs. If you have any hesitation about which cover to choose, please reach out to our customer service.<\/p>",
+            "description_size": "h3",
+            "button_text": "Shop Now",
+            "button_link": "shopify:\/\/products\/hot-tub-cover",
+            "marker_color": "#fd6262",
+            "color_bg_badge": "{{ shop.brand.colors.primary[0].background }}",
+            "color_badge": "#ffffff"
+          }
+        }
+      },
+      "block_order": [
+        "section_grjqkU",
+        "section_Heg4hG",
+        "section_KFYcLJ"
+      ],
+      "settings": {
+        "desktop_layout": "text_first",
+        "mobile_swipe": true,
+        "dots": true,
+        "color_bg": "rgba(0,0,0,0)",
+        "color_heading": "#1a1c1d",
+        "color_text": "#2c2d2e",
+        "color_links": "#2c2d2e",
+        "disable_top_spacing": false,
+        "disable_bottom_spacing": false
+      }
+    },
+    "spacer_dVFyND": {
+      "type": "spacer",
+      "disabled": true,
+      "settings": {
+        "spacer_mobile": 0,
+        "spacer_desktop": 0,
+        "border_separator": true,
+        "border_separator_full": false
+      }
+    },
+    "text_with_icons_j98MG3": {
+      "type": "text-with-icons",
+      "blocks": {
+        "icon_yyqXM7": {
+          "type": "icon",
+          "settings": {
+            "icon": "heart",
+            "heading": "Over 1,000 Happy Customers",
+            "text": "<p>Our commitment to quality and customer satisfaction is proven. We deliver durable, convenient covers designed to enhance your swim spa experience. <\/p>"
+          }
+        },
+        "icon_BGFTBC": {
+          "type": "icon",
+          "settings": {
+            "icon": "silhouette",
+            "heading": "Personal Support For Every Order",
+            "text": "<p>For each order received, our experts conduct an in-depth examination of your custom hot tub cover requirements. This includes verifying the brand and model to ensure an impeccable fit every time.<\/p>"
+          }
+        },
+        "icon_eWwiR3": {
+          "type": "icon",
+          "settings": {
+            "icon": "price_tag",
+            "heading": "Guaranteed Best Prices",
+            "text": "<p>We sell over 5,000 hot tub covers annually, allowing us to buy high-quality materials at lower prices. Our large volume also helps us maintain reasonable shipping costs.<\/p>"
+          }
+        },
+        "icon_GDq3h3": {
+          "type": "icon",
+          "settings": {
+            "icon": "star",
+            "heading": "Industry-Leading Warranty",
+            "text": "<p>Rest assured, our covers are crafted by experts and our covers are backed by an industry-leading warranty.<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "icon_yyqXM7",
+        "icon_BGFTBC",
+        "icon_eWwiR3",
+        "icon_GDq3h3"
+      ],
+      "settings": {
+        "text_alignment": "center",
+        "icon_position": "top",
+        "icon_size": "medium",
+        "heading_size": "large",
+        "mobile_swipe": true,
+        "color_bg": "#f8f5f5",
+        "color_heading": "{{ shop.brand.colors.primary[0].background }}",
+        "color_text": "#000000",
+        "disable_top_spacing": false,
+        "disable_bottom_spacing": false
+      }
+    },
+    "spacer_FYEzFY": {
+      "type": "spacer",
+      "settings": {
+        "spacer_mobile": 0,
+        "spacer_desktop": 0,
+        "border_separator": true,
+        "border_separator_full": true
+      }
+    },
+    "before_after_image_iDJVQX": {
+      "type": "before-after-image",
+      "blocks": {
+        "image_DWpCUY": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/black-vinyl-hot-tub-cover.webp",
+            "title": "Marine-Grade Vinyl",
+            "heading_size": "h2",
+            "heading_position": "top",
+            "text_bg": "{{ shop.brand.colors.primary[0].background }}",
+            "text_color": "#ffffff",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0
+          }
+        },
+        "image_K6ecim": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/black-pro-tex-fabric-hot-tub-cover.webp",
+            "title": "PRO-TEX Fabric",
+            "heading_size": "h2",
+            "heading_position": "top",
+            "text_bg": "{{ shop.brand.colors.primary[0].background }}",
+            "text_color": "#ffffff",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0
+          }
+        }
+      },
+      "block_order": [
+        "image_DWpCUY",
+        "image_K6ecim"
+      ],
+      "settings": {
+        "heading": "Experience the PRO-TEX Advantage",
+        "marker_style": "style1",
+        "heading_size": "h1",
+        "description": "<p>While vinyl gets the job done, Spamigo's PRO-TEX polyester covers deliver the ultimate in performance and longevity:<\/p><ul><li>Up to 25% lighter weight for easier removal<\/li><li>3x tear and abrasion resistance versus vinyl<\/li><li>Environmentally conscious construction<\/li><li>All-weather protection with supreme UV\/mold resistance<\/li><li>Non-absorbent surface easily brushed\/rinsed clean<\/li><\/ul><p>With unbeatable durability and hassle-free maintenance, PRO-TEX represents the pinnacle of hot tub cover technology.<\/p><p><a href=\"\/products\/premium-hot-tub-cover\" title=\"Premium Hot Tub Cover\">Build your PRO-TEX Cover Now!<\/a><\/p>",
+        "badge_text": "Upgrade for only $99.99",
+        "image_position": "image_first",
+        "desktop_height": "desktop-height-550",
+        "mobile_height": "mobile-height-500",
+        "initial_position": 50,
+        "marker_color": "#fd6262",
+        "line_color": "{{ shop.brand.colors.primary[0].background }}",
+        "color_bg_badge": "{{ shop.brand.colors.primary[0].background }}",
+        "color_badge": "#ffffff",
+        "disable_top_spacing": false,
+        "disable_bottom_spacing": false
+      }
+    },
+    "spacer_nzUigr": {
+      "type": "spacer",
+      "settings": {
+        "spacer_mobile": 50,
+        "spacer_desktop": 100,
+        "border_separator": true,
+        "border_separator_full": true
+      }
+    },
+    "rich_text_VnRceA": {
+      "type": "rich-text",
+      "blocks": {
+        "subheading_cbDD3j": {
+          "type": "subheading",
+          "settings": {
+            "text": "TRY OUR COVER BUILDER NOW!"
+          }
+        },
+        "heading_mVGxYP": {
+          "type": "heading",
+          "settings": {
+            "text": "Find Your |Perfect| Swim Spa Cover",
+            "marker_style": "style1",
+            "size": "h3",
+            "marker_color": "{{ shop.brand.colors.secondary[0].background }}"
+          }
+        },
+        "text_LGXCJc": {
+          "type": "text",
+          "settings": {
+            "text": "<p>A well-fitted, high-quality cover is crucial for optimal swim spa performance, energy savings, and year-round enjoyment. Don't settle for a ill-fitting cover that compromises your investment. With Spa-Migo's easy cover builder, designing a tailor-made solution for your exact make, model and climate has never been easier.<\/p>",
+            "custom_liquid": "",
+            "size": "text-size-regular"
+          }
+        },
+        "button_6tzYni": {
+          "type": "button",
+          "disabled": true,
+          "settings": {
+            "link_label": "BUY NOW",
+            "link": "shopify:\/\/products\/hot-tub-cover"
+          }
+        },
+        "custom_liquid_cVxaVz": {
+          "type": "custom_liquid",
+          "disabled": true,
+          "settings": {
+            "custom_liquid": "<\/br><\/br>"
+          }
+        },
+        "button_PgURBa": {
+          "type": "button",
+          "settings": {
+            "link_label": "CALL +1 (866) 515-6446",
+            "link": "tel:18665156446"
+          }
+        }
+      },
+      "block_order": [
+        "subheading_cbDD3j",
+        "heading_mVGxYP",
+        "text_LGXCJc",
+        "button_6tzYni",
+        "custom_liquid_cVxaVz",
+        "button_PgURBa"
+      ],
+      "custom_css": [],
+      "settings": {
+        "text_width": "xlarge",
+        "text_position": "center",
+        "text_alignment": "center",
+        "color_bg": "#ffffff",
+        "color_heading": "linear-gradient(180deg, rgba(251, 51, 166, 1), rgba(30, 48, 110, 1) 1%)",
+        "color_text": "#000000",
+        "color_links": "#2c2d2e",
+        "disable_top_spacing": true,
+        "disable_bottom_spacing": true
+      }
+    },
+    "featured_collection_jH7A9f": {
+      "type": "featured-collection",
+      "settings": {
+        "heading": "",
+        "marker_style": "style1",
+        "description": "",
+        "collection": "custom-swim-spa-covers",
+        "display_type": "grid",
+        "product_limit": 4,
+        "columns_desktop": 4,
+        "show_view_all": true,
+        "mobile_swipe": true,
+        "show_progress_bar": true,
+        "marker_color": "#fd6262",
+        "disable_top_spacing": false,
+        "disable_bottom_spacing": false
+      }
+    },
+    "collapsible_content_WjyMwp": {
+      "type": "collapsible-content",
+      "blocks": {
+        "collapsible_tab_MXKaef": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "Frequent Questions About Custom Swim Spa Covers Canada",
+            "open": false,
+            "content": "<h2>Complete Protection and Efficiency With a Swim Spa Cover in Canada<\/h2><p>Swim spa covers are essential for maintaining the heat, durability, and energy efficiency of your Swim Spa. In Canada's varied climates, where extreme weather conditions like snow, cold, and direct sunlight are common, choosing the right cover is crucial to protect your investment. Custom swim spa covers, made with commercial-grade materials, provide a complete seal, locking in warmth, reducing energy consumption, and keeping your spa ready for use year-round.<\/p><h4>Choose the Leader in Hot Tub Covers for Your Swim Spa in Canada<\/h4><p> <\/p><h2>The Importance of Custom Made Covers for Swim Spas<\/h2><p>Swim spa covers offer essential protection against the elements, improving the longevity of your spa by shielding it from rain, snow, and direct sunlight. Additionally, a quality cover:<\/p><ol><li><strong>Prevents Heat Loss:<\/strong> Foam insulating covers trap heat, reducing energy costs associated with keeping your spa warm.<\/li><li><strong>Reduces Water Absorption and Maintains Cleanliness:<\/strong> Efficient covers made from marine-grade vinyl prevent water absorption, keeping debris and contaminants out.<\/li><li><strong>Provides a Lockable Safety Cover Option:<\/strong> These covers ensure a secure closure, protecting children and pets from accidental falls, while also preventing unwanted access.<\/li><\/ol><h5>Protect your Swim Spa and your Wallet with The Best Swim Spa Cover in Canada<\/h5><p><em>Swim spa covers are also available in replacement options, ensuring that even traditional cover models can be updated for more efficient and durable protection.<\/em><\/p><p> <\/p><h2>How to Choose the Right Swim Spa Cover<\/h2><p>Selecting the right cover for your spa requires considering specific features for durability, heat retention, and efficient operation:<\/p><ul><li><strong>Insulation and Density:<\/strong> Covers with high-density foam core technology provide superior insulation, crucial for minimizing energy consumption in colder climates.<\/li><li><strong>Commercial-Grade Materials and Skirting:<\/strong> Look for covers with fabrics and skirting made from durable, marine-grade vinyl to withstand Canada’s heavy snow loads and other challenging weather conditions.<\/li><li><strong>Custom Fit for Enhanced Energy Efficiency:<\/strong> Custom swim spa covers are tailored to fit your specific model, ensuring a complete seal that reduces heat loss and energy costs.<\/li><\/ul><p>With these features, your cover will provide efficient insulation and durability, suitable for North America's toughest climates.<\/p><p> <\/p><h3>The Benefits of Custom Swim Spa Covers<\/h3><p>Custom swim spa covers are crafted to deliver an unmatched fit and enhanced performance, tailored specifically for your spa’s unique dimensions. Offering superior protection and efficiency, these covers meet the demands of Canadian climates and ensure your spa stays protected against the elements. Here’s why investing in a custom cover is a smart choice for spa owners across Canada:<\/p><h4>Perfect Fit for Maximum Heat Retention and Protection<\/h4><p>A custom swim spa cover provides a precise fit that minimizes gaps around the edges, which is key to preventing heat loss and water absorption. With foam insulation technology, these covers trap heat effectively, reducing the need for constant reheating and helping you save on energy costs. By providing optimal insulation, custom covers maintain a consistent water temperature, allowing you to relax in your spa with minimal energy consumption even during Canada’s cold winters.<\/p><h4>Durability in All Weather Conditions<\/h4><p>Custom swim spa covers are built to withstand Canada’s diverse weather conditions. Crafted with high-quality, commercial-grade materials and marine-grade vinyl, they resist UV rays, heavy snow loads, and extreme temperatures. This resilience ensures the cover maintains its structural integrity and appearance year after year, giving your spa lasting protection in the face of heavy rain, direct sunlight, or winter’s snow and ice. With fabrics and skirting specifically designed to prevent cracking, fading, or tearing, your custom cover is built for longevity.<\/p><h4>Enhanced Usability with Cover Lifters<\/h4><p>Custom swim spa covers are designed not only for protection but also for ease of use. When combined with cover lifters, these covers become incredibly easy to operate, allowing you to remove and replace them with minimal effort. This added convenience means you can enjoy your spa at any time without the struggle of handling a heavy cover, encouraging you to use your swim spa more frequently and enjoy its benefits.<\/p><h6><em>Custom Swim Spa Cover - The Right Investment for Spa Owners in Canada<\/em><\/h6><p>Investing in a custom swim spa cover or replacement spa cover tailored to your model enhances energy efficiency, protects your spa’s value, and simplifies maintenance. With a cover built to fit your exact specifications, you’ll enjoy both ease of use and peace of mind, knowing that your swim spa is safe, insulated, and ready for use whenever you need it.<\/p>",
+            "page": "",
+            "custom_liquid": ""
+          }
+        }
+      },
+      "block_order": [
+        "collapsible_tab_MXKaef"
+      ],
+      "settings": {
+        "heading": "",
+        "marker_style": "style1",
+        "description": "",
+        "color_bg": "transparent",
+        "color_heading": "#1a1c1d",
+        "marker_color": "#FD6262",
+        "color_text": "#2c2d2e",
+        "color_links": "#2c2d2e",
+        "color_border": "#DADCE0",
+        "disable_top_spacing": false,
+        "disable_bottom_spacing": false
+      }
+    },
+    "product-grid": {
+      "type": "main-collection-product-grid",
+      "disabled": true,
+      "custom_css": [],
+      "settings": {
+        "products_per_page": 3,
+        "columns_desktop": 3,
+        "pagination_type": "infinite",
+        "enable_filtering": false,
+        "enable_sorting": false,
+        "show_counts": false,
+        "filter_color_swatches": false,
+        "filters_collapsed": false,
+        "facets_desktop": "sidebar"
+      }
+    },
+    "spacer_eE9zJR": {
+      "type": "spacer",
+      "settings": {
+        "spacer_mobile": 50,
+        "spacer_desktop": 100,
+        "border_separator": false,
+        "border_separator_full": false
+      }
+    }
+  },
+  "order": [
+    "breadcrumbs",
+    "template-header",
+    "rich_text_yGqyrV",
+    "featured_collection_fmA7bg",
+    "scrolling_content_gCUNQY",
+    "spacer_dVFyND",
+    "text_with_icons_j98MG3",
+    "spacer_FYEzFY",
+    "before_after_image_iDJVQX",
+    "spacer_nzUigr",
+    "rich_text_VnRceA",
+    "featured_collection_jH7A9f",
+    "collapsible_content_WjyMwp",
+    "product-grid",
+    "spacer_eE9zJR"
+  ]
+}

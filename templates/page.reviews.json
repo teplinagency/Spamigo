@@ -1,0 +1,79 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {}
+    },
+    "rich_text_Ja8QkT": {
+      "type": "rich-text",
+      "blocks": {
+        "subheading_c9M884": {
+          "type": "subheading",
+          "settings": {
+            "text": "SPAMIGO.COM HOT TUB COVERS REVIEWS"
+          }
+        },
+        "heading_Ay6tXd": {
+          "type": "heading",
+          "settings": {
+            "text": "Over 10,000 Happy Customers Since 2004!",
+            "marker_style": "style1",
+            "size": "h3",
+            "marker_color": "#fd6262"
+          }
+        },
+        "text_jE3xgq": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Customer satisfaction is our priority and our expert team is here to help you through the process of purchasing a replacement cover.<\/p>",
+            "custom_liquid": "",
+            "size": "text-size-regular"
+          }
+        }
+      },
+      "block_order": [
+        "subheading_c9M884",
+        "heading_Ay6tXd",
+        "text_jE3xgq"
+      ],
+      "settings": {
+        "text_width": "medium",
+        "text_position": "center",
+        "text_alignment": "center",
+        "color_bg": "rgba(0,0,0,0)",
+        "color_heading": "#1a1c1d",
+        "color_text": "#2c2d2e",
+        "color_links": "#2c2d2e",
+        "disable_top_spacing": false,
+        "disable_bottom_spacing": false
+      }
+    },
+    "1723991032eb59d6ec": {
+      "type": "apps",
+      "blocks": {
+        "loox_reviews_loox_agg_section_qJHyy3": {
+          "type": "shopify:\/\/apps\/loox-reviews\/blocks\/loox-agg-section\/5c3b337f-fd14-4df5-b1d6-80ec13e6e28e",
+          "settings": {
+            "only_photos": false,
+            "hide_thumbnails": false,
+            "product_handle": "",
+            "aggregated": true,
+            "data-limit": 40,
+            "maxwidth": 1080,
+            "is_sample": false
+          }
+        }
+      },
+      "block_order": [
+        "loox_reviews_loox_agg_section_qJHyy3"
+      ],
+      "settings": {}
+    }
+  },
+  "order": [
+    "main",
+    "rich_text_Ja8QkT",
+    "1723991032eb59d6ec"
+  ]
+}

@@ -1,0 +1,61 @@
+{
+  "parent": "product.hot-tub-cover.json",
+  "context": {
+    "market": "us"
+  },
+  "sections": {
+    "main-product": {
+      "settings": {},
+      "blocks": {
+        "icon_list_nFjC3x": {
+          "settings": {
+            "icon_1_text": "Built for Tough Climates",
+            "icon_2_text": "Free Shipping on orders over $500",
+            "icon_3_text": "Customized Perfect Fit"
+          }
+        },
+        "custom_liquid_XGAFTH": {
+          "disabled": true,
+          "settings": {}
+        }
+      }
+    },
+    "media_with_tabs_k3n7yx": {
+      "settings": {},
+      "blocks": {
+        "badge_xyagrB": {
+          "disabled": false,
+          "settings": {
+            "text": "Made in North America"
+          }
+        },
+        "tab_XEDcKf": {
+          "settings": {
+            "description": "Our hot tub covers in the United States are designed for maximum energy efficiency with eco-friendly, CFC-free closed cell foam insulation. This high-density foam core (1.5 lb) offers a top-tier R21 insulation rating, perfect for retaining heat in both moderate and colder climates. With superior insulation, these custom-fit covers provide significant energy savings, reducing your heating costs and enhancing your hot tub experience, even in the harshest American climate."
+          }
+        },
+        "tab_zkCAcA": {
+          "settings": {
+            "heading": "Durable Design for American Climates",
+            "description": "Our products are crafted with heavy-duty vinyl and built to withstand snow, rain, and intense UV exposure. The durable cover includes UV and mildew inhibitors to resist the elements, ensuring your tub cover remains looking great for years. An internal reinforcement stitching and high-quality materials provide added strength, making it the ideal choice for American climates, where winter temperatures and heavy snow loads demand quality cover solutions for durability and protection."
+          }
+        },
+        "tab_w9B3Cx": {
+          "settings": {
+            "description": "All of our custom hot tub covers come with a robust 10-year warranty, covering repair or replacement for any defects, with coverage decreasing over time. Our quality covers ensure that your investment is protected, providing you with peace of mind in case of unforeseen damage due to American winters, heavy snow, or other elements. For full details on warranty services, check our replacement hot cover policy for your custom-fit needs."
+          }
+        }
+      }
+    },
+    "fd5c7a63-be6c-43da-a9c0-a887e1ab06dd": {
+      "settings": {},
+      "blocks": {
+        "2e5ac462-81a3-4194-b445-a2afd14c80d7": {
+          "settings": {
+            "heading": "❄<br><br>Made for Tough Climates"
+          }
+        }
+      }
+    }
+  }
+}
