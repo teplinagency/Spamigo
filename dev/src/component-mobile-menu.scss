@@ -6,8 +6,8 @@
   left: 0;
   padding: 32px 20px;
   overflow-y: auto;
-  background-color: var(--secondary-background);
-  color: var(--secondary-text);
+  background-color: var(--white);
+  color: var(--black);
   z-index: 12;
 
   display: none;
@@ -35,7 +35,7 @@
   }
 
   &__link {
-    color: var(--secondary-text);
+    color: var(--black);
     text-decoration: none;
     font-size: 18px;
     font-style: normal;
@@ -46,7 +46,7 @@
   &__details {
 
     & summary {
-      color: var(--secondary-text);
+      color: var(--black);
       text-decoration: none;
       font-size: 18px;
       font-style: normal;
@@ -84,11 +84,11 @@
     flex-direction: column;
     gap: 32px;
     padding: 32px 0;
-    border-bottom: 1px solid var(--primary-text);
+    border-bottom: 1px solid var(--background);
   }
 
   &__title {
-    color: var(--accent-color-2);
+    color: var(--grey-2);
     font-size: 14px;
     font-style: normal;
     font-weight: 600;
@@ -109,7 +109,7 @@
 
   &__item {
     & a {
-      color: var(--secondary-text);
+      color: var(--black);
       font-size: 16px;
       font-style: normal;
       font-weight: 400;
@@ -160,7 +160,7 @@
   }
 
   &__card-title {
-    color: var(--secondary-text);
+    color: var(--black);
     font-size: 18px;
     font-style: normal;
     font-weight: 500;
@@ -177,8 +177,8 @@
     border-radius: 15px;
     width: fit-content;
 
-    background-color: var(--button-light-bg);
-    color: var(--button-light-text);
+    background-color: var(--light-blue);
+    color: var(--black);
 
     font-size: 12px;
     font-style: normal;
@@ -194,8 +194,8 @@
     }
 
     &:hover {
-      color: var(--button-light-bg);
-      background-color: var(--button-light-text);
+      color: var(--light-blue);
+      background-color: var(--black);
     }
   }
 
@@ -207,10 +207,10 @@
   }
 
   &__locales {
-    color: var(--secondary-text);
+    color: var(--black);
 
     & .c-language-switcher__list {
-      color: var(--secondary-text);
+      color: var(--black);
       font-size: 16px;
     }
   }

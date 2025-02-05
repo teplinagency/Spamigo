@@ -93,19 +93,18 @@
 	{% comment %} CSS variables {% endcomment %}
 
     :root {
-				--primary-background: {{ settings.primary-background }};
-				--primary-text: {{ settings.primary-text }};
+			
+				--black: {{ settings.black }};
+				--white: {{ settings.white }};
 
-				--secondary-background: {{ settings.secondary-background }};
-				--secondary-text: {{ settings.secondary-text }};
+				--deep-blue: {{ settings.deep-blue }};
+				--light-blue: {{ settings.light-blue }};
 
-				--accent-1: {{ settings.accent-1 }};
+				--grey-1: {{ settings.grey-1 }};
+				--grey-2: {{ settings.grey-2 }};
+				--grey-3: {{ settings.grey-3 }};
 
-				--accent-color-2: {{ settings.accent-color-2 }};
-				--accent-color-3: {{ settings.accent-color-3 }};
-
-				--button-light-bg: {{ settings.button-light-bg }};
-				--button-light-text: {{ settings.button-light-text }};
+				--background: {{ settings.background }};
 
 		{% case settings.font_heading %}
 			{% when 'shopify' %}

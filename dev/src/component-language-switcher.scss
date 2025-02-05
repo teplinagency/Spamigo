@@ -1,7 +1,7 @@
 .c-language-switcher {
   position: relative;
   padding-inline-end: 24px;
-  color: var(--primary-text);
+  color: var(--background);
   display: flex;
   align-items: center;
 
@@ -15,7 +15,7 @@
     font-size: 13px;
     font-weight: 500;
     line-height: 140%;
-    color: var(--primary-text);
+    color: var(--background);
     text-transform: uppercase;
     border: none;
     outline: none;
@@ -26,8 +26,8 @@
     height: fit-content;
 
     & option {
-      background-color: var(--secondary-background);
-      color: var(--secondary-text);
+      background-color: var(--white);
+      color: var(--black);
       padding: 2px 4px;
       text-align: center;
     }

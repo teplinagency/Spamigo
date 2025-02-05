@@ -254,63 +254,52 @@
     "settings": [
       {
         "type": "color",
-        "id": "primary-background",
-        "label": "Primary Background color",
+        "id": "black",
+        "label": "Black Color",
         "default": "#1B315A"
       },
       {
         "type": "color",
-        "id": "primary-text",
-        "label": "Primary Text color",
-        "default": "#EDEFF2"
-      },
-      {
-        "type": "color",
-        "id": "secondary-background",
-        "label": "Secondary Background color",
+        "id": "white",
+        "label": "White Color",
         "default": "#FFFFFF"
       },
       {
         "type": "color",
-        "id": "secondary-text",
-        "label": "Secondary Text color",
-        "default": "#1B315A"
-      },
-      {
-        "type": "color",
-        "id": "accent-1",
-        "label": "Accent Color 1",
+        "id": "deep-blue",
+        "label": "Deep Blue Color",
         "default": "#4285F4"
       },
       {
         "type": "color",
-        "id": "accent-color-2",
-        "label": "Accent Color 2",
+        "id": "light-blue",
+        "label": "light Blue Color",
+        "default": "#BDD4FB"
+      },
+      {
+        "type": "color",
+        "id": "grey-1",
+        "label": "Grey 1 Color",
+        "default": "#45597B"
+      },
+      {
+        "type": "color",
+        "id": "grey-2",
+        "label": "Grey 2 Color",
         "default": "#76839C"
       },
       {
         "type": "color",
-        "id": "accent-color-3",
-        "label": "Accent Color 3",
-        "default": "#1B315A"
+        "id": "grey-3",
+        "label": "Grey 3 Color",
+        "default": "#A4ADBD"
       },
       {
         "type": "color",
-        "id": "accent-color-4",
-        "label": "Accent Color 4",
-        "default": "#4285F4"
-      },
-      {
-        "type": "color",
-        "id": "button-light-bg",
-        "label": "Button Background Light",
-        "default": "#EDF3FF"
-      },{
-        "type": "color",
-        "id": "button-light-text",
-        "label": "Button Text Light",
-        "default": "#1B315A"
-      },
+        "id": "background",
+        "label": "Background Color",
+        "default": "#EDEFF2"
+      }
     ]
   },
   {
