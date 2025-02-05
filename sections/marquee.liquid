@@ -1,0 +1,94 @@
+{{ "section-marquee.css" | asset_url | stylesheet_tag }}
+
+<script src="{{ "section-marquee.js" | asset_url }}" defer></script>
+
+<s-marquee class="s-marquee container-m js-marquee swiper">
+  <div
+    class="swiper-wrapper s-marquee__list js-marquee__list"
+  >
+    {% for block in section.blocks %}
+      {% if block.settings.text != blank %}
+        <div class="swiper-slide s-marquee__item">
+          {% case block.settings.icon %}
+            {% when "truck" %}
+              {% render 'icon-truck' %}
+            
+            {% when "credit-card" %}
+              {% render 'icon-credit-card' %}
+
+            {% when "license" %}
+              {% render 'icon-license' %}
+
+            {% when "stars" %}
+              {% render 'icon-stars' %}
+
+            {% else %}
+
+          {% endcase %}
+
+          {{ block.settings.text }}
+        </div>
+      {% endif %}
+    {% endfor %}
+  </div>
+</s-marquee>
+
+{% schema %}
+{
+  "name": "Marquee Section",
+  "class": "section-marquee",
+  "settings": [
+
+  ],
+  "blocks": [
+    {
+      "type": "item",
+      "name": "Marquee Item",
+      "settings": [
+        {
+          "type": "header",
+          "content": "Marquee Settings",
+        },
+        {
+          "type": "select",
+          "id": "icon",
+          "label": "Select Icon",
+          "options": [
+            {
+              "label": "None",
+              "value": ""
+            },
+            {
+              "label": "Truck",
+              "value": "truck"
+            },
+            {
+              "label": "Credit Card",
+              "value": "credit-card"
+            },
+            {
+              "label": "License",
+              "value": "license"
+            },
+            {
+              "label": "Stars",
+              "value": "stars"
+            }
+          ],
+          "default": ""
+        },
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Enter Text"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Marquee Section"
+    }
+  ]
+}
+{% endschema %}
