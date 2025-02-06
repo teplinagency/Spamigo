@@ -1,0 +1,291 @@
+.shop-by-brand-wrapper {
+  max-width: 1440px;
+  width: 100%;
+  margin: 0 auto;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-bottom: 48px;
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+  .shop-by-brand-filters {
+    border-radius: 22px;
+    background: var(--black, #1b315a);
+    padding: 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    .shop-by-brand-filters-title {
+      color: var(--white, #fff);
+      font-family: Outfit;
+      font-size: 40px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: normal;
+      letter-spacing: -0.4px;
+      @media (max-width: 992px) {
+        text-align: center;
+      }
+    }
+
+    .shop-by-brand-filters-actions {
+      display: flex;
+      gap: 20px;
+      align-items: center;
+      .shop-by-brand-filter {
+        color: var(--grey-3, #a4adbd);
+        font-family: Outfit;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+        width: 100%;
+        max-width: 1090px;
+        position: relative;
+
+        .search-results {
+          z-index: 100;
+          background: #3b4e71;
+          border-radius: 18px;
+          padding: 19px 20px;
+          font-family: Outfit;
+          font-size: 16px;
+          font-style: normal;
+          font-weight: 400;
+          line-height: 150%;
+          position: absolute;
+          top: 70px;
+          width: 100%;
+          max-height: 300px;
+          overflow-y: auto;
+          display: none;
+          a {
+            display: block;
+            padding: 8px;
+            text-decoration: none;
+            color: var(--bg, #edeff2);
+            &:hover {
+              opacity: 0.8;
+            }
+          }
+        }
+
+        input {
+          margin: unset;
+          width: 100%;
+          height: 100%;
+          background: #3b4e71;
+          padding: 19px 20px;
+          border-radius: 18px;
+          border: unset;
+          outline: unset;
+          color: var(--bg, #edeff2);
+          font-family: Outfit;
+          font-size: 16px;
+          font-style: normal;
+          font-weight: 400;
+          line-height: 150%;
+          &::placeholder {
+            color: var(--grey-3, #a4adbd);
+            font-family: Outfit;
+            font-size: 16px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 150%;
+          }
+        }
+
+        svg {
+          position: absolute;
+          top: 18px;
+          right: 20px;
+        }
+      }
+      .shop-by-brand-filters-buttons {
+        display: flex;
+        gap: 20px;
+        align-items: center;
+        .shop-by-brand-search-btn {
+          border-radius: 18px;
+          background: var(--deep-blue, #4285f4);
+          padding: 18px 28px;
+          display: flex;
+          align-items: center;
+          gap: 8px;
+          text-wrap: nowrap;
+          span {
+            color: var(--white, #fff);
+            font-family: Outfit;
+            font-size: 14px;
+            font-style: normal;
+            font-weight: 600;
+            line-height: 18px; /* 128.571% */
+            letter-spacing: 0.7px;
+            text-transform: uppercase;
+          }
+        }
+        span {
+          color: var(--white, #fff);
+          font-family: Outfit;
+          font-size: 16px;
+          font-style: normal;
+          font-weight: 500;
+          line-height: normal;
+          text-wrap: nowrap;
+        }
+        a {
+          color: var(--white, #fff);
+          font-family: Outfit;
+          font-size: 16px;
+          font-style: normal;
+          font-weight: 500;
+          line-height: normal;
+          border-bottom: 1px solid var(--white, #fff);
+          text-wrap: nowrap;
+        }
+        @media (max-width: 992px) {
+          flex-direction: column;
+        }
+      }
+
+      @media (max-width: 992px) {
+        flex-direction: column;
+      }
+    }
+    .shop-by-brand-additional-info {
+      color: var(--bg, #edeff2);
+      font-family: Outfit;
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 150%;
+      @media (max-width: 992px) {
+        text-align: center;
+      }
+    }
+  }
+
+  .featured-brands-container {
+    .featured-brands-title {
+      color: var(--black, #1b315a);
+      font-family: Outfit;
+      font-size: 12px;
+      font-style: normal;
+      font-weight: 600;
+      line-height: normal;
+      letter-spacing: 0.24px;
+      text-transform: uppercase;
+      border-radius: 11px;
+      background: var(--bg-blue, #edf3ff);
+      padding: 10px 12px;
+      margin-bottom: 20px;
+      display: flex;
+      width: fit-content;
+    }
+    .featured-brands-slider {
+      padding: 11.38px 0;
+    }
+  }
+
+  .all-brands {
+    h2 {
+      color: var(--black, #1b315a);
+      font-family: Outfit;
+      font-size: 40px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: normal;
+      letter-spacing: -0.4px;
+    }
+    .brand-filters {
+      display: flex;
+      gap: 4px;
+      flex-wrap: wrap;
+      margin-bottom: 20px;
+      .filter-btn {
+        border: none;
+        cursor: pointer;
+        border-radius: 14px;
+        background: rgba(237, 239, 242, 0.5);
+        padding: 11px 15px;
+        font-family: Outfit;
+        font-size: 14px;
+        font-style: normal;
+        color: var(--grey-2, #76839c);
+        font-weight: 600;
+        line-height: 18px; /* 128.571% */
+        letter-spacing: 0.7px;
+        text-transform: uppercase;
+        transition: 0.3s all;
+        &:hover {
+          background: var(--black, #1b315a);
+          color: var(--white, #fff);
+        }
+      }
+      .filter-btn-active {
+        background: var(--black, #1b315a);
+        color: var(--white, #fff);
+      }
+      .brand-section-clear {
+        display: none;
+        color: var(--grey-2, #76839c);
+        font-family: Outfit;
+        font-size: 13px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: normal;
+        border-bottom: 1px solid var(--grey-2, #76839c);
+        height: fit-content;
+        margin: auto 0;
+        padding-bottom: 4px;
+        margin-left: 16px;
+        margin-right: 12px;
+        transition: 0.3s all;
+        &:hover {
+          opacity: 0.8;
+        }
+      }
+      .brand-section-clear-show {
+        display: block;
+      }
+    }
+    .brand-section {
+      span {
+        color: var(--black, #1b315a);
+        font-family: Outfit;
+        font-size: 24px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: normal;
+        display: flex;
+        width: 100%;
+        padding: 10px 20px;
+        border-radius: 14px;
+        background: rgba(237, 239, 242, 0.5);
+      }
+
+      .brand-items {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        padding-top: 20px;
+        padding-bottom: 32px;
+        a {
+          color: var(--black, #1b315a);
+          font-family: Outfit;
+          font-size: 16px;
+          font-style: normal;
+          font-weight: 400;
+          line-height: 150%;
+          max-width: 320px;
+          width: 100%;
+          transition: 0.3s all;
+          &:hover {
+            opacity: 0.8;
+          }
+        }
+      }
+    }
+  }
+}

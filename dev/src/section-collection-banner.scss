@@ -1,0 +1,99 @@
+.collection-banner-wrapper {
+  max-width: 1440px;
+  width: 100%;
+  margin: 0 auto;
+  padding-left: 20px;
+  padding-right: 20px;
+
+  .collection-banner-img {
+    position: relative;
+    padding-bottom: 32px;
+
+    .image-ratio {
+      &:nth-child(2) {
+        display: none;
+      }
+    }
+    img {
+      width: 100%;
+      object-fit: cover;
+      border-radius: 22px;
+    }
+    span {
+      position: absolute;
+      bottom: 84px;
+      left: 52px;
+      color: var(--white, #fff);
+      font-family: Outfit;
+      font-size: 40px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: 120%;
+      letter-spacing: -0.4px;
+      z-index: 2;
+    }
+  }
+  .collection-banner-content {
+    color: var(--text-description, #1b315a);
+    font-family: Outfit;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%;
+    padding-left: 32px;
+    -webkit-line-clamp: 4;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    background: linear-gradient(0deg, rgba(27, 49, 90, 0) 0%, #1b315a 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    p {
+      margin: unset;
+    }
+  }
+  .collection-banner-content-readmore {
+    color: var(--black, #1b315a);
+    font-family: Outfit;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    border-bottom: 1px solid var(--black, #1b315a);
+    margin-left: 32px;
+    padding-bottom: 4px;
+  }
+}
+
+@media (max-width: 992px) {
+  .collection-banner-wrapper {
+    padding-left: 8px;
+    padding-right: 8px;
+    .collection-banner-content {
+      -webkit-line-clamp: 6;
+      padding-left: 12px;
+    }
+    .collection-banner-content-readmore {
+      margin-left: 12px;
+    }
+
+    .collection-banner-img {
+      padding-bottom: 20px;
+      .image-ratio {
+        &:nth-child(1) {
+          display: none;
+        }
+        &:nth-child(2) {
+          display: block;
+        }
+      }
+      span {
+        font-size: 28px;
+        line-height: normal;
+        bottom: 42px;
+        left: 24px;
+      }
+    }
+  }
+}

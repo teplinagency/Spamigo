@@ -1,0 +1,24 @@
+<div id="section-{{ section.id }}" class="collection-banner-wrapper">
+  <div class="collection-banner-img">
+    {% render 'image', image: image %}
+    {% render 'image', image: mob_image %}
+    <span>{{ title }}</span>
+  </div>
+  <div class="collection-banner-content">
+    {{ description }}
+  </div>
+  <span class="collection-banner-content-readmore">
+    {{ 'collection.collection_text.readmore' | t }}
+  </span>
+</div>
+
+
+<script>
+  document.querySelector('.collection-banner-content-readmore').addEventListener('click', () => {
+    document.querySelector('.collection-banner-content').style.display = 'flex';
+    document.querySelector('.collection-banner-content').style.background = 'unset';
+    document.querySelector('.collection-banner-content').style['-webkit-text-fill-color'] = 'unset';
+
+    document.querySelector('.collection-banner-content-readmore').style.display = 'none';
+  });
+</script>

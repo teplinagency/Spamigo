@@ -1,0 +1,64 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "shop-by-brand",
+      "blocks": {
+        "featured_brand_BYGM8c": {
+          "type": "featured_brand",
+          "settings": {
+            "image": "shopify://shop_images/logo-white.png",
+            "url": "shopify://products/sundance-maxxus-880-hot-tub-cover"
+          }
+        },
+        "featured_brand_89je98": {
+          "type": "featured_brand",
+          "settings": {
+            "image": "shopify://shop_images/hot-spring-spas_2.png",
+            "url": "shopify://collections/hot-spring-spas-hot-tub-covers"
+          }
+        },
+        "featured_brand_nKXxGB": {
+          "type": "featured_brand",
+          "settings": {
+            "image": "shopify://shop_images/Jacuzzi_logo_2.png",
+            "url": "shopify://collections/jacuzzi-hot-tub-cover"
+          }
+        },
+        "featured_brand_HAQPnF": {
+          "type": "featured_brand",
+          "settings": {
+            "image": "shopify://shop_images/marquis-logo-svg-vector_2.png",
+            "url": "shopify://collections/hydropool-hot-tub-covers"
+          }
+        }
+      },
+      "block_order": [
+        "featured_brand_BYGM8c",
+        "featured_brand_89je98",
+        "featured_brand_nKXxGB",
+        "featured_brand_HAQPnF"
+      ],
+      "settings": {
+        "custom_tub_url": "",
+        "additional_text": "Can't find your model? Call us at +1-866-515-6446",
+        "featured_brands_title": "Featured brands",
+        "padding-top": 20,
+        "padding-bottom": 100,
+        "padding-top-mobile": 20,
+        "padding-bottom-mobile": 70
+      }
+    }
+  },
+  "order": [
+    "main"
+  ]
+}
