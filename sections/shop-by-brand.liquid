@@ -1,0 +1,275 @@
+{{ 'section-shop-by-brand.css' | asset_url | stylesheet_tag }}
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+{% render 'section-padding' %}
+
+<section id="section-{{ section.id }}" class="shop-by-brand-wrapper">
+  <div class="shop-by-brand-filters">
+    <div class="shop-by-brand-filters-title">{{ 'shop_by_brand.filter_title' | t }}</div>
+    <div class="shop-by-brand-filters-actions">
+      <div class="shop-by-brand-filter">
+        <input type="text" id="search-input" placeholder="{{ 'shop_by_brand.search_text' | t }}">
+        {% render 'icons', icon: 'search-shop-brand' %}
+        <div id="search-results" class="search-results"></div>
+      </div>
+
+      <div class="shop-by-brand-filters-buttons">
+        {% comment %}
+          <button class="shop-by-brand-search-btn">
+            <span>{{ 'shop_by_brand.search_cover' | t }}</span> {% render 'icons', icon: 'chewron-right' %}
+          </button>
+        {% endcomment %}
+        <span>{{ 'shop_by_brand.or' | t }}</span>
+        <a href="{{ section.settings.custom_tub_url }}">{{ 'shop_by_brand.create_custom' | t }}</a>
+      </div>
+    </div>
+    <div class="shop-by-brand-additional-info">
+      {{ section.settings.additional_text }}
+    </div>
+  </div>
+
+  {% if section.blocks != blank %}
+    <div class="featured-brands-container">
+      {% if section.settings.featured_brands_title != blank %}
+        <span class="featured-brands-title">{{ section.settings.featured_brands_title }}</span>
+      {% endif %}
+      <div class="swiper featured-brands-slider">
+        <div class="swiper-wrapper">
+          {% for block in section.blocks %}
+            {% case block.type %}
+              {% when 'featured_brand' %}
+                <div class="swiper-slide">
+                  <img src="{{ block.settings.image |  img_url: 'master' }}" alt="{{ block.settings.image.alt }}">
+                </div>
+            {% endcase %}
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  {% endif %}
+
+  <div class="all-brands">
+    <h2>{{ 'shop_by_brand.all_brands' | t }}</h2>
+
+    <!-- Кнопки-фільтри -->
+    <div class="brand-filters">
+      {% assign alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ' | split: '' %}
+      {% assign used_letters = '' %}
+      {% for collection in collections %}
+        {% assign first_letter = collection.title | slice: 0, 1 | upcase %}
+        {% unless used_letters contains first_letter %}
+          <button class="filter-btn" data-letter="{{ first_letter }}">{{ first_letter }}</button>
+          {% assign used_letters = used_letters | append: first_letter | append: ',' %}
+        {% endunless %}
+      {% endfor %}
+      <button type="button" class="brand-section-clear">{{ 'shop_by_brand.clear' | t }}</button>
+    </div>
+
+    <!-- Список брендів -->
+    <div class="brand-list">
+      {% assign grouped_collections = collections | sort: 'title' %}
+      {% assign used_letters_array = used_letters | split: ',' %}
+      {% for letter in used_letters_array %}
+        {% if letter != '' %}
+          <div class="brand-section" data-letter="{{ letter }}">
+            <span>{{ letter }}</span>
+            <div class="brand-items">
+              {% for collection in grouped_collections %}
+                {% assign first_letter = collection.title | slice: 0, 1 | upcase %}
+                {% if first_letter == letter %}
+                  <a href="{{ collection.url }}">{{ collection.title }}</a>
+                {% endif %}
+              {% endfor %}
+            </div>
+          </div>
+        {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const buttons = document.querySelectorAll('.filter-btn');
+      const sections = document.querySelectorAll('.brand-section');
+      const clearBtn = document.querySelector('.brand-section-clear');
+
+      buttons.forEach((button) => {
+        button.addEventListener('click', function () {
+          buttons.forEach((btn) => btn.classList.remove('active'));
+          this.classList.add('filter-btn-active');
+          clearBtn.classList.add('brand-section-clear-show');
+          const letter = this.dataset.letter;
+          sections.forEach((section) => {
+            section.style.display = section.dataset.letter === letter ? 'block' : 'none';
+          });
+        });
+      });
+
+      clearBtn.addEventListener('click', () => {
+        buttons.forEach((button) => {
+          button.classList.remove('filter-btn-active');
+        });
+        sections.forEach((section) => {
+          section.style.display = 'block';
+        });
+        clearBtn.classList.remove('brand-section-clear-show');
+      });
+    });
+  </script>
+</section>
+
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+<script>
+  var swiper = new Swiper('.featured-brands-slider', {
+    slidesPerView: 2.5,
+    spaceBetween: 30,
+    breakpoints: {
+      640: {
+        slidesPerView: 2.5,
+        spaceBetween: 30,
+      },
+      992: {
+        slidesPerView: 3.2,
+        spaceBetween: 34,
+      },
+      1200: {
+        slidesPerView: 4,
+        spaceBetween: 100,
+      },
+    },
+  });
+</script>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const input = document.getElementById('search-input');
+    const resultsContainer = document.getElementById('search-results');
+
+    input.addEventListener('input', function () {
+      const query = input.value.trim();
+      if (query.length < 2) {
+        resultsContainer.style.display = 'none';
+        return;
+      }
+
+      fetch(`/search/suggest.json?q=${encodeURIComponent(query)}&resources[type]=product,collection&resources[limit]=5`)
+        .then((res) => res.json())
+        .then((data) => {
+          resultsContainer.innerHTML = '';
+
+          const products = data.resources.results.products;
+          const collections = data.resources.results.collections;
+
+          if (products.length === 0 && collections.length === 0) {
+            resultsContainer.style.display = 'none';
+            return;
+          }
+
+          products.forEach((product) => {
+            const link = document.createElement('a');
+            link.href = product.url;
+            link.textContent = `🛒 ${product.title}`;
+            resultsContainer.appendChild(link);
+          });
+
+          collections.forEach((collection) => {
+            const link = document.createElement('a');
+            link.href = collection.url;
+            link.textContent = `📁 ${collection.title}`;
+            resultsContainer.appendChild(link);
+          });
+
+          resultsContainer.style.display = 'block';
+        })
+        .catch((err) => console.error('Search error:', err));
+    });
+
+    document.addEventListener('click', function (event) {
+      if (!resultsContainer.contains(event.target) && event.target !== input) {
+        resultsContainer.style.display = 'none';
+      }
+    });
+  });
+</script>
+
+{% schema %}
+{
+  "name": "Shop by brand",
+  "settings": [
+    {
+      "type": "url",
+      "id": "custom_tub_url",
+      "label": "Custom tub url"
+    },
+    {
+      "type": "text",
+      "id": "additional_text",
+      "label": "Additional text",
+      "default": "Can't find your model? Call us at +1-866-515-6446"
+    },
+    {
+      "type": "text",
+      "id": "featured_brands_title",
+      "label": "Featured brands title",
+      "default": "Featured brands"
+    },
+    {
+      "type": "range",
+      "id": "padding-top",
+      "min": 0,
+      "max": 200,
+      "step": 10,
+      "unit": "px",
+      "label": "Padding top",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding-bottom",
+      "min": 0,
+      "max": 200,
+      "step": 10,
+      "unit": "px",
+      "label": "Padding bottom",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding-top-mobile",
+      "min": 0,
+      "max": 200,
+      "step": 10,
+      "unit": "px",
+      "label": "Padding top mobile",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding-bottom-mobile",
+      "min": 0,
+      "max": 200,
+      "step": 10,
+      "unit": "px",
+      "label": "Padding bottom mobile",
+      "default": 0
+    }
+  ],
+  "blocks": [
+    {
+      "type": "featured_brand",
+      "name": "Featured brand",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "url",
+          "id": "url",
+          "label": "URL"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

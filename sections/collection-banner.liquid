@@ -1,0 +1,96 @@
+{{ 'section-collection-banner.css' | asset_url | stylesheet_tag }}
+
+{% assign description = section.settings.text %}
+{% assign image = section.settings.image %}
+{% assign mob_image = section.settings.mob_image %}
+{% assign title = section.settings.title %}
+{% if collection.title != blank %}
+  {% assign title = collection.title %}
+{% endif %}
+{% if collection.description != blank %}
+  {% assign description = collection.description %}
+{% endif %}
+{% if collection.metafields.custom.image != blank %}
+  {% assign image = collection.metafields.custom.image %}
+{% elsif collection.featured_image != blank %}
+  {% assign image = collection.featured_image %}
+{% endif %}
+{% if collection.metafields.custom.mob_image != blank %}
+  {% assign mob_image = collection.metafields.custom.mob_image %}
+{% endif %}
+
+{% render 'section-padding' %}
+{% render 'collection-banner', description: description, image: image, title: title, mob_image: mob_image %}
+
+{% schema %}
+{
+  "name": "Collection banner",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "mob_image",
+      "label": "Mob image"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title"
+    },
+    {
+      "type": "richtext",
+      "id": "text",
+      "label": "Text"
+    },
+    {
+      "type": "range",
+      "id": "padding-top",
+      "min": 0,
+      "max": 200,
+      "step": 10,
+      "unit": "px",
+      "label": "Padding top",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding-bottom",
+      "min": 0,
+      "max": 200,
+      "step": 10,
+      "unit": "px",
+      "label": "Padding bottom",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding-top-mobile",
+      "min": 0,
+      "max": 200,
+      "step": 10,
+      "unit": "px",
+      "label": "Padding top mobile",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding-bottom-mobile",
+      "min": 0,
+      "max": 200,
+      "step": 10,
+      "unit": "px",
+      "label": "Padding bottom mobile",
+      "default": 0
+    }
+  ],
+  "presets": [
+    {
+      "name": "Collection banner"
+    }
+  ]
+}
+{% endschema %}
