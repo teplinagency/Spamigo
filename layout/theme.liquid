@@ -90,6 +90,9 @@
         y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
     })(window, document, "clarity", "script", "ommudr1t44");
 </script>
+
+{{ "swiper-slider.css" | asset_url | stylesheet_tag }}
+	<script src="{{ 'swiper-slider.js' | asset_url }}" defer="defer"></script>
 {% render 'css-variables' %}
 	{{ 'global.css' | asset_url | stylesheet_tag }}
 

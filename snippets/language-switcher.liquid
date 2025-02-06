@@ -20,7 +20,7 @@
             </option>
           {%- endfor -%}
         </select>
-        {% render "icon-chevron" %}
+        {% render "icons", icon: "chevron" %}
         
       {% when "country" %}
         <select class="c-language-switcher__list js-language-switcher__list" 
@@ -41,7 +41,7 @@
             </option>
           {%- endfor -%}
         </select>
-        {% render "icon-chevron" %}
+      {% render "icons", icon: "chevron" %}
     {% endcase %}
     
   {%- endform -%}

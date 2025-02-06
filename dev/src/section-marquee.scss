@@ -1,0 +1,36 @@
+.section-marquee{
+  background-color: var(--deep-blue);
+  padding-block: 12px;
+
+  @media (min-width: 768px) {
+    padding-block: 16px;
+  }
+}
+
+.s-marquee {
+  display: block;
+  max-width: none;
+  overflow-x: hidden;
+
+  @media (min-width: 1200px) {
+    max-width: 1440px;
+  }
+  
+
+  &__list {
+    width: 100%;
+    display: flex;  
+  }
+
+  &__item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: var(--white);
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    width: max-content;
+  }
+}

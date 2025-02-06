@@ -11,162 +11,90 @@
   "type": "footer",
   "name": "Footer group",
   "sections": {
-    "contact_form_DtRMPM": {
-      "type": "contact-form",
+    "marquee": {
+      "type": "marquee",
       "blocks": {
-        "text_field_JUaMbz": {
-          "type": "text_field",
+        "item_1": {
+          "type": "item",
           "settings": {
-            "title": "Hot tub make and model",
-            "use_long_text": false,
-            "is_required": false
+            "icon": "truck",
+            "text": "Free Shipping on orders over $595"
           }
         },
-        "text_BqKqzq": {
-          "type": "text",
+        "item_2": {
+          "type": "item",
           "settings": {
-            "heading": "Contact Information",
-            "text": "<p><a href=\"mailto:info@spamigo.com\" title=\"Email\">info@spamigo.com<\/a><br\/><a href=\"tel:18665156446\" title=\"tel:18665156446\">+1 (866) 515-MIGO (6446)<\/a><\/p>"
+            "icon": "credit-card",
+            "text": "Buy Now & Pay Later Available | 4 Payments, 0% APR"
           }
         },
-        "text_pCnBm6": {
-          "type": "text",
+        "item_3": {
+          "type": "item",
           "settings": {
-            "heading": "Opening Hours",
-            "text": "<p>Available Monday to Sunday:<br\/>9:00 a.m. to 8:00 p.m.<\/p>"
+            "icon": "license",
+            "text": "10-Year Warranty"
+          }
+        },
+        "item_4": {
+          "type": "item",
+          "settings": {
+            "icon": "stars",
+            "text": "4.8 | Over 1,000 Happy Customers"
           }
         }
       },
       "block_order": [
-        "text_field_JUaMbz",
-        "text_BqKqzq",
-        "text_pCnBm6"
+        "item_1",
+        "item_2",
+        "item_3",
+        "item_4"
       ],
-      "settings": {
-        "heading": "Information Request Form",
-        "marker_style": "style1",
-        "description": "<p>Send us your information request now, and one of our advisors will respond quickly! Fill out our form or call us to get a free estimate for your new hot tub cover. We also offer custom sizing services if needed.<\/p><p>.<\/p>",
-        "show_phone_number": true,
-        "marker_color": "#fd6262",
-        "disable_top_spacing": false,
-        "disable_bottom_spacing": false
-      }
+      "settings": {}
     },
-    "rich_text_ErBKyc": {
-      "type": "rich-text",
+    "s_footer_gBwtyP": {
+      "type": "s-footer",
       "blocks": {
-        "subheading_BAExk6": {
-          "type": "subheading",
+        "image_PEW7gR": {
+          "type": "image",
           "settings": {
-            "text": "We're available mon-fri 9am-5pm"
+            "image": "shopify:\/\/shop_images\/image_6_1.png"
           }
         },
-        "heading_9pknLm": {
-          "type": "heading",
+        "image_TRQReM": {
+          "type": "image",
           "settings": {
-            "text": "Our Team Is Here To Answer Your Questions",
-            "marker_style": "style1",
-            "size": "h3",
-            "marker_color": "#fd6262"
-          }
-        },
-        "text_zKqeci": {
-          "type": "text",
-          "settings": {
-            "text": "<p><a href=\"mailto:info@spamigo.com\" title=\"Email\">info@spamigo.com<\/a><br\/><a href=\"tel:18665156446\" title=\"tel:18665156446\">+1 (866) 515-MIGO (6446)<\/a><\/p>",
-            "custom_liquid": "",
-            "size": "text-size-large"
+            "image": "shopify:\/\/shop_images\/astm_1.svg"
           }
         }
       },
       "block_order": [
-        "subheading_BAExk6",
-        "heading_9pknLm",
-        "text_zKqeci"
-      ],
-      "disabled": true,
-      "settings": {
-        "text_width": "xlarge",
-        "text_position": "center",
-        "text_alignment": "center",
-        "color_bg": "rgba(0,0,0,0)",
-        "color_heading": "#1a1c1d",
-        "color_text": "#2c2d2e",
-        "color_links": "#2c2d2e",
-        "disable_top_spacing": false,
-        "disable_bottom_spacing": true
-      }
-    },
-    "footer": {
-      "type": "footer",
-      "blocks": {
-        "ebdaaa5c-c47c-42ac-a830-30a799694755": {
-          "type": "text",
-          "settings": {
-            "column_size": "large",
-            "text_alignment": "left",
-            "title": "",
-            "image": "shopify:\/\/shop_images\/Untitled_design_1.svg",
-            "text": "<p><strong>Head Office: <\/strong><br\/>2967 Dundas St. W. #334D<br\/>Toronto, ON M6P 1Z2<br\/><br\/><strong>Distribution Warehouses:<br\/><\/strong>Montreal, QC<br\/>Ottawa, ON<br\/>Toronto, ON<br\/>Calgary, AB<br\/>Vancouver, BC<br\/><br\/><a href=\"tel:18665156446\" title=\"tel:18665156446\">+1 (866) 515-MIGO (6446)<\/a><br\/><a href=\"mailto:info@spamigo.com\" title=\"Email\">info@spamigo.com<\/a><br\/><\/p>",
-            "text_size": "small",
-            "button_text": "Contact Us",
-            "button_link": "shopify:\/\/pages\/contact",
-            "show_social_links": true
-          }
-        },
-        "d402e6d5-9d79-43ad-900a-cfaddc6cd9f8": {
-          "type": "menu",
-          "settings": {
-            "column_size": "small",
-            "title": "Menu",
-            "menu": "main-menu"
-          }
-        },
-        "055d0c35-3f11-4f51-9e3d-eab55edb7a9b": {
-          "type": "menu",
-          "settings": {
-            "column_size": "small",
-            "title": "Resources",
-            "menu": "secondary-menu"
-          }
-        },
-        "menu_UCjDh3": {
-          "type": "menu",
-          "settings": {
-            "column_size": "small",
-            "title": "Policies",
-            "menu": "footer"
-          }
-        },
-        "2ab8345e-9f63-4c80-b028-f4edae3633b5": {
-          "type": "signup",
-          "settings": {
-            "column_size": "medium",
-            "title": "Don't miss out on exclusive deals and discounts!",
-            "text": "<p>Sign up for our newsletter!<\/p>"
-          }
-        }
-      },
-      "block_order": [
-        "ebdaaa5c-c47c-42ac-a830-30a799694755",
-        "d402e6d5-9d79-43ad-900a-cfaddc6cd9f8",
-        "055d0c35-3f11-4f51-9e3d-eab55edb7a9b",
-        "menu_UCjDh3",
-        "2ab8345e-9f63-4c80-b028-f4edae3633b5"
+        "image_PEW7gR",
+        "image_TRQReM"
       ],
       "settings": {
-        "footer_reveal_animation": true,
-        "copyright_text": "All rights reserved.",
-        "show_language_switcher": true,
-        "show_currency_switcher": true,
-        "show_payment_icons": true,
-        "enable_follow_on_shop": true
+        "mobile_top_paddings": 48,
+        "mobile_bottom_paddings": 48,
+        "desktop_top_paddings": 68,
+        "desktop_bottom_paddings": 40,
+        "logo": "shopify:\/\/shop_images\/Full-logo-dark_d8e12012-341e-462d-97ce-bee354aad407.png",
+        "show_media": true,
+        "media_title": "Follow Us",
+        "show_contact": true,
+        "contact_title": "Contact Us",
+        "address": "<p>2967 Dundas St. W. #334D<br\/>Toronto, ON M6P 1Z2<\/p>",
+        "phone_title": "+1 (866) 515-MIGO (6446)",
+        "phone_url": "tel:+1 (866) 515-(6446)",
+        "mail_title": "info@spamigo.com",
+        "mail_url": "mailto:info@spamigo.com",
+        "custom_link_text": "Contact Us",
+        "custom_link_url": "shopify:\/\/pages\/contact",
+        "footer_menu": "new-footer-menu",
+        "copyright_text": "<p>© %year% Spa-Migo Hot Tub Covers, All rights reserved. <a href=\"https:\/\/teplin.agency\/\" target=\"_blank\">Site by Teplin<\/a><\/p>"
       }
     }
   },
   "order": [
-    "contact_form_DtRMPM",
-    "rich_text_ErBKyc",
-    "footer"
+    "marquee",
+    "s_footer_gBwtyP"
   ]
 }

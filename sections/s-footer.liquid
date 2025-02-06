@@ -1,0 +1,418 @@
+{{ "section-footer.css" | asset_url | stylesheet_tag }}
+
+<script src="{{ "section-footer.js" | asset_url }}" defer></script>
+
+{%- style -%} 
+  #shopify-section-{{ section.id }} {
+  	padding-top: {{ section.settings.mobile_top_paddings }}px;
+  	padding-bottom: {{ section.settings.mobile_bottom_paddings }}px;
+  }
+
+  @media screen and (min-width: 992px) {
+  	#shopify-section-{{ section.id }} {
+  		padding-top: {{ section.settings.desktop_top_paddings }}px;
+  		padding-bottom: {{ section.settings.desktop_bottom_paddings }}px;
+  	}
+  }
+{%- endstyle -%}
+
+{% liquid
+  assign footer_images = section.blocks | where: "type", "image"
+  assign newsletters = section.blocks | where: "type", "newsletter"
+%}
+
+<s-footer class="s-footer container-m">
+  <div class="s-footer__top">
+    <div class="s-footer__column">
+      <a href="{{ routes.root_url }}" class="s-footer__logo-container" aria-label="Home">
+        {% case localization.country.iso_code %}
+          {% when "US" %}
+            <div class="s-footer__country-logo">
+              {% render 'icon-country-us' %}
+            </div>
+          {% when "CA" %}
+            <div class="s-footer__country-logo">
+              {% render 'icon-country-ca' %}
+            </div>
+        {% endcase %}
+        {% if section.settings.logo != blank %}
+          <div class="s-footer__logo">
+            {% render "image", image: section.settings.logo %}
+          </div>
+        {% endif %}
+      </a>
+
+      {% if section.settings.show_media == true %}
+        <div class="s-footer__media-wrapper">
+          <h2 class="s-footer__media-title">
+            {{ section.settings.media_title }}
+          </h2>
+
+          {% render "social-links" %}
+        </div>
+      {% endif %}
+    </div>
+
+    {% if section.settings.show_contact == true %}
+      <div class="s-footer__contact">
+        <details class="s-footer__details js-footer__details" open>
+          <summary>
+            {{ section.settings.contact_title }} 
+            {% render "icons", icon: "chevron" %}
+          </summary>
+
+          <ul class="s-footer__link-list">
+            {% if section.settings.address != blank %}
+              <li>
+                {{ section.settings.address }}
+              </li>
+            {% endif %}
+
+            {% if section.settings.phone_title != blank and section.settings.phone_url != blank %}
+              <li>
+                <a class="s-footer__link-contact" href="{{section.settings.phone_url }}">
+                  {% render "icons", icon: "phone" %}
+                  {{ section.settings.phone_title }}
+                </a>
+              </li>
+            {% endif %}
+
+            {% if section.settings.mail_title != blank and section.settings.mail_url != blank %}
+              <li>
+                <a class="s-footer__link-contact" href="{{section.settings.mail_url }}">
+                  {% render "icons", icon: "mail" %}
+                  {{ section.settings.mail_title }}
+                </a>
+              </li>
+            {% endif %}
+
+            {% if section.settings.custom_link_text != blank and section.settings.custom_link_url != blank %}
+              <li>
+                <a class="s-footer__link-custom" href="{{section.settings.custom_link_url }}">
+                  {{ section.settings.custom_link_text }}
+                </a>
+              </li>
+            {% endif %}
+          </ul>
+        </details>
+
+      </div>
+    {% endif %}
+
+    {% for link_list in section.settings.footer_menu.links %}
+      <details class="s-footer__details js-footer__details" {% if section.settings.show_contact == false and forloop.first %}open{% endif %}>
+        <summary>
+          {{ link_list.title }} 
+          {% render "icons", icon: "chevron" %}
+        </summary>
+
+        <ul class="s-footer__link-list">
+          {% for link in link_list.links %}
+            <li>
+              <a class="s-footer__link" href="{{ link.url }}">
+                {{ link.title }}
+              </a>
+            </li>
+          {% endfor %}
+        </ul>
+      </details>
+    {% endfor %}
+  </div>
+
+  {% for block in newsletters %}
+    <div class="s-footer__newsletter">
+      {% if block.settings.title != blank %}
+        <h2 class="s-footer__newsletter-title">
+          {{ block.settings.title }}
+        </h2>
+      {% endif %}
+
+      {% if block.settings.description != blank %}
+        <div class="s-footer__newsletter-description">
+          {{ block.settings.description }}
+        </div>
+      {% endif %}
+
+      {% form 'customer', class: 's-footer__newsletter-form', tags: 'newsletter' %}
+        <div class="s-footer__newsletter-field">
+        <input
+          class="s-footer__newsletter-email"
+          type="email"
+          name="contact[email]"
+          required
+          placeholder="{{ "sections.s-footer.email_placeholder" | t }}"
+        >
+        <input
+          type="hidden"
+          required
+          aria-required="true"
+          id="formCheckbox"
+          value="true"
+        >
+
+        <button
+          class="s-footer__newsletter-submit"
+          type="submit"
+        >
+          {% render "icons", icon: "chewron-right" %}
+        </button>
+        </div>
+      {% endform %}
+    </div>
+  {% endfor %}
+
+  <div class="s-footer__bottom">
+    {% if section.settings.copyright_text != blank %}
+      <div class="s-footer__copyright">
+        {% assign year = "now" | date: "%Y" %}
+        {{ section.settings.copyright_text | replace: "%year%", year }}
+      </div>
+    {% endif %}
+
+    {% if footer_images.size > 0 %}
+      <div class="s-footer__bottom-images">
+        {% for block in footer_images %}
+          {% if block.settings.image != blank %}
+            <div class="s-footer__bottom-image">
+              {% render "image-lazy", image: block.settings.image %}
+            </div>
+          {% endif %}
+        {% endfor %}
+      </div>
+    {% endif %}
+
+    <div class="s-footer__localization-wrapper">
+      {% render "language-switcher", class: "s-footer__locales" %}
+      {% render "language-switcher", class: "s-footer__locales", type: "country" %}
+    </div>
+
+    <div class="s-footer__payments">
+      {%- if shop.enabled_payment_types != blank -%}
+        {%- for type in shop.enabled_payment_types -%}
+          <figure>{{ type | payment_type_svg_tag: class: 'payment-icons__icon' }}</figure>
+        {%- endfor -%}
+      {%- endif -%}
+    </div>
+  </div>
+</s-footer>
+
+{% schema %}
+{
+  "name": "Footer",
+  "class": "section-footer",
+  "tag": "footer",
+  "presets": [
+    {
+      "name": "Footer",
+      "blocks": {
+        "image_PEW7gR": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/image_6_1.png"
+          }
+        },
+        "image_TRQReM": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/astm_1.svg"
+          }
+        }
+      },
+      "block_order": [
+        "image_PEW7gR",
+        "image_TRQReM"
+      ],
+      "settings": {
+        "mobile_top_paddings": 48,
+        "mobile_bottom_paddings": 48,
+        "desktop_top_paddings": 68,
+        "desktop_bottom_paddings": 40,
+        "logo": "shopify:\/\/shop_images\/Full-logo-dark_d8e12012-341e-462d-97ce-bee354aad407.png",
+        "show_media": true,
+        "media_title": "Follow Us",
+        "show_contact": true,
+        "contact_title": "Contact Us",
+        "address": "<p>2967 Dundas St. W. #334D<br\/>Toronto, ON M6P 1Z2<\/p>",
+        "phone_title": "+1 (866) 515-MIGO (6446)",
+        "phone_url": "tel:+1 (866) 515-(6446)",
+        "mail_title": "info@spamigo.com",
+        "mail_url": "mailto:info@spamigo.com",
+        "custom_link_text": "Contact Us",
+        "custom_link_url": "shopify:\/\/pages\/contact",
+        "footer_menu": "new-footer-menu",
+        "copyright_text": "<p>© %year% Spa-Migo Hot Tub Covers, All rights reserved. <a href=\"https:\/\/teplin.agency\/\" target=\"_blank\">Site by Teplin<\/a><\/p>"
+      }
+    }
+  ],
+  "settings": [
+    {
+      "type": "header",
+      "content": "Section Settings"
+    },
+    {
+      "type": "range",
+      "id": "mobile_top_paddings",
+      "label": "Mobile Top Paddings",
+      "min": 10,
+      "max": 100,
+      "step": 2,
+      "default": 48,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "mobile_bottom_paddings",
+      "label": "Mobile Bottom Paddings",
+      "min": 10,
+      "max": 100,
+      "step": 2,
+      "default": 48,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "desktop_top_paddings",
+      "label": "Desktop Top Paddings",
+      "min": 10,
+      "max": 140,
+      "step": 2,
+      "default": 68,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "desktop_bottom_paddings",
+      "label": "Desktop Bottom Paddings",
+      "min": 0,
+      "max": 120,
+      "step": 2,
+      "default": 40,
+      "unit": "px"
+    },
+    {
+      "type": "image_picker",
+      "id": "logo",
+      "label": "Select Logo"
+    },
+    {
+      "type": "header",
+      "content": "Social Media Settings"
+    },
+    {
+      "type": "checkbox",
+      "default": true,
+      "label": "Show Social Media",
+      "id": "show_media",
+    },
+    {
+      "type": "text",
+      "id": "media_title",
+      "label": "Enter Media Title",
+      "default": "Follow Us",
+    },
+    {
+      "type": "header",
+      "content": "Menu Settings"
+    },
+    {
+      "type": "checkbox",
+      "default": true,
+      "label": "Show Contact Column",
+      "id": "show_contact",
+    },
+    {
+      "type": "text",
+      "id": "contact_title",
+      "label": "Enter Contact Title",
+      "default": "Contact Us"
+    },
+    {
+      "type": "richtext",
+      "id": "address",
+      "label": "Enter Address",
+      "default": "<p>2967 Dundas St. W. #334D<br>Toronto, ON M6P 1Z2</p>"
+    },
+    {
+      "type": "text",
+      "id": "phone_title",
+      "label": "Enter Phone Label",
+      "default": "+1 (866) 515-MIGO (6446)"
+    },
+    {
+      "type": "url",
+      "id": "phone_url",
+      "label": "Enter Phone URL",
+    },
+    {
+      "type": "text",
+      "id": "mail_title",
+      "label": "Enter Mail Label",
+      "default": "info@spamigo.com"
+    },
+    {
+      "type": "url",
+      "id": "mail_url",
+      "label": "Enter Mail URL",
+    },
+    {
+      "type": "text",
+      "default": "Contact Us",
+      "id": "custom_link_text",
+      "label": "Custom Link Text"
+    },
+    {
+      "type": "url",
+      "id": "custom_link_url",
+      "label": "Custom Link Text"
+    },
+    {
+      "type": "link_list",
+      "id": "footer_menu",
+      "label": "Select Footer Menu"
+    },
+    {
+      "type": "header",
+      "content": "Footer Bottom Settings"
+    },
+    {
+      "type": "richtext",
+      "id": "copyright_text",
+      "label": "Enter Copyright Text",
+      "default": "<p>© %year% Spa-Migo Hot Tub Covers, All rights reserved. <a target='_blank' href='https:\/\/teplin.agency/'>Site by Teplin</a></p>",
+      "info": "Use variable %year% for showing current year"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "image",
+      "name": "Footer Image",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Select Image"
+        }
+      ]
+    },
+    {
+      "type": "newsletter",
+      "name": "Newsletter",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Enter Title",
+          "default": "Receive 15% off your first order"
+        },
+        {
+          "type": "text",
+          "id": "description",
+          "label": "Enter Description",
+          "default": "Subscribe to get exclusive offers, new products, news, and more. You may find hidden discounts on the products you need!"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
