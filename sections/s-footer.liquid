@@ -18,7 +18,7 @@
 
 {% liquid
   assign footer_images = section.blocks | where: "type", "image"
-
+  assign newsletters = section.blocks | where: "type", "newsletter"
 %}
 
 <s-footer class="s-footer container-m">
@@ -58,7 +58,7 @@
         <details class="s-footer__details js-footer__details" open>
           <summary>
             {{ section.settings.contact_title }} 
-            {% render "icon-chevron" %}
+            {% render "icons", icon: "chevron" %}
           </summary>
 
           <ul class="s-footer__link-list">
@@ -71,7 +71,7 @@
             {% if section.settings.phone_title != blank and section.settings.phone_url != blank %}
               <li>
                 <a class="s-footer__link-contact" href="{{section.settings.phone_url }}">
-                  {% render "icon-phone" %}
+                  {% render "icons", icon: "phone" %}
                   {{ section.settings.phone_title }}
                 </a>
               </li>
@@ -80,7 +80,7 @@
             {% if section.settings.mail_title != blank and section.settings.mail_url != blank %}
               <li>
                 <a class="s-footer__link-contact" href="{{section.settings.mail_url }}">
-                  {% render "icon-mail" %}
+                  {% render "icons", icon: "mail" %}
                   {{ section.settings.mail_title }}
                 </a>
               </li>
@@ -103,7 +103,7 @@
       <details class="s-footer__details js-footer__details" {% if section.settings.show_contact == false and forloop.first %}open{% endif %}>
         <summary>
           {{ link_list.title }} 
-          {% render "icon-chevron" %}
+          {% render "icons", icon: "chevron" %}
         </summary>
 
         <ul class="s-footer__link-list">
@@ -118,6 +118,48 @@
       </details>
     {% endfor %}
   </div>
+
+  {% for block in newsletters %}
+    <div class="s-footer__newsletter">
+      {% if block.settings.title != blank %}
+        <h2 class="s-footer__newsletter-title">
+          {{ block.settings.title }}
+        </h2>
+      {% endif %}
+
+      {% if block.settings.description != blank %}
+        <div class="s-footer__newsletter-description">
+          {{ block.settings.description }}
+        </div>
+      {% endif %}
+
+      {% form 'customer', class: 's-footer__newsletter-form', tags: 'newsletter' %}
+        <div class="s-footer__newsletter-field">
+        <input
+          class="s-footer__newsletter-email"
+          type="email"
+          name="contact[email]"
+          required
+          placeholder="{{ "sections.s-footer.email_placeholder" | t }}"
+        >
+        <input
+          type="hidden"
+          required
+          aria-required="true"
+          id="formCheckbox"
+          value="true"
+        >
+
+        <button
+          class="s-footer__newsletter-submit"
+          type="submit"
+        >
+          {% render "icons", icon: "chewron-right" %}
+        </button>
+        </div>
+      {% endform %}
+    </div>
+  {% endfor %}
 
   <div class="s-footer__bottom">
     {% if section.settings.copyright_text != blank %}
@@ -349,6 +391,25 @@
           "type": "image_picker",
           "id": "image",
           "label": "Select Image"
+        }
+      ]
+    },
+    {
+      "type": "newsletter",
+      "name": "Newsletter",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Enter Title",
+          "default": "Receive 15% off your first order"
+        },
+        {
+          "type": "text",
+          "id": "description",
+          "label": "Enter Description",
+          "default": "Subscribe to get exclusive offers, new products, news, and more. You may find hidden discounts on the products you need!"
         }
       ]
     }

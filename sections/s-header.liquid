@@ -8,12 +8,12 @@
   <div class="s-header__wrapper">
     <div class="s-header__mobile-buttons">
       <button type="button" class="s-header__burger-button js-header__burger-button" aria-label="Toggle menu">
-        {% render "icon-burger" %}
-        {% render "icon-burger-close" %}
+        {% render "icons", icon: "burger" %}
+        {% render "icons", icon: "burger-close" %}
       </button>
 
       <button type="button" class="s-header__search-button js-header__search-button" aria-label="Search">
-        {% render "icon-search" %}
+        {% render "icons", icon: "search" %}
       </button>
     </div>
 
@@ -41,7 +41,7 @@
           {% if first_deep_link.links.size > 0 %} 
             <div class="s-header__linklist-link s-header__linklist-link--hover" tabindex="0" role="button" aria-haspopup="true" aria-expanded="false">
               {{ first_deep_link.title }} 
-              {% render "icon-chevron" %}
+              {% render "icons", icon: "chevron" %}
             </div>
             <div class="s-header__megamenu" role="menu">
               <div class="s-header__megamenu-content">
@@ -79,7 +79,7 @@
                       {% if block.settings.button_text != blank %}
                         <div class="s-header__megamenu-card-link">
                           {{ block.settings.button_text }}
-                          {% render "icon-chevron" %}
+                          {% render "icons", icon: "chevron" %}
                         </div>
                       {% endif %}
                     </a>
@@ -100,16 +100,16 @@
       <form class="s-header__search-field" role="search">
         <input type="text" class="s-header__search-input js-header__search-input" placeholder="{{ "sections.header.search-placeholder" | t }}" aria-label="Search">
         <button type="submit" class="s-header__search-field-button js-header__search-button" aria-label="Submit search">
-          {% render "icon-search" %}
+          {% render "icons", icon: "search" %}
         </button>
       </form>
 
       <a class="s-header__account" href="{{ routes.account_url }}" aria-label="Account">
-        {% render "icon-account" %}
+        {% render "icons", icon: "account" %}
       </a>
 
       <button type="button" class="s-header__cart-button" aria-label="Cart">
-        {% render "icon-cart" %}
+        {% render "icons", icon: "cart" %}
         <span>
           {{ cart.item_count }}
         </span>

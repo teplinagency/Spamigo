@@ -308,4 +308,110 @@
       justify-self: end;
     }
   }
+
+  &__newsletter {
+    padding: 28px;
+    border-radius: 32px;
+    background-color: #ffffff0a;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 8px;
+
+    @media (min-width: 768px) {
+      grid-template-columns: 500px 1fr;
+      column-gap: 20px;
+    }
+  }
+
+  &__newsletter-title {
+    color: var(--white);
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    margin: 0;
+  }
+
+  &__newsletter-description {
+    color: var(--grey-3);
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%;
+    margin-bottom: 16px;
+
+    @media (min-width: 768px) {
+      margin-bottom: 0;
+    }
+  }
+
+  &__newsletter-form {
+    @media (min-width: 768px) {
+      max-width: 500px;
+      width: 80%;
+      grid-column: 2/3;
+      grid-row: 1/3;
+      justify-self: end;
+      align-self: center;
+    }
+  }
+
+  &__newsletter-field {
+    background-color: var(--white);
+    border-radius: 18px;
+    border: 4px solid var(--white);
+    position: relative;
+    padding: 16px 60px 16px 16px;
+  }
+
+  &__newsletter-email:is(input[type="email"]) {
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 130%;
+    letter-spacing: .7px;
+    color: var(--black)!important;
+    background: transparent;
+    width: 100%;
+    height: auto;
+    outline: none;
+    border: none;
+    padding: 0;
+    margin: 0;
+
+    &:-webkit-autofill,
+    &:-webkit-autofill:hover,
+    &:-webkit-autofill:focus,
+    &:-webkit-autofill:active {
+        transition: background-color 5000s ease-in-out 0s;
+        -webkit-text-fill-color: var(--black)!important;
+    }
+
+    &::placeholder {
+      color: var(--grey-2);
+      text-transform: uppercase;
+    }
+  }
+
+  &__newsletter-submit {
+    position: absolute;
+    right: 0px;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: var(--deep-blue);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 18px;
+    border-radius: 18px;
+
+    & svg {
+      width: 22px;
+      height: auto;
+    }
+
+    &:hover {
+      background-color: var(--black);
+    }
+  }
 }

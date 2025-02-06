@@ -9,7 +9,7 @@
               <summary aria-label="Open submenu {{ first_deep_link.title }}">
                 {{ first_deep_link.title }}
 
-                {% render "icon-chevron" %}
+                {% render "icons", icon: "chevron" %}
               </summary>
 
               <div class="c-mobile-menu__content">
@@ -58,7 +58,7 @@
               {% if block.settings.button_text != blank %}
                 <div class="c-mobile-menu__card-link">
                   {{ block.settings.button_text }}
-                  {% render "icon-chevron" %}
+                  {% render "icons", icon: "chevron" %}
                 </div>
               {% endif %}
             </div>

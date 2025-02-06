@@ -198,6 +198,9 @@
     }
   },
   "sections": {
+    "s-footer": {
+      "email_placeholder": "what’s your email?"
+    },
     "header": {
       "search-placeholder": "Search product or product code...",
       "search": "Search",
