@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "current": {
     "heading_font": "helvetica_n7",
@@ -40,9 +49,9 @@
     "block_border_radius": 4,
     "button_border_radius": 4,
     "input_border_radius": 4,
-    "social_facebook_link": "https:\/\/www.facebook.com\/profile.php?id=61558060923695",
+    "social_facebook_link": "https://www.facebook.com/profile.php?id=61558060923695",
     "social_twitter_link": "",
-    "social_instagram_link": "https:\/\/www.instagram.com\/spamigo_com\/",
+    "social_instagram_link": "https://www.instagram.com/spamigo_com/",
     "social_tiktok_link": "",
     "product_card_spacing": "medium",
     "product_content_alignment": "center",
@@ -81,27 +90,27 @@
     "currency_code_enabled": true,
     "lazy_loading": true,
     "custom_html_head": "",
-    "favicon": "shopify:\/\/shop_images\/Copy_of_spamigo_400_x_400_px_1.svg",
+    "favicon": "shopify://shop_images/Copy_of_spamigo_400_x_400_px_1.svg",
     "search_product_list": [],
     "content_for_index": [],
     "blocks": {
       "4015264832934714879": {
-        "type": "shopify:\/\/apps\/ecomsend-popups\/blocks\/app\/a5670cf8-5705-4b01-ad9e-447033feae26",
+        "type": "shopify://apps/ecomsend-popups/blocks/app/a5670cf8-5705-4b01-ad9e-447033feae26",
         "disabled": false,
         "settings": {}
       },
       "3720565183479497137": {
-        "type": "shopify:\/\/apps\/globo-product-option\/blocks\/app-embed-block\/fdc9fad5-1a0f-4bd4-9c8a-1af6a6eef6b8",
+        "type": "shopify://apps/globo-product-option/blocks/app-embed-block/fdc9fad5-1a0f-4bd4-9c8a-1af6a6eef6b8",
         "disabled": false,
         "settings": {}
       },
       "11532412952436166569": {
-        "type": "shopify:\/\/apps\/loox-reviews\/blocks\/loox-inject\/5c3b337f-fd14-4df5-b1d6-80ec13e6e28e",
+        "type": "shopify://apps/loox-reviews/blocks/loox-inject/5c3b337f-fd14-4df5-b1d6-80ec13e6e28e",
         "disabled": false,
         "settings": {}
       },
       "15683396631634586217": {
-        "type": "shopify:\/\/apps\/inbox\/blocks\/chat\/841fc607-4181-4ad1-842d-e24d7f8bad6b",
+        "type": "shopify://apps/inbox/blocks/chat/841fc607-4181-4ad1-842d-e24d7f8bad6b",
         "disabled": false,
         "settings": {
           "button_color": "#e97f32",
@@ -115,7 +124,7 @@
         }
       },
       "11468047240823483236": {
-        "type": "shopify:\/\/apps\/sezzle-widget\/blocks\/checkout-embed\/f3a53793-e118-4764-a86b-a79bfedb0d5f",
+        "type": "shopify://apps/sezzle-widget/blocks/checkout-embed/f3a53793-e118-4764-a86b-a79bfedb0d5f",
         "disabled": false,
         "settings": {
           "heading": "Sezzle Checkout Button",
@@ -130,7 +139,7 @@
         }
       },
       "12608439564960700138": {
-        "type": "shopify:\/\/apps\/sezzle-widget\/blocks\/widget-embed\/f3a53793-e118-4764-a86b-a79bfedb0d5f",
+        "type": "shopify://apps/sezzle-widget/blocks/widget-embed/f3a53793-e118-4764-a86b-a79bfedb0d5f",
         "disabled": false,
         "settings": {
           "heading": "Sezzle Widget",
@@ -139,42 +148,42 @@
         }
       },
       "11104565113590962351": {
-        "type": "shopify:\/\/apps\/tinyseo-seo-speed\/blocks\/article-json-ld-embed\/0605268f-f7c4-4e95-b560-e43df7d59ae4",
+        "type": "shopify://apps/tinyseo-seo-speed/blocks/article-json-ld-embed/0605268f-f7c4-4e95-b560-e43df7d59ae4",
         "disabled": false,
         "settings": {}
       },
       "15154131639906026026": {
-        "type": "shopify:\/\/apps\/tinyseo-seo-speed\/blocks\/broken-link-embed\/0605268f-f7c4-4e95-b560-e43df7d59ae4",
+        "type": "shopify://apps/tinyseo-seo-speed/blocks/broken-link-embed/0605268f-f7c4-4e95-b560-e43df7d59ae4",
         "disabled": false,
         "settings": {}
       },
       "2353461558643755616": {
-        "type": "shopify:\/\/apps\/tinyseo-seo-speed\/blocks\/breadcrumbs-json-ld-embed\/0605268f-f7c4-4e95-b560-e43df7d59ae4",
+        "type": "shopify://apps/tinyseo-seo-speed/blocks/breadcrumbs-json-ld-embed/0605268f-f7c4-4e95-b560-e43df7d59ae4",
         "disabled": false,
         "settings": {}
       },
       "1369284949797581044": {
-        "type": "shopify:\/\/apps\/tinyseo-seo-speed\/blocks\/collection-json-ld-embed\/0605268f-f7c4-4e95-b560-e43df7d59ae4",
+        "type": "shopify://apps/tinyseo-seo-speed/blocks/collection-json-ld-embed/0605268f-f7c4-4e95-b560-e43df7d59ae4",
         "disabled": false,
         "settings": {}
       },
       "14971748854670876780": {
-        "type": "shopify:\/\/apps\/tinyseo-seo-speed\/blocks\/product-json-ld-embed\/0605268f-f7c4-4e95-b560-e43df7d59ae4",
+        "type": "shopify://apps/tinyseo-seo-speed/blocks/product-json-ld-embed/0605268f-f7c4-4e95-b560-e43df7d59ae4",
         "disabled": false,
         "settings": {}
       },
       "1360768219604461044": {
-        "type": "shopify:\/\/apps\/tinyseo-seo-speed\/blocks\/store-json-ld-embed\/0605268f-f7c4-4e95-b560-e43df7d59ae4",
+        "type": "shopify://apps/tinyseo-seo-speed/blocks/store-json-ld-embed/0605268f-f7c4-4e95-b560-e43df7d59ae4",
         "disabled": false,
         "settings": {}
       },
       "11089864892113081655": {
-        "type": "shopify:\/\/apps\/tinyseo-seo-speed\/blocks\/website-json-ld-embed\/0605268f-f7c4-4e95-b560-e43df7d59ae4",
+        "type": "shopify://apps/tinyseo-seo-speed/blocks/website-json-ld-embed/0605268f-f7c4-4e95-b560-e43df7d59ae4",
         "disabled": false,
         "settings": {}
       },
       "16936614187718193802": {
-        "type": "shopify:\/\/apps\/multifeeds\/blocks\/app_embed\/f3e7ca1d-2d5a-45a7-97dd-2fd45843acef",
+        "type": "shopify://apps/multifeeds/blocks/app_embed/f3e7ca1d-2d5a-45a7-97dd-2fd45843acef",
         "disabled": false,
         "settings": {}
       }
