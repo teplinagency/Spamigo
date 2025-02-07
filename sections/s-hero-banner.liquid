@@ -1,0 +1,647 @@
+{{ "section-hero-banner.css" | asset_url | stylesheet_tag }}
+<script src="{{ "section-hero-banner.js" | asset_url }}" defer></script>
+
+{% style %}
+#shopify-section-{{ section.id }} .s-hero-banner {
+  height: {{ section.settings.mobile_height }}px;
+}
+
+#shopify-section-{{ section.id }} .s-hero-banner__slide{
+  padding-top: {{ section.settings.padding-top-mobile }}px;
+  padding-bottom: {{ section.settings.padding-bottom-mobile }}px;
+}
+
+@media (min-width: 768px) {
+  #shopify-section-{{ section.id }} .s-hero-banner {
+    height: {{ section.settings.desktop_height }}px;
+  }
+
+  #shopify-section-{{ section.id }} .s-hero-banner__slide{
+    padding-top: {{ section.settings.padding-top }}px;
+    padding-bottom: {{ section.settings.padding-bottom }}px;
+  }
+}
+{% endstyle %}
+
+<s-hero-banner class="s-hero-banner swiper {% if section.settings.full_width == false %}container-l{% endif %} {% if section.index0 == 0 %}js-hero-banner--to-top{% endif %}">
+  <div class="s-hero-banner__wrapper swiper-wrapper">
+    {% for block in section.blocks %}
+      <div class="swiper-slide s-hero-banner__slide s-hero-banner__slide--{{- block.id }}" {{ block.shopify_attributes }}>
+        {% style %}
+          #shopify-section-{{ section.id }} .s-hero-banner__slide--{{- block.id }} .s-hero-banner__slide-container {
+            display: flex;
+            justify-content: {{ block.settings.align }};
+            align-items: center;
+            width: 100%;
+            height: 100%;
+            text-align: {{ block.settings.align }};
+          }
+
+          #shopify-section-{{ section.id }} .s-hero-banner__slide--{{- block.id }} .s-hero-banner__slide-wrapper {
+            display: flex;
+            align-items: {{ block.settings.align }};
+            max-width: {{ block.settings.max-width }}px;
+          }
+
+          #shopify-section-{{ section.id }} .s-hero-banner__slide--{{- block.id }} .s-hero-banner__slide-tag {
+            color: {{ block.settings.tag_color }};
+            background: {{ block.settings.tag_bg }};
+          }
+
+          #shopify-section-{{ section.id }} .s-hero-banner__slide--{{- block.id }} .s-hero-banner__slide-title {
+            color: {{ block.settings.title_color }};
+          }
+
+          #shopify-section-{{ section.id }} .s-hero-banner__slide--{{- block.id }} .s-hero-banner__slide-description {
+            color: {{ block.settings.description_color }};
+          }
+
+          #shopify-section-{{ section.id }} .s-hero-banner__slide--{{- block.id }} .s-hero-banner__slide-primary-btn {
+            background: {{ block.settings.primary_btn_bg }};
+            color: {{ block.settings.primary_btn_color }};
+          }
+
+          #shopify-section-{{ section.id }} .s-hero-banner__slide--{{- block.id }} .s-hero-banner__slide-primary-btn svg path {
+            fill: {{ block.settings.primary_btn_color }};
+          }
+
+          #shopify-section-{{ section.id }} .s-hero-banner__slide--{{- block.id }} .s-hero-banner__slide-primary-btn:hover {
+            background: {{ block.settings.primary_btn_color }};
+            color: {{ block.settings.primary_btn_bg }};
+          }
+
+          #shopify-section-{{ section.id }} .s-hero-banner__slide--{{- block.id }} .s-hero-banner__slide-primary-btn:hover svg path {
+            fill: {{ block.settings.primary_btn_bg }};
+          }
+
+          #shopify-section-{{ section.id }} .s-hero-banner__slide--{{- block.id }} .s-hero-banner__slide-secondary-btn {
+            background: {{ block.settings.secondary_btn_bg }};
+            color: {{ block.settings.secondary_btn_color }};
+          }
+
+          #shopify-section-{{ section.id }} .s-hero-banner__slide--{{- block.id }} .s-hero-banner__slide-secondary-btn svg path {
+            fill: {{ block.settings.secondary_btn_color }};
+          }
+
+          #shopify-section-{{ section.id }} .s-hero-banner__slide--{{- block.id }} .s-hero-banner__slide-secondary-btn:hover {
+            background: {{ block.settings.secondary_btn_color }};
+            color: {{ block.settings.secondary_btn_bg }};
+          }
+
+          #shopify-section-{{ section.id }} .s-hero-banner__slide--{{- block.id }} .s-hero-banner__slide-secondary-btn:hover svg path {
+            fill: {{ block.settings.secondary_btn_bg }};
+          }
+
+        {% endstyle %}
+
+        {% assign image_desktop = block.settings.background_desktop %}
+        {% assign image_mobile = block.settings.background_mobile | default: image_desktop %}
+        
+        <div class="s-hero-banner__slide-image">
+          {% if image_desktop != blank %}
+            {% if section.index0 == 0 and forloop.index0 == 0 %}
+              {% render "image", image: image_desktop, class: "s-hero-banner__image-desktop" %}
+              {% render "image", image: image_mobile, class: "s-hero-banner__image-mobile" %}
+            {% else %}
+              {% render "image-lazy", image: image_desktop, class: "s-hero-banner__image-desktop" %}
+              {% render "image-lazy", image: image_mobile, class: "s-hero-banner__image-mobile" %}
+            {% endif %}
+          {% endif %}
+        </div>
+
+        <div class="s-hero-banner__slide-container container-m">
+          <div class="s-hero-banner__slide-wrapper">
+            {% if block.settings.tag_text != blank %}
+              <div class="s-hero-banner__slide-tag">
+                {% render "icons", icon: block.settings.tag_icon %}
+                {{ block.settings.tag_text }}
+              </div>
+            {% endif %}
+
+            {% if block.settings.title != blank %}
+              {% if section.index0 == 0 %}
+                <h1 class="s-hero-banner__slide-title">
+                  {{ block.settings.title }}
+                </h1>
+              {% else %}
+                <h2 class="s-hero-banner__slide-title">
+                  {{ block.settings.title }}
+                </h2>
+              {% endif %}
+            {% endif %}
+
+            {% if block.settings.description != blank %}
+              <div class="s-hero-banner__slide-description">
+                {{ block.settings.description }}
+              </div>
+            {% endif %}
+
+            <div class="s-hero-banner__slide-buttons">
+              {% if block.settings.primary_btn_text != blank and block.settings.secondary_btn_url != blank %}
+                <a class="s-hero-banner__slide-primary-btn" href="{{ block.settings.primary_btn_url }}">
+                  {{ block.settings.primary_btn_text }}
+
+                  {% if block.settings.show_chewron == true %}
+                    {% render "icons", icon: "chewron-right" %}
+                  {% endif %}
+                </a>
+              {% endif %}
+
+              {% if block.settings.secondary_btn_text != blank and block.settings.secondary_btn_url != blank %}
+                <a class="s-hero-banner__slide-secondary-btn" href="{{ block.settings.secondary_btn_url }}">
+                  {% render "icons", icon: block.settings.secondary_btn_icon %}
+                  {{ block.settings.secondary_btn_text }}
+                </a>
+              {% endif %}
+            </div>
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+</s-hero-banner>
+
+{% schema %}
+{
+  "name": "Section Hero Banner",
+  "class": "section-hero-banner",
+  "presets": [
+    {
+      "name": "Section Hero Banner"
+    }
+  ],
+  "settings": [
+    {
+      "type": "range",
+      "id": "padding-top",
+      "min": 0,
+      "max": 200,
+      "step": 10,
+      "unit": "px",
+      "label": "Padding top",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding-bottom",
+      "min": 0,
+      "max": 200,
+      "step": 10,
+      "unit": "px",
+      "label": "Padding bottom",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding-top-mobile",
+      "min": 0,
+      "max": 200,
+      "step": 10,
+      "unit": "px",
+      "label": "Padding top mobile",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding-bottom-mobile",
+      "min": 0,
+      "max": 200,
+      "step": 10,
+      "unit": "px",
+      "label": "Padding bottom mobile",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "mobile_height",
+      "min": 500,
+      "step": 50,
+      "max": 1000,
+      "label": "Height Mobile",
+      "default": 600,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "desktop_height",
+      "min": 500,
+      "step": 50,
+      "max": 1000,
+      "label": "Height Desktop",
+      "default": 800,
+      "unit": "px"
+    },
+    {
+      "type": "checkbox",
+      "id": "full_width",
+      "label": "Full Width Banner",
+      "default": true
+    }
+  ],
+  "blocks": [
+    {
+      "type": "slide",
+      "name": "Slide",
+      "settings": [
+        {
+          "type": "select",
+          "id": "align",
+          "options": [
+            {
+              "label": "Left",
+              "value": "left"
+            },
+            {
+              "label": "Center",
+              "value": "center"
+            },
+            {
+              "label": "Right",
+              "value": "right"
+            }
+          ],
+          "default": "left",
+          "label": "Select Align"
+        },
+        {
+          "type": "range",
+          "id": "max-width",
+          "min": 200,
+          "step": 50,
+          "max": 1000,
+          "label": "Contetn Max Width",
+          "default": 600,
+          "unit": "px"
+        },
+        {
+          "type": "image_picker",
+          "id": "background_mobile",
+          "label": "Background Mobile"
+        },
+        {
+          "type": "image_picker",
+          "id": "background_desktop",
+          "label": "Desktop Mobile"
+        },
+        {
+          "type": "header",
+          "content": "Tag Settings"
+        },
+        {
+          "type": "text",
+          "id": "tag_text",
+          "default": "Winter",
+          "label": "Enter Tag"
+        },
+        {
+          "type": "select",
+          "id": "tag_icon",
+          "label": "Select Icon",
+          "options": [
+            {
+              "label": "None",
+              "value": "none"
+            },
+            {
+              "label": "Snowflake",
+              "value": "snowflake"
+            },
+            {
+              "label": "Light Bulb",
+              "value": "light_bulb"
+            }
+          ]
+        },
+        {
+          "type": "color",
+          "id": "tag_bg",
+          "label": "Tag Background",
+          "default": "#E26060"
+        },
+        {
+          "type": "color",
+          "id": "tag_color",
+          "label": "Tag Color",
+          "default": "#FFFFFF"
+        },
+        {
+          "type": "header",
+          "content": "Title Settings"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Enter Title",
+          "default": "Durable, Stylish, and Energy-Saving Hot Tub Covers"
+        },
+        {
+          "type": "select",
+          "id": "title_color",
+          "label": "Select Color",
+          "options": [
+            {
+              "label": "White",
+              "value": "var(--white)"
+            },
+            {
+              "label": "Black",
+              "value": "var(--black)"
+            },
+            {
+              "label": "Deep Blue",
+              "value": "var(--deep-blue)"
+            },
+            {
+              "label": "Light Blue",
+              "value": "var(--light-blue)"
+            },
+            {
+              "label": "Grey 1",
+              "value": "var(--grey-1)"
+            },
+            {
+              "label": "Grey 2",
+              "value": "var(--grey-2)"
+            },
+            {
+              "label": "Grey 3",
+              "value": "var(--grey-3)"
+            },
+            {
+              "label": "Background",
+              "value": "var(--background)"
+            }
+          ],
+          "default": "var(--white)"
+        },
+        {
+          "type": "header",
+          "content": "Description Settings"
+        },
+        {
+          "type": "text",
+          "id": "description",
+          "label": "Enter Description",
+          "default": "High-quality, weather-resistant covers designed to keep your hot tub clean, energy-efficient, and ready for relaxation all year round."
+        },
+        {
+          "type": "select",
+          "id": "description_color",
+          "label": "Select Color",
+          "options": [
+            {
+              "label": "White",
+              "value": "var(--white)"
+            },
+            {
+              "label": "Black",
+              "value": "var(--black)"
+            },
+            {
+              "label": "Deep Blue",
+              "value": "var(--deep-blue)"
+            },
+            {
+              "label": "Light Blue",
+              "value": "var(--light-blue)"
+            },
+            {
+              "label": "Grey 1",
+              "value": "var(--grey-1)"
+            },
+            {
+              "label": "Grey 2",
+              "value": "var(--grey-2)"
+            },
+            {
+              "label": "Grey 3",
+              "value": "var(--grey-3)"
+            },
+            {
+              "label": "Background",
+              "value": "var(--background)"
+            }
+          ],
+          "default": "var(--white)"
+        },
+        {
+          "type": "header",
+          "content": "Primary Button Settings"
+        },
+        {
+          "type": "checkbox",
+          "id": "show_chewron",
+          "default": true,
+          "label": "Show Chewron"
+        },
+        {
+          "type": "url",
+          "id": "primary_btn_url",
+          "label": "Enter Primary Button URL"
+        },
+        {
+          "type": "text",
+          "id": "primary_btn_text",
+          "label": "Enter Primary Button Text",
+          "default": "Shop Hot Tub Covers"
+        },
+        {
+          "type": "select",
+          "id": "primary_btn_bg",
+          "label": "Select Background",
+          "options": [
+            {
+              "label": "White",
+              "value": "var(--white)"
+            },
+            {
+              "label": "Black",
+              "value": "var(--black)"
+            },
+            {
+              "label": "Deep Blue",
+              "value": "var(--deep-blue)"
+            },
+            {
+              "label": "Light Blue",
+              "value": "var(--light-blue)"
+            },
+            {
+              "label": "Grey 1",
+              "value": "var(--grey-1)"
+            },
+            {
+              "label": "Grey 2",
+              "value": "var(--grey-2)"
+            },
+            {
+              "label": "Grey 3",
+              "value": "var(--grey-3)"
+            },
+            {
+              "label": "Background",
+              "value": "var(--background)"
+            }
+          ],
+          "default": "var(--black)"
+        },
+        {
+          "type": "select",
+          "id": "primary_btn_color",
+          "label": "Select Color",
+          "options": [
+            {
+              "label": "White",
+              "value": "var(--white)"
+            },
+            {
+              "label": "Black",
+              "value": "var(--black)"
+            },
+            {
+              "label": "Deep Blue",
+              "value": "var(--deep-blue)"
+            },
+            {
+              "label": "Light Blue",
+              "value": "var(--light-blue)"
+            },
+            {
+              "label": "Grey 1",
+              "value": "var(--grey-1)"
+            },
+            {
+              "label": "Grey 2",
+              "value": "var(--grey-2)"
+            },
+            {
+              "label": "Grey 3",
+              "value": "var(--grey-3)"
+            },
+            {
+              "label": "Background",
+              "value": "var(--background)"
+            }
+          ],
+          "default": "var(--white)"
+        },
+        {
+          "type": "header",
+          "content": "Secondary Button Settings"
+        },
+        {
+          "type": "select",
+          "id": "secondary_btn_icon",
+          "label": "Select Icon",
+          "options": [
+            {
+              "label": "None",
+              "value": "none"
+            },
+            {
+              "label": "Phone",
+              "value": "phone"
+            },
+            {
+              "label": "e-Mail",
+              "value": "mail"
+            }
+          ],
+          "default": "none"
+        },
+        {
+          "type": "url",
+          "id": "secondary_btn_url",
+          "label": "Enter Secondary Button URL"
+        },
+        {
+          "type": "text",
+          "id": "secondary_btn_text",
+          "label": "Enter Secondary Button Text",
+          "default": "Shop Hot Tub Covers"
+        },
+        {
+          "type": "select",
+          "id": "secondary_btn_bg",
+          "label": "Select Background",
+          "options": [
+            {
+              "label": "White",
+              "value": "var(--white)"
+            },
+            {
+              "label": "Black",
+              "value": "var(--black)"
+            },
+            {
+              "label": "Deep Blue",
+              "value": "var(--deep-blue)"
+            },
+            {
+              "label": "Light Blue",
+              "value": "var(--light-blue)"
+            },
+            {
+              "label": "Grey 1",
+              "value": "var(--grey-1)"
+            },
+            {
+              "label": "Grey 2",
+              "value": "var(--grey-2)"
+            },
+            {
+              "label": "Grey 3",
+              "value": "var(--grey-3)"
+            },
+            {
+              "label": "Background",
+              "value": "var(--background)"
+            }
+          ],
+          "default": "var(--deep-blue)"
+        },
+        {
+          "type": "select",
+          "id": "secondary_btn_color",
+          "label": "Select Color",
+          "options": [
+            {
+              "label": "White",
+              "value": "var(--white)"
+            },
+            {
+              "label": "Black",
+              "value": "var(--black)"
+            },
+            {
+              "label": "Deep Blue",
+              "value": "var(--deep-blue)"
+            },
+            {
+              "label": "Light Blue",
+              "value": "var(--light-blue)"
+            },
+            {
+              "label": "Grey 1",
+              "value": "var(--grey-1)"
+            },
+            {
+              "label": "Grey 2",
+              "value": "var(--grey-2)"
+            },
+            {
+              "label": "Grey 3",
+              "value": "var(--grey-3)"
+            },
+            {
+              "label": "Background",
+              "value": "var(--background)"
+            }
+          ],
+          "default": "var(--white)"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
