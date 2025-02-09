@@ -299,6 +299,12 @@
         "id": "background",
         "label": "Background Color",
         "default": "#EDEFF2"
+      },
+      {
+        "type": "color",
+        "id": "bg-blue",
+        "label": "BG Blue",
+        "default": "#EDF3FF"
       }
     ]
   },

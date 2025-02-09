@@ -12,8 +12,8 @@
             "background_desktop": "shopify:\/\/shop_images\/Rectangle_4.png",
             "tag_text": "Winter Sale",
             "tag_icon": "snowflake",
-            "tag_bg": "#E26060",
-            "tag_color": "#FFFFFF",
+            "tag_bg": "#e26060",
+            "tag_color": "#ffffff",
             "title": "Durable, Stylish, and Energy-Saving Hot Tub Covers",
             "title_color": "var(--white)",
             "description": "High-quality, weather-resistant covers designed to keep your hot tub clean, energy-efficient, and ready for relaxation all year round.",
@@ -32,7 +32,7 @@
         }
       },
       "block_order": [
-        "slide_QgwYfV",
+        "slide_QgwYfV"
       ],
       "settings": {
         "padding-top": 200,
@@ -42,6 +42,135 @@
         "mobile_height": 600,
         "desktop_height": 800,
         "full_width": true
+      }
+    },
+    "s_benefits_YM48Uh": {
+      "type": "s-benefits",
+      "blocks": {
+        "slide_XzdCph": {
+          "type": "slide",
+          "settings": {
+            "title": "Black Pro-Tex",
+            "preview_image": "shopify:\/\/shop_images\/Ellipse_1_5.png",
+            "image": "shopify:\/\/shop_images\/cover_2.png"
+          }
+        },
+        "slide_ffR6HP": {
+          "type": "slide",
+          "settings": {
+            "title": "Black Pro-Tex",
+            "preview_image": "shopify:\/\/shop_images\/Ellipse_1_1.png",
+            "image": "shopify:\/\/shop_images\/cover_2.png"
+          }
+        },
+        "slide_aUnaNF": {
+          "type": "slide",
+          "settings": {
+            "title": "Black Pro-Tex",
+            "preview_image": "shopify:\/\/shop_images\/Ellipse_1.png",
+            "image": "shopify:\/\/shop_images\/cover_2.png"
+          }
+        },
+        "slide_8jXCej": {
+          "type": "slide",
+          "settings": {
+            "title": "Black Pro-Tex",
+            "preview_image": "shopify:\/\/shop_images\/Ellipse_1_2.png",
+            "image": "shopify:\/\/shop_images\/cover_2.png"
+          }
+        },
+        "slide_WKcNmT": {
+          "type": "slide",
+          "settings": {
+            "title": "Black Pro-Tex",
+            "preview_image": "shopify:\/\/shop_images\/Ellipse_1_4.png",
+            "image": "shopify:\/\/shop_images\/cover_2.png"
+          }
+        },
+        "slide_rxB6kA": {
+          "type": "slide",
+          "settings": {
+            "title": "Black Pro-Tex",
+            "preview_image": "shopify:\/\/shop_images\/Ellipse_1_3.png",
+            "image": "shopify:\/\/shop_images\/cover_2.png"
+          }
+        },
+        "benefit_j7AVKq": {
+          "type": "benefit",
+          "settings": {
+            "icon": "drop",
+            "icon_bg": "var(--bg-blue)",
+            "icon_color": "var(--deep-blue)",
+            "title": "Weatherproof",
+            "title_color": "var(--black)",
+            "description": "Protect your hot tub from rain, snow, and sun damage.",
+            "description_color": "var(--grey-2)"
+          }
+        },
+        "benefit_PMkrBU": {
+          "type": "benefit",
+          "settings": {
+            "icon": "custom_size",
+            "icon_bg": "var(--bg-blue)",
+            "icon_color": "var(--deep-blue)",
+            "title": "Custom Fit",
+            "title_color": "var(--black)",
+            "description": "Perfectly tailored covers for any size or shape.",
+            "description_color": "var(--grey-2)"
+          }
+        },
+        "benefit_NqeQnh": {
+          "type": "benefit",
+          "settings": {
+            "icon": "sun",
+            "icon_bg": "var(--bg-blue)",
+            "icon_color": "var(--deep-blue)",
+            "title": "Energy Efficient",
+            "title_color": "var(--black)",
+            "description": "Save money on heating costs with superior insulation.",
+            "description_color": "var(--grey-2)"
+          }
+        },
+        "benefit_dt9cyw": {
+          "type": "benefit",
+          "settings": {
+            "icon": "leaf",
+            "icon_bg": "var(--bg-blue)",
+            "icon_color": "var(--deep-blue)",
+            "title": "Durable & Long-Lasting",
+            "title_color": "var(--black)",
+            "description": "Built to last for years, no matter the weather.",
+            "description_color": "var(--grey-2)"
+          }
+        }
+      },
+      "block_order": [
+        "slide_XzdCph",
+        "slide_ffR6HP",
+        "slide_aUnaNF",
+        "slide_8jXCej",
+        "slide_WKcNmT",
+        "slide_rxB6kA",
+        "benefit_j7AVKq",
+        "benefit_PMkrBU",
+        "benefit_NqeQnh",
+        "benefit_dt9cyw"
+      ],
+      "settings": {
+        "padding-top": 70,
+        "padding-bottom": 70,
+        "padding-top-mobile": 70,
+        "padding-bottom-mobile": 50,
+        "title": "<p>Ultimate Protection for <strong>Your Hot Tub<\/strong>—Built to Last, Whatever the Weather!<\/p>",
+        "title_color": "var(--black)",
+        "accent_title_color": "var(--grey-1)",
+        "slider_bg": "var(--bg-blue)",
+        "tab_bg": "var(--white)",
+        "tab_color": "var(--black)",
+        "link_text": "Your Perfect Cover at $499.99",
+        "link_url": "#",
+        "link_bg": "var(--deep-blue)",
+        "link_color": "var(--white)"
       }
     },
     "s_hero_banner_ktDWnc_2": {
@@ -56,8 +185,8 @@
             "background_desktop": "shopify:\/\/shop_images\/Rectangle_4.png",
             "tag_text": "Tips & Guides",
             "tag_icon": "light_bulb",
-            "tag_bg": "#BDD4FB",
-            "tag_color": "#1B315A",
+            "tag_bg": "#bdd4fb",
+            "tag_color": "#1b315a",
             "title": "Easy Hot Tub Cover Measurement Guide",
             "title_color": "var(--white)",
             "description": "Use this guide to measure your hot tub cover! Our team ensures each spa cover is meticulously checked for quality and size match before shipping it to your home!",
@@ -76,7 +205,7 @@
         }
       },
       "block_order": [
-        "slide_QgwYfV",
+        "slide_QgwYfV"
       ],
       "settings": {
         "padding-top": 200,
@@ -867,6 +996,7 @@
   },
   "order": [
     "s_hero_banner_ktDWnc",
+    "s_benefits_YM48Uh",
     "s_hero_banner_ktDWnc_2",
     "8ba47ba3-de7f-4f0a-b30d-6f2a540748c3",
     "16620983071df6eb29",

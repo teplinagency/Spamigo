@@ -1,0 +1,788 @@
+{{ "section-benefits.css" | asset_url | stylesheet_tag }}
+<script src="{{ "section-benefits.js" | asset_url }}" defer></script>
+
+{% render "section-padding" %}
+
+{% style %}
+  #shopify-section-{{ section.id }} .s-benefits__title {
+    color: {{ section.settings.title_color }};
+  }
+
+  #shopify-section-{{ section.id }} .s-benefits__title b,
+  #shopify-section-{{ section.id }} .s-benefits__title strong{
+    color: {{ section.settings.accent_title_color }};
+  }
+
+  #shopify-section-{{ section.id }} .s-benefits__sliders {
+    background: {{ section.settings.slider_bg }};
+  }
+
+  #shopify-section-{{ section.id }} .s-benefits__thumbnail-slide.swiper-slide-thumb-active {
+    background: {{ section.settings.tab_bg }};
+  }
+
+  #shopify-section-{{ section.id }} .s-benefits__thumbnail-title {
+    color: {{ section.settings.tab_color }}
+  }
+
+  #shopify-section-{{ section.id }} .s-benefits__link {
+    background: {{ section.settings.link_bg }};
+    color: {{ section.settings.link_color }};
+  }
+
+  #shopify-section-{{ section.id }} .s-benefits__link svg path {
+    fill: {{ section.settings.link_color }};
+  }
+
+  #shopify-section-{{ section.id }} .s-benefits__link:hover {
+    background: {{ section.settings.link_color }};
+    color: {{ section.settings.link_bg }};
+  }
+
+  #shopify-section-{{ section.id }} .s-benefits__link:hover svg path {
+    fill: {{ section.settings.link_bg }};
+  }
+{% endstyle %}
+
+{% liquid
+  assign benefits = section.blocks | where: "type", "benefit"
+  assign slides = section.blocks | where: "type", "slide"
+%}
+
+<s-benefits class="s-benefits container-l">
+  <div class="s-benefits__wrapper">
+    {% if section.settings.title != blank %}
+      <h2 class="s-benefits__title">
+        {{ section.settings.title }}
+      </h2>
+    {% endif %}
+
+    {% if benefits.size > 0 %}
+      <ul class="s-benefits__list">
+        {% for block in benefits %}
+          {% style %}
+            #shopify-section-{{ section.id }} .s-benefits__item-{{- block.id }} .s-benefits__item-icon {
+              background: {{ block.settings.icon_bg }};
+            }
+
+            #shopify-section-{{ section.id }} .s-benefits__item-{{- block.id }} .s-benefits__item-icon svg path {
+              fill: {{ block.settings.icon_color }};
+            }
+
+            #shopify-section-{{ section.id }} .s-benefits__item-{{- block.id }} .s-benefits__item-title {
+              color: {{ block.settings.title_color }};
+            }
+
+            #shopify-section-{{ section.id }} .s-benefits__item-{{- block.id }} .s-benefits__item-description {
+              color: {{ block.settings.description_color }};
+            }
+          {% endstyle %}
+          <li class="s-benefits__item s-benefits__item-{{- block.id }}" {{ block.shopify_attributes }}>
+            <div class="s-benefits__item-icon">
+              {% render "icons", icon: block.settings.icon %}
+            </div>
+
+            {% if block.settings.title != blank %}
+              <h3 class="s-benefits__item-title">
+                {{ block.settings.title }}
+              </h3>
+            {% endif %}
+
+            {% if block.settings.description != blank %}
+              <div class="s-benefits__item-description">
+                {{ block.settings.description }}
+              </div>
+            {% endif %}
+          </li>
+        {% endfor %}
+      </ul>
+    {% endif %}
+  </div>
+
+  <div class="s-benefits__sliders">
+    <div class="s-benefits__thumbnail swiper js-benefits__thumbnail">
+      <div class="swiper-wrapper">
+        {% for block in slides %}
+          {% liquid 
+            assign image = block.settings.preview_image | default: block.settings.image
+          %}
+
+          {% if image != blank %}
+            <div class="s-benefits__thumbnail-slide swiper-slide">
+              {% render "image-lazy", image: image, class: "s-benefits__thumbnail-image" %}
+
+              {% if block.settings.title != blank %}
+                <h3 class="s-benefits__thumbnail-title">
+                  {{ block.settings.title }}
+                </h3>
+              {% endif %}
+            </div>
+          {% endif %}
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="s-benefits__main-slider swiper js-benefits__main-slider">
+      <div class="swiper-wrapper">
+        {% for block in slides %}
+          {% liquid 
+            assign image = block.settings.image | default: block.settings.preview_image
+          %}
+
+          {% if image != blank %}
+            <div class="s-benefits__main-slide swiper-slide">
+              {% render "image-lazy", image: image, class: "s-benefits__main-image" %}
+            </div>
+          {% endif %}
+        {% endfor %}
+      </div>
+    </div>
+
+    {% if section.settings.link_text != blank and section.settings.link_url != blank %}
+      <a class="s-benefits__link" href="{{ section.settings.link_url }}">
+        {{ section.settings.link_text }}
+        {% render "icons", icon: "chewron-right" %}
+      </a>
+    {% endif %}
+  </div>
+</s-benefits>
+
+{% schema %}
+{
+  "name": "Section Benefits",
+  "class": "section-benefits",
+  "presets": [
+    {
+      "name": "Section Benefits"
+    }
+  ],
+  "settings": [
+    {
+      "type": "range",
+      "id": "padding-top",
+      "min": 0,
+      "max": 200,
+      "step": 10,
+      "unit": "px",
+      "label": "Padding top",
+      "default": 70
+    },
+    {
+      "type": "range",
+      "id": "padding-bottom",
+      "min": 0,
+      "max": 200,
+      "step": 10,
+      "unit": "px",
+      "label": "Padding bottom",
+      "default": 70
+    },
+    {
+      "type": "range",
+      "id": "padding-top-mobile",
+      "min": 0,
+      "max": 200,
+      "step": 10,
+      "unit": "px",
+      "label": "Padding top mobile",
+      "default": 70
+    },
+    {
+      "type": "range",
+      "id": "padding-bottom-mobile",
+      "min": 0,
+      "max": 200,
+      "step": 10,
+      "unit": "px",
+      "label": "Padding bottom mobile",
+      "default": 50
+    },
+    {
+      "type": "header",
+      "content": "Title Settings"
+    },
+    {
+      "type": "richtext",
+      "id": "title",
+      "label": "Enter Title",
+      "default": "<p>Ultimate Protection for <b>Your Hot Tub</b>—Built to Last, Whatever the Weather!</p>",
+      "info": "Use \"Bold\" for accent color"
+    },
+    {
+      "type": "select",
+      "id": "title_color",
+      "label": "Select Title Color",
+      "options": [
+        {
+          "label": "White",
+          "value": "var(--white)"
+        },
+        {
+          "label": "Black",
+          "value": "var(--black)"
+        },
+        {
+          "label": "Deep Blue",
+          "value": "var(--deep-blue)"
+        },
+        {
+          "label": "Light Blue",
+          "value": "var(--light-blue)"
+        },
+        {
+          "label": "Grey 1",
+          "value": "var(--grey-1)"
+        },
+        {
+          "label": "Grey 2",
+          "value": "var(--grey-2)"
+        },
+        {
+          "label": "Grey 3",
+          "value": "var(--grey-3)"
+        },
+        {
+          "label": "Background",
+          "value": "var(--background)"
+        },
+        {
+          "label": "BG Blue",
+          "value": "var(--bg-blue)"
+        }
+      ],
+      "default": "var(--black)"
+    },
+    {
+      "type": "select",
+      "id": "accent_title_color",
+      "label": "Select Accent Title Color",
+      "options": [
+        {
+          "label": "White",
+          "value": "var(--white)"
+        },
+        {
+          "label": "Black",
+          "value": "var(--black)"
+        },
+        {
+          "label": "Deep Blue",
+          "value": "var(--deep-blue)"
+        },
+        {
+          "label": "Light Blue",
+          "value": "var(--light-blue)"
+        },
+        {
+          "label": "Grey 1",
+          "value": "var(--grey-1)"
+        },
+        {
+          "label": "Grey 2",
+          "value": "var(--grey-2)"
+        },
+        {
+          "label": "Grey 3",
+          "value": "var(--grey-3)"
+        },
+        {
+          "label": "Background",
+          "value": "var(--background)"
+        },
+        {
+          "label": "BG Blue",
+          "value": "var(--bg-blue)"
+        }
+      ],
+      "default": "var(--grey-1)"
+    },
+    {
+      "type": "header",
+      "content": "Slider Settings"
+    },
+    {
+      "type": "select",
+      "id": "slider_bg",
+      "label": "Select Slider Background",
+      "options": [
+        {
+          "label": "White",
+          "value": "var(--white)"
+        },
+        {
+          "label": "Black",
+          "value": "var(--black)"
+        },
+        {
+          "label": "Deep Blue",
+          "value": "var(--deep-blue)"
+        },
+        {
+          "label": "Light Blue",
+          "value": "var(--light-blue)"
+        },
+        {
+          "label": "Grey 1",
+          "value": "var(--grey-1)"
+        },
+        {
+          "label": "Grey 2",
+          "value": "var(--grey-2)"
+        },
+        {
+          "label": "Grey 3",
+          "value": "var(--grey-3)"
+        },
+        {
+          "label": "Background",
+          "value": "var(--background)"
+        },
+        {
+          "label": "BG Blue",
+          "value": "var(--bg-blue)"
+        }
+      ],
+      "default": "var(--bg-blue)"
+    },
+    {
+      "type": "select",
+      "id": "tab_bg",
+      "label": "Select Tab Background",
+      "options": [
+        {
+          "label": "White",
+          "value": "var(--white)"
+        },
+        {
+          "label": "Black",
+          "value": "var(--black)"
+        },
+        {
+          "label": "Deep Blue",
+          "value": "var(--deep-blue)"
+        },
+        {
+          "label": "Light Blue",
+          "value": "var(--light-blue)"
+        },
+        {
+          "label": "Grey 1",
+          "value": "var(--grey-1)"
+        },
+        {
+          "label": "Grey 2",
+          "value": "var(--grey-2)"
+        },
+        {
+          "label": "Grey 3",
+          "value": "var(--grey-3)"
+        },
+        {
+          "label": "Background",
+          "value": "var(--background)"
+        },
+        {
+          "label": "BG Blue",
+          "value": "var(--bg-blue)"
+        }
+      ],
+      "default": "var(--white)"
+    },
+    {
+      "type": "select",
+      "id": "tab_color",
+      "label": "Select Tab Color",
+      "options": [
+        {
+          "label": "White",
+          "value": "var(--white)"
+        },
+        {
+          "label": "Black",
+          "value": "var(--black)"
+        },
+        {
+          "label": "Deep Blue",
+          "value": "var(--deep-blue)"
+        },
+        {
+          "label": "Light Blue",
+          "value": "var(--light-blue)"
+        },
+        {
+          "label": "Grey 1",
+          "value": "var(--grey-1)"
+        },
+        {
+          "label": "Grey 2",
+          "value": "var(--grey-2)"
+        },
+        {
+          "label": "Grey 3",
+          "value": "var(--grey-3)"
+        },
+        {
+          "label": "Background",
+          "value": "var(--background)"
+        },
+        {
+          "label": "BG Blue",
+          "value": "var(--bg-blue)"
+        }
+      ],
+      "default": "var(--black)"
+    },
+    {
+      "type": "text",
+      "id": "link_text",
+      "label": "Link Text",
+      "default": "Your Perfect Cover at $499.99"
+    },
+    {
+      "type": "url",
+      "id": "link_url",
+      "label": "Link URL"
+    },
+    {
+      "type": "select",
+      "id": "link_bg",
+      "label": "Select Link Background",
+      "options": [
+        {
+          "label": "White",
+          "value": "var(--white)"
+        },
+        {
+          "label": "Black",
+          "value": "var(--black)"
+        },
+        {
+          "label": "Deep Blue",
+          "value": "var(--deep-blue)"
+        },
+        {
+          "label": "Light Blue",
+          "value": "var(--light-blue)"
+        },
+        {
+          "label": "Grey 1",
+          "value": "var(--grey-1)"
+        },
+        {
+          "label": "Grey 2",
+          "value": "var(--grey-2)"
+        },
+        {
+          "label": "Grey 3",
+          "value": "var(--grey-3)"
+        },
+        {
+          "label": "Background",
+          "value": "var(--background)"
+        },
+        {
+          "label": "BG Blue",
+          "value": "var(--bg-blue)"
+        }
+      ],
+      "default": "var(--deep-blue)"
+    },
+    {
+      "type": "select",
+      "id": "link_color",
+      "label": "Select Link Color",
+      "options": [
+        {
+          "label": "White",
+          "value": "var(--white)"
+        },
+        {
+          "label": "Black",
+          "value": "var(--black)"
+        },
+        {
+          "label": "Deep Blue",
+          "value": "var(--deep-blue)"
+        },
+        {
+          "label": "Light Blue",
+          "value": "var(--light-blue)"
+        },
+        {
+          "label": "Grey 1",
+          "value": "var(--grey-1)"
+        },
+        {
+          "label": "Grey 2",
+          "value": "var(--grey-2)"
+        },
+        {
+          "label": "Grey 3",
+          "value": "var(--grey-3)"
+        },
+        {
+          "label": "Background",
+          "value": "var(--background)"
+        },
+        {
+          "label": "BG Blue",
+          "value": "var(--bg-blue)"
+        }
+      ],
+      "default": "var(--white)"
+    },
+  ],
+  "blocks": [
+    {
+      "type": "benefit",
+      "name": "Benefit",
+      "limit": 4,
+      "settings": [
+        {
+          "type": "select",
+          "id": "icon",
+          "label": "Select Icon",
+          "options": [
+            {
+              "label": "None",
+              "value": "none"
+            },
+            {
+              "label": "Snowflake",
+              "value": "snowflake"
+            },
+            {
+              "label": "Light Bulb",
+              "value": "light_bulb"
+            },
+            {
+              "label": "Drop",
+              "value": "drop"
+            },
+            {
+              "label": "Custom Size",
+              "value": "custom_size"
+            },
+            {
+              "label": "Sun",
+              "value": "sun"
+            },
+            {
+              "label": "Leaf",
+              "value": "leaf"
+            }
+          ]
+        },
+        {
+          "type": "select",
+          "id": "icon_bg",
+          "label": "Select Icon Background",
+          "options": [
+            {
+              "label": "White",
+              "value": "var(--white)"
+            },
+            {
+              "label": "Black",
+              "value": "var(--black)"
+            },
+            {
+              "label": "Deep Blue",
+              "value": "var(--deep-blue)"
+            },
+            {
+              "label": "Light Blue",
+              "value": "var(--light-blue)"
+            },
+            {
+              "label": "Grey 1",
+              "value": "var(--grey-1)"
+            },
+            {
+              "label": "Grey 2",
+              "value": "var(--grey-2)"
+            },
+            {
+              "label": "Grey 3",
+              "value": "var(--grey-3)"
+            },
+            {
+              "label": "Background",
+              "value": "var(--background)"
+            },
+            {
+              "label": "BG Blue",
+              "value": "var(--bg-blue)"
+            }
+          ],
+          "default": "var(--bg-blue)"
+        },
+        {
+          "type": "select",
+          "id": "icon_color",
+          "label": "Select Icon Color",
+          "options": [
+            {
+              "label": "White",
+              "value": "var(--white)"
+            },
+            {
+              "label": "Black",
+              "value": "var(--black)"
+            },
+            {
+              "label": "Deep Blue",
+              "value": "var(--deep-blue)"
+            },
+            {
+              "label": "Light Blue",
+              "value": "var(--light-blue)"
+            },
+            {
+              "label": "Grey 1",
+              "value": "var(--grey-1)"
+            },
+            {
+              "label": "Grey 2",
+              "value": "var(--grey-2)"
+            },
+            {
+              "label": "Grey 3",
+              "value": "var(--grey-3)"
+            },
+            {
+              "label": "Background",
+              "value": "var(--background)"
+            },
+            {
+              "label": "BG Blue",
+              "value": "var(--bg-blue)"
+            }
+          ],
+          "default": "var(--deep-blue)"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Enter Title"
+        },
+        {
+          "type": "select",
+          "id": "title_color",
+          "label": "Select Title Color",
+          "options": [
+            {
+              "label": "White",
+              "value": "var(--white)"
+            },
+            {
+              "label": "Black",
+              "value": "var(--black)"
+            },
+            {
+              "label": "Deep Blue",
+              "value": "var(--deep-blue)"
+            },
+            {
+              "label": "Light Blue",
+              "value": "var(--light-blue)"
+            },
+            {
+              "label": "Grey 1",
+              "value": "var(--grey-1)"
+            },
+            {
+              "label": "Grey 2",
+              "value": "var(--grey-2)"
+            },
+            {
+              "label": "Grey 3",
+              "value": "var(--grey-3)"
+            },
+            {
+              "label": "Background",
+              "value": "var(--background)"
+            },
+            {
+              "label": "BG Blue",
+              "value": "var(--bg-blue)"
+            }
+          ],
+          "default": "var(--black)"
+        },
+        {
+          "type": "text",
+          "id": "description",
+          "label": "Enter Description"
+        },
+        {
+          "type": "select",
+          "id": "description_color",
+          "label": "Select Description Color",
+          "options": [
+            {
+              "label": "White",
+              "value": "var(--white)"
+            },
+            {
+              "label": "Black",
+              "value": "var(--black)"
+            },
+            {
+              "label": "Deep Blue",
+              "value": "var(--deep-blue)"
+            },
+            {
+              "label": "Light Blue",
+              "value": "var(--light-blue)"
+            },
+            {
+              "label": "Grey 1",
+              "value": "var(--grey-1)"
+            },
+            {
+              "label": "Grey 2",
+              "value": "var(--grey-2)"
+            },
+            {
+              "label": "Grey 3",
+              "value": "var(--grey-3)"
+            },
+            {
+              "label": "Background",
+              "value": "var(--background)"
+            },
+            {
+              "label": "BG Blue",
+              "value": "var(--bg-blue)"
+            }
+          ],
+          "default": "var(--grey-2)"
+        },
+      ]
+    },
+    {
+      "type": "slide",
+      "name": "Slide",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Preview Text",
+          "default": "Black Pro-Tex"
+        },
+        {
+          "type": "image_picker",
+          "id": "preview_image",
+          "label": "Preview Image"
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

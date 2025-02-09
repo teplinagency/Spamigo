@@ -34,6 +34,8 @@ if (!customElements.get("s-hero-banner")) {
 
         if (header && main && window.innerWidth >= 992) {
           main.style.marginTop = `-${header.offsetHeight}px`
+        } else {
+          main.style.marginTop = `0`
         }
       }
     }
