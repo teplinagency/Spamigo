@@ -173,6 +173,100 @@
         "link_color": "var(--white)"
       }
     },
+    "s_collections_slider_HTPfAa": {
+      "type": "s-collections-slider",
+      "blocks": {
+        "collection_YcKJWW": {
+          "type": "collection",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Rectangle_7_1.png",
+            "link_url": "#",
+            "link_text": "build cover",
+            "link_color": "var(--white)",
+            "link_bg": "var(--deep-blue)",
+            "title": "Custom Cover",
+            "title_color": "var(--black)",
+            "description": "Tailored to fit your hot tub perfectly for optimal protection.",
+            "description_color": "var(--grey-1)"
+          }
+        },
+        "collection_6UgqFi": {
+          "type": "collection",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/image.png",
+            "link_url": "#",
+            "link_text": "build cover",
+            "link_color": "var(--white)",
+            "link_bg": "var(--deep-blue)",
+            "title": "Swim Spa Covers",
+            "title_color": "var(--black)",
+            "description": "Durable covers designed specifically for swim spas.",
+            "description_color": "var(--grey-1)"
+          }
+        },
+        "collection_bFeYEn": {
+          "type": "collection",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Rectangle_8_2.png",
+            "link_url": "#",
+            "link_text": "build cover",
+            "link_color": "var(--white)",
+            "link_bg": "var(--deep-blue)",
+            "title": "Specialty Covers",
+            "title_color": "var(--black)",
+            "description": "Unique covers for hard-to-fit or specialty tubs.",
+            "description_color": "var(--grey-1)"
+          }
+        },
+        "collection_zA6BUx": {
+          "type": "collection",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/image_1.png",
+            "link_url": "#",
+            "link_text": "build cover",
+            "link_color": "var(--white)",
+            "link_bg": "var(--deep-blue)",
+            "title": "Hot Tub Accessories",
+            "title_color": "var(--black)",
+            "description": "Essential accessories to enhance your hot tub experience.",
+            "description_color": "var(--grey-1)"
+          }
+        },
+        "collection_e7xC7y": {
+          "type": "collection",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Rectangle_8_3.png",
+            "link_url": "#",
+            "link_text": "build cover",
+            "link_color": "var(--white)",
+            "link_bg": "var(--deep-blue)",
+            "title": "Cover Lifters",
+            "title_color": "var(--black)",
+            "description": "Easy-to-use lifters for hassle-free cover removal.",
+            "description_color": "var(--grey-1)"
+          }
+        }
+      },
+      "block_order": [
+        "collection_YcKJWW",
+        "collection_6UgqFi",
+        "collection_bFeYEn",
+        "collection_zA6BUx",
+        "collection_e7xC7y"
+      ],
+      "settings": {
+        "padding-top": 100,
+        "padding-bottom": 100,
+        "padding-top-mobile": 70,
+        "padding-bottom-mobile": 70,
+        "title": "Shop Our Collections",
+        "title_color": "var(--black)",
+        "link_text": "Shop All",
+        "link_url": "#",
+        "link_color": "var(--black)",
+        "link_bg": "var(--bg-blue)"
+      }
+    },
     "s_hero_banner_ktDWnc_2": {
       "type": "s-hero-banner",
       "blocks": {
@@ -997,6 +1091,7 @@
   "order": [
     "s_hero_banner_ktDWnc",
     "s_benefits_YM48Uh",
+    "s_collections_slider_HTPfAa",
     "s_hero_banner_ktDWnc_2",
     "8ba47ba3-de7f-4f0a-b30d-6f2a540748c3",
     "16620983071df6eb29",

@@ -1,0 +1,160 @@
+.s-collections-slider {
+  margin: 0 auto;
+
+  &__top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+  }
+
+  &__title {
+    font-size: 28px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+
+    @media (min-width: 768px) {
+      font-size: 40px;
+      letter-spacing: -0.4px;
+    }
+  }
+
+  &__link {
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    letter-spacing: 0.24px;
+    text-transform: uppercase;
+    padding: 14px 20px;
+    border-radius: 15px;
+    transition: 0.3s all;
+
+    @media (min-width: 768px) {
+      font-size: 14px;
+      letter-spacing: 0.7px;
+      padding: 18px 28px;
+      border-radius: 18px;
+    }
+  }
+
+  &__list {
+    margin-top: 32px;
+  }
+
+  &__item {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+
+    @media (min-width: 992px) {
+      &:hover { 
+        & .s-collections-slider__item-container-link {
+          display: flex;
+        }
+      }
+    }
+  }
+
+  &__item-image {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1/1;
+    object-fit: cover;
+    border-radius: 12px;
+    margin-bottom: 12px;
+
+    @media (min-width: 992px) {
+      order: -1;
+    }
+  }
+
+  &__item-title {
+    margin: 0;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+
+    @media (min-width: 768px) {
+      font-size: 24px;
+    }
+  }
+
+  &__item-description {
+    margin: 0 0 4px;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%;
+
+    @media (min-width: 768px) {
+      font-size: 16px;
+    }
+  }
+
+  &__item-link {
+    width: fit-content;
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    padding: 14px 20px;
+    border-radius: 15px;
+
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    letter-spacing: 0.24px;
+    text-transform: uppercase;
+
+    transition: 0.3s all;
+
+
+    & svg {
+      width: 15px;
+      height: 15px;
+    }
+
+    @media (min-width: 992px) {
+      display: none;
+    }
+  }
+
+  &__item-container {
+    position: relative;
+  }
+
+  &__item-container-link {
+    display: none;
+
+    @media (min-width: 992px) {
+      
+      gap: 8px;
+      justify-content: center;
+      align-items: center;
+      padding: 18px;
+      border-radius: 18px;
+
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 600;
+      letter-spacing: 0.7px;
+      text-transform: uppercase;
+
+      position: absolute;
+      bottom: 20px;
+      left: 12px;
+
+      width: calc(100% - 24px);
+
+      transition: 0.3s all;
+
+      & svg {
+        width: 18px;
+        height: 18px;
+      }
+    }
+  }
+}

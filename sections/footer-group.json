@@ -1,12 +1,3 @@
-/*
- * ------------------------------------------------------------
- * IMPORTANT: The contents of this file are auto-generated.
- *
- * This file may be updated by the Shopify admin theme editor
- * or related systems. Please exercise caution as any changes
- * made to this file may be overwritten.
- * ------------------------------------------------------------
- */
 {
   "type": "footer",
   "name": "Footer group",
@@ -64,13 +55,13 @@
         "image_PEW7gR": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/image_6_1.png"
+            "image": "shopify:\/\/shop_images\/image_6_1.png"
           }
         },
         "image_TRQReM": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/astm_1.svg"
+            "image": "shopify:\/\/shop_images\/astm_1.svg"
           }
         }
       },
@@ -84,20 +75,20 @@
         "mobile_bottom_paddings": 48,
         "desktop_top_paddings": 68,
         "desktop_bottom_paddings": 40,
-        "logo": "shopify://shop_images/Full-logo-dark_d8e12012-341e-462d-97ce-bee354aad407.png",
+        "logo": "shopify:\/\/shop_images\/Full-logo-dark_d8e12012-341e-462d-97ce-bee354aad407.png",
         "show_media": true,
         "media_title": "Follow Us",
         "show_contact": true,
         "contact_title": "Contact Us",
-        "address": "<p>2967 Dundas St. W. #334D<br/>Toronto, ON M6P 1Z2</p>",
+        "address": "<p>2967 Dundas St. W. #334D<br\/>Toronto, ON M6P 1Z2<\/p>",
         "phone_title": "+1 (866) 515-MIGO (6446)",
         "phone_url": "tel:+1 (866) 515-(6446)",
         "mail_title": "info@spamigo.com",
         "mail_url": "mailto:info@spamigo.com",
         "custom_link_text": "Contact Us",
-        "custom_link_url": "shopify://pages/contact",
+        "custom_link_url": "shopify:\/\/pages\/contact",
         "footer_menu": "new-footer-menu",
-        "copyright_text": "<p>© %year% Spa-Migo Hot Tub Covers, All rights reserved. <a href=\"https://teplin.agency/\" target=\"_blank\">Site by Teplin</a></p>"
+        "copyright_text": "<p>© %year% Spa-Migo Hot Tub Covers, All rights reserved. <a href=\"https:\/\/teplin.agency\/\" target=\"_blank\">Site by Teplin<\/a><\/p>"
       }
     }
   },

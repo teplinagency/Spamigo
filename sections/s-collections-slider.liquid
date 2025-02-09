@@ -1,0 +1,533 @@
+{{ "section-collections-slider.css" | asset_url | stylesheet_tag }}
+<script src="{{ "section-collections-slider.js" | asset_url }}" defer></script>
+
+{% render "section-padding" %}
+
+
+{% style %}
+  #shopify-section-{{ section.id }} .s-collections-slider__title {
+    color: {{ section.settings.title_color }};
+  }
+
+  #shopify-section-{{ section.id }} .s-collections-slider__link {
+    background: {{ section.settings.link_bg }};
+    color: {{ section.settings.link_color }};
+  }
+
+  #shopify-section-{{ section.id }} .s-collections-slider__link:hover {
+    background: {{ section.settings.link_color }};
+    color: {{ section.settings.link_bg }};
+  }
+{% endstyle %}
+
+
+<s-collections-slider class="s-collections-slider container-m swiper">
+  <div class="s-collections-slider__top">
+    {% if section.settings.title != blank %}
+      <h2 class="s-collections-slider__title">
+        {{ section.settings.title }}
+      </h2>
+    {% endif %}
+
+    {% if section.settings.link_text != blank and section.settings.link_url != blank %}
+      <a href="{{ section.settings.link_url }}" class="s-collections-slider__link">
+        {{ section.settings.link_text }}
+      </a>
+    {% endif %}
+  </div>
+
+  <div class="s-collections-slider__list swiper-wrapper">
+    {% for block in section.blocks %}
+      {% style %}
+        #shopify-section-{{ section.id }} .s-collections-slider__item-{{- block.id }} .s-collections-slider__item-title {
+          color: {{ block.settings.title_color }};
+        }
+
+        #shopify-section-{{ section.id }} .s-collections-slider__item-{{- block.id }} .s-collections-slider__item-description {
+          color: {{ block.settings.description_color }};
+        }
+
+        #shopify-section-{{ section.id }} .s-collections-slider__item-{{- block.id }} .s-collections-slider__item-link,
+        #shopify-section-{{ section.id }} .s-collections-slider__item-{{- block.id }} .s-collections-slider__item-container-link {
+          background: {{ block.settings.link_bg }};
+          color: {{ block.settings.link_color }};
+        }
+
+        #shopify-section-{{ section.id }} .s-collections-slider__item-{{- block.id }} .s-collections-slider__item-link svg path,
+        #shopify-section-{{ section.id }} .s-collections-slider__item-{{- block.id }} .s-collections-slider__item-container-link svg path {
+          fill: {{ block.settings.link_color }};
+        }
+
+        #shopify-section-{{ section.id }} .s-collections-slider__item-{{- block.id }} .s-collections-slider__item-link:hover,
+        #shopify-section-{{ section.id }} .s-collections-slider__item-{{- block.id }} .s-collections-slider__item-container-link:hover {
+          background: {{ block.settings.link_color }};
+          color: {{ block.settings.link_bg }};
+        }
+
+        #shopify-section-{{ section.id }} .s-collections-slider__item-{{- block.id }} .s-collections-slider__item-link:hover svg path,
+        #shopify-section-{{ section.id }} .s-collections-slider__item-{{- block.id }} .s-collections-slider__item-container-link:hover svg path {
+          fill: {{ block.settings.link_bg }};
+        }
+      {% endstyle %}
+
+      <div class="s-collections-slider__item s-collections-slider__item-{{- block.id }} swiper-slide">
+        {% if block.settings.image != blank %}
+          <div class="s-collections-slider__item-container">
+            {% render 'image-lazy', image: block.settings.image, class: "s-collections-slider__item-image" %}
+
+            {% if block.settings.link_text != blank and block.settings.link_url != blank %}
+              <a class="s-collections-slider__item-container-link" href="{{ block.settings.link_url }}">
+                {{ block.settings.link_text }}
+                {% render "icons", icon: "chewron-right" %}
+              </a>
+            {% endif %}
+          </div>
+        {% endif %}
+
+        {% if block.settings.title != blank %}
+          <h3 class="s-collections-slider__item-title">
+            {{ block.settings.title }}
+          </h3>
+        {% endif %}
+
+        {% if block.settings.description != blank %}
+          <p class="s-collections-slider__item-description">
+            {{ block.settings.description }}
+          </p>
+        {% endif %}
+
+        {% if block.settings.link_text != blank and block.settings.link_url != blank %}
+          <a class="s-collections-slider__item-link" href="{{ block.settings.link_url }}">
+            {{ block.settings.link_text }}
+            {% render "icons", icon: "chewron-right" %}
+          </a>
+        {% endif %}
+        </div>
+    {% endfor %}
+  </div>
+</s-collections-slider>
+
+{% schema %}
+{
+  "name": "Section Collections",
+  "class": "section-collections-slider",
+  "presets": [
+    {
+      "name": "Section Collections Slider"
+    }
+  ],
+  "settings": [
+    {
+      "type": "header",
+      "content": "Section Settings"
+    },
+    {
+      "type": "range",
+      "id": "padding-top",
+      "min": 0,
+      "max": 200,
+      "step": 10,
+      "unit": "px",
+      "label": "Padding top",
+      "default": 100
+    },
+    {
+      "type": "range",
+      "id": "padding-bottom",
+      "min": 0,
+      "max": 200,
+      "step": 10,
+      "unit": "px",
+      "label": "Padding bottom",
+      "default": 100
+    },
+    {
+      "type": "range",
+      "id": "padding-top-mobile",
+      "min": 0,
+      "max": 200,
+      "step": 10,
+      "unit": "px",
+      "label": "Padding top mobile",
+      "default": 70
+    },
+    {
+      "type": "range",
+      "id": "padding-bottom-mobile",
+      "min": 0,
+      "max": 200,
+      "step": 10,
+      "unit": "px",
+      "label": "Padding bottom mobile",
+      "default": 70
+    },
+    {
+      "type": "header",
+      "content": "Title Settings"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Enter Title",
+      "default": "Shop Our Collections"
+    },
+    {
+      "type": "select",
+      "id": "title_color",
+      "label": "Select Title Color",
+      "options": [
+        {
+          "label": "White",
+          "value": "var(--white)"
+        },
+        {
+          "label": "Black",
+          "value": "var(--black)"
+        },
+        {
+          "label": "Deep Blue",
+          "value": "var(--deep-blue)"
+        },
+        {
+          "label": "Light Blue",
+          "value": "var(--light-blue)"
+        },
+        {
+          "label": "Grey 1",
+          "value": "var(--grey-1)"
+        },
+        {
+          "label": "Grey 2",
+          "value": "var(--grey-2)"
+        },
+        {
+          "label": "Grey 3",
+          "value": "var(--grey-3)"
+        },
+        {
+          "label": "Background",
+          "value": "var(--background)"
+        },
+        {
+          "label": "BG Blue",
+          "value": "var(--bg-blue)"
+        }
+      ],
+      "default": "var(--black)"
+    },
+    {
+      "type": "header",
+      "content": "Link Settings"
+    },
+    {
+      "type": "text",
+      "id": "link_text",
+      "label": "Link Text",
+      "default": "Shop All"
+    },
+    {
+      "type": "url",
+      "id": "link_url",
+      "label": "Link URL"
+    },
+    {
+      "type": "select",
+      "id": "link_color",
+      "label": "Select Link Color",
+      "options": [
+        {
+          "label": "White",
+          "value": "var(--white)"
+        },
+        {
+          "label": "Black",
+          "value": "var(--black)"
+        },
+        {
+          "label": "Deep Blue",
+          "value": "var(--deep-blue)"
+        },
+        {
+          "label": "Light Blue",
+          "value": "var(--light-blue)"
+        },
+        {
+          "label": "Grey 1",
+          "value": "var(--grey-1)"
+        },
+        {
+          "label": "Grey 2",
+          "value": "var(--grey-2)"
+        },
+        {
+          "label": "Grey 3",
+          "value": "var(--grey-3)"
+        },
+        {
+          "label": "Background",
+          "value": "var(--background)"
+        },
+        {
+          "label": "BG Blue",
+          "value": "var(--bg-blue)"
+        }
+      ],
+      "default": "var(--black)"
+    },
+    {
+      "type": "select",
+      "id": "link_bg",
+      "label": "Select Link Background",
+      "options": [
+        {
+          "label": "White",
+          "value": "var(--white)"
+        },
+        {
+          "label": "Black",
+          "value": "var(--black)"
+        },
+        {
+          "label": "Deep Blue",
+          "value": "var(--deep-blue)"
+        },
+        {
+          "label": "Light Blue",
+          "value": "var(--light-blue)"
+        },
+        {
+          "label": "Grey 1",
+          "value": "var(--grey-1)"
+        },
+        {
+          "label": "Grey 2",
+          "value": "var(--grey-2)"
+        },
+        {
+          "label": "Grey 3",
+          "value": "var(--grey-3)"
+        },
+        {
+          "label": "Background",
+          "value": "var(--background)"
+        },
+        {
+          "label": "BG Blue",
+          "value": "var(--bg-blue)"
+        }
+      ],
+      "default": "var(--bg-blue)"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "collection",
+      "name": "Collection Block",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Select Image"
+        },
+        {
+          "type": "url",
+          "id": "link_url",
+          "label": "Enter Link",
+        },
+        {
+          "type": "text",
+          "id": "link_text",
+          "label": "Link Text",
+          "default": "build cover"
+        },
+        {
+          "type": "select",
+          "id": "link_color",
+          "label": "Select Link Color",
+          "options": [
+            {
+              "label": "White",
+              "value": "var(--white)"
+            },
+            {
+              "label": "Black",
+              "value": "var(--black)"
+            },
+            {
+              "label": "Deep Blue",
+              "value": "var(--deep-blue)"
+            },
+            {
+              "label": "Light Blue",
+              "value": "var(--light-blue)"
+            },
+            {
+              "label": "Grey 1",
+              "value": "var(--grey-1)"
+            },
+            {
+              "label": "Grey 2",
+              "value": "var(--grey-2)"
+            },
+            {
+              "label": "Grey 3",
+              "value": "var(--grey-3)"
+            },
+            {
+              "label": "Background",
+              "value": "var(--background)"
+            },
+            {
+              "label": "BG Blue",
+              "value": "var(--bg-blue)"
+            }
+          ],
+          "default": "var(--white)"
+        },
+        {
+          "type": "select",
+          "id": "link_bg",
+          "label": "Select Link Background",
+          "options": [
+            {
+              "label": "White",
+              "value": "var(--white)"
+            },
+            {
+              "label": "Black",
+              "value": "var(--black)"
+            },
+            {
+              "label": "Deep Blue",
+              "value": "var(--deep-blue)"
+            },
+            {
+              "label": "Light Blue",
+              "value": "var(--light-blue)"
+            },
+            {
+              "label": "Grey 1",
+              "value": "var(--grey-1)"
+            },
+            {
+              "label": "Grey 2",
+              "value": "var(--grey-2)"
+            },
+            {
+              "label": "Grey 3",
+              "value": "var(--grey-3)"
+            },
+            {
+              "label": "Background",
+              "value": "var(--background)"
+            },
+            {
+              "label": "BG Blue",
+              "value": "var(--bg-blue)"
+            }
+          ],
+          "default": "var(--deep-blue)"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Enter Title"
+        },
+        {
+          "type": "select",
+          "id": "title_color",
+          "label": "Select Title Color",
+          "options": [
+            {
+              "label": "White",
+              "value": "var(--white)"
+            },
+            {
+              "label": "Black",
+              "value": "var(--black)"
+            },
+            {
+              "label": "Deep Blue",
+              "value": "var(--deep-blue)"
+            },
+            {
+              "label": "Light Blue",
+              "value": "var(--light-blue)"
+            },
+            {
+              "label": "Grey 1",
+              "value": "var(--grey-1)"
+            },
+            {
+              "label": "Grey 2",
+              "value": "var(--grey-2)"
+            },
+            {
+              "label": "Grey 3",
+              "value": "var(--grey-3)"
+            },
+            {
+              "label": "Background",
+              "value": "var(--background)"
+            },
+            {
+              "label": "BG Blue",
+              "value": "var(--bg-blue)"
+            }
+          ],
+          "default": "var(--black)"
+        },
+        {
+          "type": "text",
+          "id": "description",
+          "label": "Enter Description"
+        },
+        {
+          "type": "select",
+          "id": "description_color",
+          "label": "Select Description Color",
+          "options": [
+            {
+              "label": "White",
+              "value": "var(--white)"
+            },
+            {
+              "label": "Black",
+              "value": "var(--black)"
+            },
+            {
+              "label": "Deep Blue",
+              "value": "var(--deep-blue)"
+            },
+            {
+              "label": "Light Blue",
+              "value": "var(--light-blue)"
+            },
+            {
+              "label": "Grey 1",
+              "value": "var(--grey-1)"
+            },
+            {
+              "label": "Grey 2",
+              "value": "var(--grey-2)"
+            },
+            {
+              "label": "Grey 3",
+              "value": "var(--grey-3)"
+            },
+            {
+              "label": "Background",
+              "value": "var(--background)"
+            },
+            {
+              "label": "BG Blue",
+              "value": "var(--bg-blue)"
+            }
+          ],
+          "default": "var(--black)"
+        },
+      ]
+    }
+  ]
+}
+{% endschema %}

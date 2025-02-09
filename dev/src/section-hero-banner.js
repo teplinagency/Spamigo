@@ -30,8 +30,6 @@ if (!customElements.get("s-hero-banner")) {
         let header = document.querySelector("s-header") || null;
         let main = document.querySelector("#main-content") || null;
 
-        console.log(header, main)
-
         if (header && main && window.innerWidth >= 992) {
           main.style.marginTop = `-${header.offsetHeight}px`
         } else {
