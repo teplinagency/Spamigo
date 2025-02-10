@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "main": {
@@ -6,29 +15,29 @@
         "featured_brand_BYGM8c": {
           "type": "featured_brand",
           "settings": {
-            "image": "shopify:\/\/shop_images\/logo-white.png",
-            "url": "shopify:\/\/products\/sundance-maxxus-880-hot-tub-cover"
+            "image": "shopify://shop_images/logo-white.png",
+            "url": "shopify://products/sundance-maxxus-880-hot-tub-cover"
           }
         },
         "featured_brand_89je98": {
           "type": "featured_brand",
           "settings": {
-            "image": "shopify:\/\/shop_images\/hot-spring-spas_2.png",
-            "url": "shopify:\/\/collections\/hot-spring-spas-hot-tub-covers"
+            "image": "shopify://shop_images/hot-spring-spas_2.png",
+            "url": "shopify://collections/hot-spring-spas-hot-tub-covers"
           }
         },
         "featured_brand_nKXxGB": {
           "type": "featured_brand",
           "settings": {
-            "image": "shopify:\/\/shop_images\/Jacuzzi_logo_2.png",
-            "url": "shopify:\/\/collections\/jacuzzi-hot-tub-cover"
+            "image": "shopify://shop_images/Jacuzzi_logo_2.png",
+            "url": "shopify://collections/jacuzzi-hot-tub-cover"
           }
         },
         "featured_brand_HAQPnF": {
           "type": "featured_brand",
           "settings": {
-            "image": "shopify:\/\/shop_images\/marquis-logo-svg-vector_2.png",
-            "url": "shopify:\/\/collections\/hydropool-hot-tub-covers"
+            "image": "shopify://shop_images/marquis-logo-svg-vector_2.png",
+            "url": "shopify://collections/hydropool-hot-tub-covers"
           }
         }
       },
@@ -40,16 +49,111 @@
       ],
       "settings": {
         "custom_tub_url": "",
-        "additional_text": "Can't find your model? Call us at +1-866-515-6446",
+        "additional_text": "<p>Can't find your model? Call us at <strong>+1-866-515-6446 </strong>or <a href=\"/products/hot-tub-cover\" title=\"Custom Hot Tub Covers\">Create custom cover</a></p>",
         "featured_brands_title": "Featured brands",
         "padding-top": 20,
         "padding-bottom": 100,
         "padding-top-mobile": 20,
         "padding-bottom-mobile": 70
       }
+    },
+    "s_collections_slider_HTPfAa": {
+      "type": "s-collections-slider",
+      "blocks": {
+        "collection_YcKJWW": {
+          "type": "collection",
+          "settings": {
+            "image": "shopify://shop_images/Rectangle_7_1.png",
+            "link_url": "#",
+            "link_text": "build cover",
+            "link_color": "var(--white)",
+            "link_bg": "var(--deep-blue)",
+            "title": "Custom Cover",
+            "title_color": "var(--black)",
+            "description": "Tailored to fit your hot tub perfectly for optimal protection.",
+            "description_color": "var(--grey-1)"
+          }
+        },
+        "collection_6UgqFi": {
+          "type": "collection",
+          "settings": {
+            "image": "shopify://shop_images/image.png",
+            "link_url": "#",
+            "link_text": "build cover",
+            "link_color": "var(--white)",
+            "link_bg": "var(--deep-blue)",
+            "title": "Swim Spa Covers",
+            "title_color": "var(--black)",
+            "description": "Durable covers designed specifically for swim spas.",
+            "description_color": "var(--grey-1)"
+          }
+        },
+        "collection_bFeYEn": {
+          "type": "collection",
+          "settings": {
+            "image": "shopify://shop_images/Rectangle_8_2.png",
+            "link_url": "#",
+            "link_text": "build cover",
+            "link_color": "var(--white)",
+            "link_bg": "var(--deep-blue)",
+            "title": "Specialty Covers",
+            "title_color": "var(--black)",
+            "description": "Unique covers for hard-to-fit or specialty tubs.",
+            "description_color": "var(--grey-1)"
+          }
+        },
+        "collection_zA6BUx": {
+          "type": "collection",
+          "settings": {
+            "image": "shopify://shop_images/image_1.png",
+            "link_url": "#",
+            "link_text": "build cover",
+            "link_color": "var(--white)",
+            "link_bg": "var(--deep-blue)",
+            "title": "Hot Tub Accessories",
+            "title_color": "var(--black)",
+            "description": "Essential accessories to enhance your hot tub experience.",
+            "description_color": "var(--grey-1)"
+          }
+        },
+        "collection_e7xC7y": {
+          "type": "collection",
+          "settings": {
+            "image": "shopify://shop_images/Rectangle_8_3.png",
+            "link_url": "#",
+            "link_text": "build cover",
+            "link_color": "var(--white)",
+            "link_bg": "var(--deep-blue)",
+            "title": "Cover Lifters",
+            "title_color": "var(--black)",
+            "description": "Easy-to-use lifters for hassle-free cover removal.",
+            "description_color": "var(--grey-1)"
+          }
+        }
+      },
+      "block_order": [
+        "collection_YcKJWW",
+        "collection_6UgqFi",
+        "collection_bFeYEn",
+        "collection_zA6BUx",
+        "collection_e7xC7y"
+      ],
+      "settings": {
+        "padding-top": 100,
+        "padding-bottom": 100,
+        "padding-top-mobile": 70,
+        "padding-bottom-mobile": 70,
+        "title": "Shop Our Collections",
+        "title_color": "var(--black)",
+        "link_text": "Shop All",
+        "link_url": "#",
+        "link_color": "var(--black)",
+        "link_bg": "var(--bg-blue)"
+      }
     }
   },
   "order": [
-    "main"
+    "main",
+    "s_collections_slider_HTPfAa"
   ]
 }
