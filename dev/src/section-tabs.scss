@@ -1,0 +1,289 @@
+.s-tabs {
+  margin: 0 auto;
+  display: block;
+
+  &__title {
+    text-align: center;
+    font-size: 28px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    margin: 0;
+
+    @media (min-width: 768px) {
+      font-size: 40px;
+      line-height: 120%;
+      letter-spacing: -0.4px;
+    }
+  }
+
+  &__container {
+    display: flex;
+    justify-content: stretch;
+    align-items: stretch;
+    gap: 8px;
+    padding: 4px;
+    border-radius: 18px;
+
+    @media (min-width: 768px) {
+      border-radius: 21px;
+    }
+  }
+
+  &__trigger {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 10px 18px;
+    border-radius: 16px;
+    width: 100%;
+    cursor: pointer;
+    border: none;
+
+    & svg {
+      width: 24px;
+      height: 24px;
+    }
+
+    & span {
+      display: none;
+    }
+
+    @media (min-width: 768px) {
+      padding: 14px 32px;
+      border-radius: 18px;
+
+      & span {
+        display: block;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 600;
+        letter-spacing: 0.7px;
+        text-transform: uppercase;
+      }
+    }
+  }
+
+  &__slider-container {
+    position: relative;
+    margin-top: 32px;
+
+    @media (min-width: 768px) {
+      margin-top: 100px;
+    }
+  }
+
+  &__slider-btn {
+    display: none;
+
+    @media (min-width: 768px) {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 12px;
+      border-radius: 16px;
+
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+
+      background: rgba(132, 213, 253, 0.10);
+
+      cursor: pointer;
+
+      transition: 0.3s all;
+
+      & svg {
+        width: 22px;
+        height: 22px;
+        
+        & path {
+          fill: var(--white);
+        }
+      }
+
+      &:hover {
+        background: var(--white);
+
+        & svg path {
+          fill: var(--black);
+        }
+      }
+
+      &.js-tabs__slider-btn--prev {
+        left: 0;
+
+        & svg {
+          transform: rotate(90deg);
+        }
+      }
+
+      &.js-tabs__slider-btn--next {
+        right: 0;
+
+        & svg {
+          transform: rotate(-90deg);
+        }
+      }
+    }
+  }
+
+  &__slider {
+    overflow-x: hidden;
+    cursor: grab;
+
+    @media (min-width: 768px) {
+      margin: 0 auto;
+      width: 90%;
+      max-width: 1080px;
+    }
+  }
+
+  &__list {
+
+  }
+
+  &__item {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+
+    @media (min-width: 992px) {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 84px;
+    }
+  }
+
+  &__item-image {
+    width: 100%;
+    border-radius: 12px;
+    overflow: hidden;
+    align-self: center;
+
+    @media (min-width: 768px) {
+      border-radius: 16px;
+      order: 2;
+    }
+  }
+
+  &__item-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  &__item-label {
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 130%;
+    letter-spacing: 0.7px;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+
+    @media (min-width: 768px) {
+      display: none;
+    }
+  }
+
+  &__item-title {
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    margin-block: 0 20px;
+
+    @media (min-width: 768px) {
+      font-size: 28px;
+    }
+  }
+
+  &__item-description {
+    margin-bottom: 24px;
+
+    @media (min-width: 768px) {
+      margin-bottom: 32px;
+    }
+
+    & * {
+      margin: 0;
+      padding: 0;
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 150%;
+
+      @media (min-width: 768px) {
+        font-size: 18px;
+      }
+    }
+
+    & ul {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      padding-left: 26px;
+      list-style: none;
+
+      & li {
+        position: relative;
+        &::before {
+          content: "";
+          position: absolute;
+          left: -26px;
+          top: 6px;
+          width: 16px;
+          height: 16px;
+          background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="17" viewBox="0 0 16 17" fill="none"><g clip-path="url(%23clip0_2985_4112)"><path fill-rule="evenodd" clip-rule="evenodd" d="M15.253 0.535218C15.0238 0.535218 14.6021 0.57902 13.9865 0.664958C13.3711 0.751261 12.9732 0.834745 12.7938 0.913812C12.6137 0.992822 12.2886 1.26709 11.8189 1.73345C11.3488 2.20148 10.6669 3.06523 9.77527 4.32412C8.88224 5.58439 8.04953 6.91466 7.27526 8.31613C6.50067 9.71813 5.77779 11.1736 5.10699 12.6824C4.48631 11.6198 3.92543 10.8993 3.42152 10.5204C2.91897 10.14 2.49496 9.95024 2.15027 9.95024C1.88105 9.95024 1.54376 10.0938 1.13693 10.3796C0.730571 10.6662 0.527344 10.9467 0.527344 11.2234C0.527344 11.4237 0.713797 11.7204 1.08672 12.1129C1.82532 12.8932 2.47912 13.7208 3.04485 14.5968C3.39043 15.1207 3.62027 15.4421 3.73486 15.5594C3.84876 15.6755 4.19595 15.7352 4.77658 15.7352C5.58423 15.7352 6.06398 15.6316 6.21658 15.4232C6.36778 15.2226 6.64762 14.6247 7.05576 13.6279C8.0642 11.1323 9.31803 8.74894 10.8168 6.47987C12.3168 4.21174 13.6907 2.49573 14.9415 1.33333C15.1907 1.1125 15.3404 0.969371 15.393 0.903277C15.4443 0.836974 15.4705 0.770204 15.4705 0.700677C15.4704 0.590988 15.3977 0.535218 15.253 0.535218Z" fill="%234285F4"/></g><defs><clipPath id="clip0_2985_4112"><rect width="16" height="16" fill="white" transform="translate(0 0.136719)"/></clipPath></defs></svg>');
+          background-size: contain;
+
+          @media (min-width: 768px) {
+            left: -28px;
+          }
+        }
+      }
+
+      @media (min-width: 768px) {
+        padding-left: 28px;
+      }
+    }
+  }
+
+  &__item-link {
+    width: fit-content;
+
+    padding: 18px 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    border-radius: 18px;
+
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 130%;
+    letter-spacing: 0.7px;
+    text-transform: uppercase;
+
+    & svg {
+      width: 18px;
+      height: auto;
+    }
+
+    @media (min-width: 768px) {
+      padding: 22px 34px;
+
+      font-size: 16px;
+      line-height: 120%;
+      letter-spacing: 0.8px;
+
+      & svg {
+        width: 22px;
+        height: auto;
+      }
+    }
+  }
+}

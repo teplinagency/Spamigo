@@ -173,6 +173,99 @@
         "link_color": "var(--white)"
       }
     },
+    "s_tabs_8WajiE": {
+      "type": "s-tabs",
+      "blocks": {
+        "tab_phhCLW": {
+          "type": "tab",
+          "settings": {
+            "preview_title": "Perfect Fit",
+            "preview_icon": "prefect_fit",
+            "image": "shopify:\/\/shop_images\/Frame_52.png",
+            "title": "Custom Fit for Any Hot Tub Brand",
+            "title_color": "var(--white)",
+            "description": "<ul><li>Fits hot tubs from any brand, including Jacuzzi®, Sundance®, Coleman®, and more.<\/li><li>Designed to match your specific tub dimensions for a snug, secure fit.<\/li><li>Prevents energy loss and water contamination caused by poorly fitted covers.<\/li><\/ul>",
+            "description_color": "var(--white)",
+            "link_icon": "phone",
+            "link_url": "tel:+1 (866) 515-6446",
+            "link_text": "+1 (866) 515-6446",
+            "link_bg": "var(--deep-blue)",
+            "link_color": "var(--white)"
+          }
+        },
+        "tab_jRMBXe": {
+          "type": "tab",
+          "settings": {
+            "preview_title": "Guaranteed to Last",
+            "preview_icon": "license",
+            "image": "shopify:\/\/shop_images\/Rectangle_6.png",
+            "title": "Unmatched Warranty for Your Peace of Mind",
+            "title_color": "var(--white)",
+            "description": "<ul><li>10-year warranty to protect your investment for the long haul.<\/li><li>'Survive & Thrive' guarantee: if your cover doesn’t last the first year, we’ll replace it for free.<\/li><li>Built to endure years of use in harsh conditions.<\/li><\/ul>",
+            "description_color": "var(--white)",
+            "link_icon": "phone",
+            "link_url": "tel:+1 (866) 515-6446",
+            "link_text": "+1 (866) 515-6446",
+            "link_bg": "var(--deep-blue)",
+            "link_color": "var(--white)"
+          }
+        },
+        "tab_AVAQkF": {
+          "type": "tab",
+          "settings": {
+            "preview_title": "Winter-Ready",
+            "preview_icon": "snowflake",
+            "image": "shopify:\/\/shop_images\/Rectangle_6_1.png",
+            "title": "Designed for Extreme Winters",
+            "title_color": "var(--white)",
+            "description": "<ul><li>Superior insulation to keep heat in and cold out, saving on energy bills.<\/li><li>Resists cracking, warping, or losing performance in freezing temperatures.<\/li><li>Easy to use even in icy or snowy conditions.<\/li><\/ul>",
+            "description_color": "var(--white)",
+            "link_icon": "phone",
+            "link_url": "tel:+1 (866) 515-6446",
+            "link_text": "+1 (866) 515-6446",
+            "link_bg": "var(--deep-blue)",
+            "link_color": "var(--white)"
+          }
+        },
+        "tab_7iipTK": {
+          "type": "tab",
+          "settings": {
+            "preview_title": "Durable & UV-Resistant",
+            "preview_icon": "sun_2",
+            "image": "shopify:\/\/shop_images\/Rectangle_6_2.png",
+            "title": "Built to Last with Advanced Materials",
+            "title_color": "var(--white)",
+            "description": "<ul><li>UV-resistant fabric prevents fading and wear under intense sun.<\/li><li>Waterproof technology keeps water out, avoiding mold and mildew.<\/li><li>Lightweight yet tough, ensuring long-term reliability.<\/li><\/ul>",
+            "description_color": "var(--white)",
+            "link_icon": "phone",
+            "link_url": "tel:+1 (866) 515-6446",
+            "link_text": "+1 (866) 515-6446",
+            "link_bg": "var(--deep-blue)",
+            "link_color": "var(--white)"
+          }
+        }
+      },
+      "block_order": [
+        "tab_phhCLW",
+        "tab_jRMBXe",
+        "tab_AVAQkF",
+        "tab_7iipTK"
+      ],
+      "settings": {
+        "padding-top": 70,
+        "padding-bottom": 100,
+        "padding-top-mobile": 70,
+        "padding-bottom-mobile": 70,
+        "section_bg": "var(--black)",
+        "title": "<p>Why Spamigo Covers Are <br> the <strong>#1 Choice<\/strong> for Hot Tub?<\/p>",
+        "title_color": "var(--white)",
+        "accent_title_color": "var(--grey-3)",
+        "tab_bg": "var(--bg-blue)",
+        "tab_color": "var(--grey-3)",
+        "tab_bg_active": "var(--light-blue)",
+        "tab_color_active": "var(--black)"
+      }
+    },
     "s_collections_slider_HTPfAa": {
       "type": "s-collections-slider",
       "blocks": {
@@ -1091,6 +1184,7 @@
   "order": [
     "s_hero_banner_ktDWnc",
     "s_benefits_YM48Uh",
+    "s_tabs_8WajiE",
     "s_collections_slider_HTPfAa",
     "s_hero_banner_ktDWnc_2",
     "8ba47ba3-de7f-4f0a-b30d-6f2a540748c3",

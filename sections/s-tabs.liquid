@@ -1,159 +1,159 @@
-{{ "section-benefits.css" | asset_url | stylesheet_tag }}
-<script src="{{ "section-benefits.js" | asset_url }}" defer></script>
+{{ "section-tabs.css" | asset_url | stylesheet_tag }}
 
-{% render "section-padding" %}
+<script src="{{ "section-tabs.js" | asset_url }}" defer></script>
+
+{% render 'section-padding' %}
 
 {% style %}
-  #shopify-section-{{ section.id }} .s-benefits__title {
+  #shopify-section-{{ section.id }}  {
+    background: {{ section.settings.section_bg }};
+  }
+
+  #shopify-section-{{ section.id }} .s-tabs__title {
     color: {{ section.settings.title_color }};
   }
 
-  #shopify-section-{{ section.id }} .s-benefits__title b,
-  #shopify-section-{{ section.id }} .s-benefits__title strong{
+  #shopify-section-{{ section.id }} .s-tabs__title b,
+  #shopify-section-{{ section.id }} .s-tabs__title strong{
     color: {{ section.settings.accent_title_color }};
   }
 
-  #shopify-section-{{ section.id }} .s-benefits__sliders {
-    background: {{ section.settings.slider_bg }};
-  }
-
-  #shopify-section-{{ section.id }} .s-benefits__thumbnail-slide.swiper-slide-thumb-active {
+  #shopify-section-{{ section.id }} .s-tabs__container {
     background: {{ section.settings.tab_bg }};
   }
 
-  #shopify-section-{{ section.id }} .s-benefits__thumbnail-title {
-    color: {{ section.settings.tab_color }}
+  #shopify-section-{{ section.id }} .s-tabs__trigger {
+    background: {{ section.settings.tab_bg }};
+    color: {{ section.settings.tab_color }};
   }
 
-  #shopify-section-{{ section.id }} .s-benefits__link {
-    background: {{ section.settings.link_bg }};
-    color: {{ section.settings.link_color }};
+  #shopify-section-{{ section.id }} .s-tabs__trigger svg path {
+    fill: {{ section.settings.tab_color }};
   }
 
-  #shopify-section-{{ section.id }} .s-benefits__link svg path {
-    fill: {{ section.settings.link_color }};
+  #shopify-section-{{ section.id }} .s-tabs__trigger.is-active {
+    background: {{ section.settings.tab_bg_active }};
+    color: {{ section.settings.tab_color_active }};
   }
 
-  #shopify-section-{{ section.id }} .s-benefits__link:hover {
-    background: {{ section.settings.link_color }};
-    color: {{ section.settings.link_bg }};
+  #shopify-section-{{ section.id }} .s-tabs__trigger.is-active svg path {
+    fill: {{ section.settings.tab_color_active }};
   }
 
-  #shopify-section-{{ section.id }} .s-benefits__link:hover svg path {
-    fill: {{ section.settings.link_bg }};
+  @media (min-width: 768px) {
+    #shopify-section-{{ section.id }} .s-tabs__trigger:hover,
+    #shopify-section-{{ section.id }} .s-tabs__trigger.is-active {
+      background: {{ section.settings.tab_bg_active }};
+      color: {{ section.settings.tab_color_active }};
+    }
+
+    #shopify-section-{{ section.id }} .s-tabs__trigger:hover svg path,
+    #shopify-section-{{ section.id }} .s-tabs__trigger.is-active svg path {
+      fill: {{ section.settings.tab_color_active }};
+    }
   }
 {% endstyle %}
 
-{% liquid
-  assign benefits = section.blocks | where: "type", "benefit"
-  assign slides = section.blocks | where: "type", "slide"
-%}
+<s-tabs class="s-tabs container-m">
+  {% if section.settings.title != blank %}
+    <h2 class="s-tabs__title">
+      {{ section.settings.title }}
+    </h2>
+  {% endif %}
 
-<s-benefits class="s-benefits container-l">
-  <div class="s-benefits__wrapper">
-    {% if section.settings.title != blank %}
-      <h2 class="s-benefits__title">
-        {{ section.settings.title }}
-      </h2>
-    {% endif %}
+  <div class="s-tabs__container">
+    {% for block in section.blocks %}
+      <button type="button" class="s-tabs__trigger js-tabs__trigger {% if forloop.first %}is-active{% endif %}" data-index="{{ forloop.index0 }}">
+        {% render "icons", icon: block.settings.preview_icon %}
 
-    {% if benefits.size > 0 %}
-      <ul class="s-benefits__list">
-        {% for block in benefits %}
+        <span>{{ block.settings.preview_title }}</span>
+      </button>
+    {% endfor %}
+  </div>
+
+  <div class="s-tabs__slider-container">
+    <div class="s-tabs__slider swiper js-tabs__slider">
+      <div class="s-tabs__list swiper-wrapper">
+        {% for block in section.blocks %}
           {% style %}
-            #shopify-section-{{ section.id }} .s-benefits__item-{{- block.id }} .s-benefits__item-icon {
-              background: {{ block.settings.icon_bg }};
+            #shopify-section-{{ section.id }} .s-tabs__item-{{- block.id }} .s-tabs__item-label {
+              color: {{ block.settings.preview_title_color }};
             }
 
-            #shopify-section-{{ section.id }} .s-benefits__item-{{- block.id }} .s-benefits__item-icon svg path {
-              fill: {{ block.settings.icon_color }};
-            }
-
-            #shopify-section-{{ section.id }} .s-benefits__item-{{- block.id }} .s-benefits__item-title {
+            #shopify-section-{{ section.id }} .s-tabs__item-{{- block.id }} .s-tabs__item-title {
               color: {{ block.settings.title_color }};
             }
 
-            #shopify-section-{{ section.id }} .s-benefits__item-{{- block.id }} .s-benefits__item-description {
+            #shopify-section-{{ section.id }} .s-tabs__item-{{- block.id }} .s-tabs__item-description * {
               color: {{ block.settings.description_color }};
             }
+
+            #shopify-section-{{ section.id }} .s-tabs__item-{{- block.id }} .s-tabs__item-link {
+              background: {{ block.settings.link_bg }};
+              color: {{ block.settings.link_color }};
+            }
+
+            #shopify-section-{{ section.id }} .s-tabs__item-{{- block.id }} .s-tabs__item-link svg path {
+              fill: {{ block.settings.link_color }};
+            }
+
+            #shopify-section-{{ section.id }} .s-tabs__item-{{- block.id }} .s-tabs__item-link:hover {
+              background: {{ block.settings.link_color }};
+              color: {{ block.settings.link_bg }};
+            }
+
+            #shopify-section-{{ section.id }} .s-tabs__item-{{- block.id }} .s-tabs__item-link:hover svg path {
+              fill: {{ block.settings.link_bg }};
+            }
           {% endstyle %}
-          <li class="s-benefits__item s-benefits__item-{{- block.id }}" {{ block.shopify_attributes }}>
-            <div class="s-benefits__item-icon">
-              {% render "icons", icon: block.settings.icon %}
-            </div>
 
-            {% if block.settings.title != blank %}
-              <h3 class="s-benefits__item-title">
-                {{ block.settings.title }}
-              </h3>
+          <div class="s-tabs__item swiper-slide s-tabs__item-{{- block.id }}" data-index="{{ block.id }}">
+            {% if block.settings.image != blank %}
+              {% render "image-lazy", image: block.settings.image, class: "s-tabs__item-image" %}
             {% endif %}
 
-            {% if block.settings.description != blank %}
-              <div class="s-benefits__item-description">
-                {{ block.settings.description }}
-              </div>
-            {% endif %}
-          </li>
-        {% endfor %}
-      </ul>
-    {% endif %}
-  </div>
-
-  <div class="s-benefits__sliders">
-    <div class="s-benefits__thumbnail swiper js-benefits__thumbnail">
-      <div class="swiper-wrapper">
-        {% for block in slides %}
-          {% liquid 
-            assign image = block.settings.preview_image | default: block.settings.image
-          %}
-
-          {% if image != blank %}
-            <div class="s-benefits__thumbnail-slide swiper-slide">
-              {% render "image-lazy", image: image, class: "s-benefits__thumbnail-image" %}
-
+            <div class="s-tabs__item-wrapper">
+              {% if block.settings.preview_title != blank %}
+                <span class="s-tabs__item-label">
+                  {{ block.settings.preview_title }}
+                </span>
+              {% endif %}
               {% if block.settings.title != blank %}
-                <h3 class="s-benefits__thumbnail-title">
+                <h3 class="s-tabs__item-title">
                   {{ block.settings.title }}
                 </h3>
               {% endif %}
+
+              {% if block.settings.description != blank %}
+                <div class="s-tabs__item-description">
+                  {{ block.settings.description }}
+                </div>
+              {% endif %}
+
+              {% if block.settings.link_text != blank and block.settings.link_url != blank %}
+                <a href="{{ block.settings.link_url }}" class="s-tabs__item-link">
+                  {% render "icons", icon: block.settings.link_icon %}
+
+                  {{ block.settings.link_text }}
+                </a>
+              {% endif %}
             </div>
-          {% endif %}
+          </div>
         {% endfor %}
       </div>
     </div>
-
-    <div class="s-benefits__main-slider swiper js-benefits__main-slider">
-      <div class="swiper-wrapper">
-        {% for block in slides %}
-          {% liquid 
-            assign image = block.settings.image | default: block.settings.preview_image
-          %}
-
-          {% if image != blank %}
-            <div class="s-benefits__main-slide swiper-slide">
-              {% render "image-lazy", image: image, class: "s-benefits__main-image" %}
-            </div>
-          {% endif %}
-        {% endfor %}
-      </div>
-    </div>
-
-    {% if section.settings.link_text != blank and section.settings.link_url != blank %}
-      <a class="s-benefits__link" href="{{ section.settings.link_url }}">
-        {{ section.settings.link_text }}
-        {% render "icons", icon: "chewron-right" %}
-      </a>
-    {% endif %}
+    <button type="button" class="s-tabs__slider-btn js-tabs__slider-btn--prev">{% render "icons", icon: "chewron-down" %}</button>
+    <button type="button" class="s-tabs__slider-btn js-tabs__slider-btn--next">{% render "icons", icon: "chewron-down" %}</button>
   </div>
-</s-benefits>
+</s-tabs>
 
 {% schema %}
 {
-  "name": "Section Benefits",
-  "class": "section-benefits",
+  "name": "Section Tabs",
+  "class": "section-tabs",
   "presets": [
     {
-      "name": "Section Benefits"
+      "name": "Section Tabs"
     }
   ],
   "settings": [
@@ -175,7 +175,7 @@
       "step": 10,
       "unit": "px",
       "label": "Padding bottom",
-      "default": 70
+      "default": 100
     },
     {
       "type": "range",
@@ -195,17 +195,57 @@
       "step": 10,
       "unit": "px",
       "label": "Padding bottom mobile",
-      "default": 50
+      "default": 70
     },
     {
-      "type": "header",
-      "content": "Title Settings"
+      "type": "select",
+      "id": "section_bg",
+      "label": "Select Section Background",
+      "options": [
+        {
+          "label": "White",
+          "value": "var(--white)"
+        },
+        {
+          "label": "Black",
+          "value": "var(--black)"
+        },
+        {
+          "label": "Deep Blue",
+          "value": "var(--deep-blue)"
+        },
+        {
+          "label": "Light Blue",
+          "value": "var(--light-blue)"
+        },
+        {
+          "label": "Grey 1",
+          "value": "var(--grey-1)"
+        },
+        {
+          "label": "Grey 2",
+          "value": "var(--grey-2)"
+        },
+        {
+          "label": "Grey 3",
+          "value": "var(--grey-3)"
+        },
+        {
+          "label": "Background",
+          "value": "var(--background)"
+        },
+        {
+          "label": "BG Blue",
+          "value": "var(--bg-blue)"
+        }
+      ],
+      "default": "var(--black)"
     },
     {
       "type": "richtext",
       "id": "title",
       "label": "Enter Title",
-      "default": "<p>Ultimate Protection for <b>Your Hot Tub</b>—Built to Last, Whatever the Weather!</p>",
+      "default": "<p>Why Spamigo Covers Are the <strong>#1 Choice</strong> for Hot Tub?</p>",
       "info": "Use \"Bold\" for accent color"
     },
     {
@@ -250,7 +290,7 @@
           "value": "var(--bg-blue)"
         }
       ],
-      "default": "var(--black)"
+      "default": "var(--white)"
     },
     {
       "type": "select",
@@ -294,55 +334,11 @@
           "value": "var(--bg-blue)"
         }
       ],
-      "default": "var(--grey-1)"
+      "default": "var(--grey-3)"
     },
     {
       "type": "header",
-      "content": "Slider Settings"
-    },
-    {
-      "type": "select",
-      "id": "slider_bg",
-      "label": "Select Slider Background",
-      "options": [
-        {
-          "label": "White",
-          "value": "var(--white)"
-        },
-        {
-          "label": "Black",
-          "value": "var(--black)"
-        },
-        {
-          "label": "Deep Blue",
-          "value": "var(--deep-blue)"
-        },
-        {
-          "label": "Light Blue",
-          "value": "var(--light-blue)"
-        },
-        {
-          "label": "Grey 1",
-          "value": "var(--grey-1)"
-        },
-        {
-          "label": "Grey 2",
-          "value": "var(--grey-2)"
-        },
-        {
-          "label": "Grey 3",
-          "value": "var(--grey-3)"
-        },
-        {
-          "label": "Background",
-          "value": "var(--background)"
-        },
-        {
-          "label": "BG Blue",
-          "value": "var(--bg-blue)"
-        }
-      ],
-      "default": "var(--bg-blue)"
+      "content": "Setting Tabs"
     },
     {
       "type": "select",
@@ -386,7 +382,7 @@
           "value": "var(--bg-blue)"
         }
       ],
-      "default": "var(--white)"
+      "default": "var(--bg-blue)"
     },
     {
       "type": "select",
@@ -430,118 +426,162 @@
           "value": "var(--bg-blue)"
         }
       ],
+      "default": "var(--grey-3)"
+    },
+    {
+      "type": "select",
+      "id": "tab_bg_active",
+      "label": "Select Tab Active Background",
+      "options": [
+        {
+          "label": "White",
+          "value": "var(--white)"
+        },
+        {
+          "label": "Black",
+          "value": "var(--black)"
+        },
+        {
+          "label": "Deep Blue",
+          "value": "var(--deep-blue)"
+        },
+        {
+          "label": "Light Blue",
+          "value": "var(--light-blue)"
+        },
+        {
+          "label": "Grey 1",
+          "value": "var(--grey-1)"
+        },
+        {
+          "label": "Grey 2",
+          "value": "var(--grey-2)"
+        },
+        {
+          "label": "Grey 3",
+          "value": "var(--grey-3)"
+        },
+        {
+          "label": "Background",
+          "value": "var(--background)"
+        },
+        {
+          "label": "BG Blue",
+          "value": "var(--bg-blue)"
+        }
+      ],
+      "default": "var(--light-blue)"
+    },
+    {
+      "type": "select",
+      "id": "tab_color_active",
+      "label": "Select Tab Active Color",
+      "options": [
+        {
+          "label": "White",
+          "value": "var(--white)"
+        },
+        {
+          "label": "Black",
+          "value": "var(--black)"
+        },
+        {
+          "label": "Deep Blue",
+          "value": "var(--deep-blue)"
+        },
+        {
+          "label": "Light Blue",
+          "value": "var(--light-blue)"
+        },
+        {
+          "label": "Grey 1",
+          "value": "var(--grey-1)"
+        },
+        {
+          "label": "Grey 2",
+          "value": "var(--grey-2)"
+        },
+        {
+          "label": "Grey 3",
+          "value": "var(--grey-3)"
+        },
+        {
+          "label": "Background",
+          "value": "var(--background)"
+        },
+        {
+          "label": "BG Blue",
+          "value": "var(--bg-blue)"
+        }
+      ],
       "default": "var(--black)"
-    },
-    {
-      "type": "text",
-      "id": "link_text",
-      "label": "Link Text",
-      "default": "Your Perfect Cover at $499.99"
-    },
-    {
-      "type": "url",
-      "id": "link_url",
-      "label": "Link URL"
-    },
-    {
-      "type": "select",
-      "id": "link_bg",
-      "label": "Select Link Background",
-      "options": [
-        {
-          "label": "White",
-          "value": "var(--white)"
-        },
-        {
-          "label": "Black",
-          "value": "var(--black)"
-        },
-        {
-          "label": "Deep Blue",
-          "value": "var(--deep-blue)"
-        },
-        {
-          "label": "Light Blue",
-          "value": "var(--light-blue)"
-        },
-        {
-          "label": "Grey 1",
-          "value": "var(--grey-1)"
-        },
-        {
-          "label": "Grey 2",
-          "value": "var(--grey-2)"
-        },
-        {
-          "label": "Grey 3",
-          "value": "var(--grey-3)"
-        },
-        {
-          "label": "Background",
-          "value": "var(--background)"
-        },
-        {
-          "label": "BG Blue",
-          "value": "var(--bg-blue)"
-        }
-      ],
-      "default": "var(--deep-blue)"
-    },
-    {
-      "type": "select",
-      "id": "link_color",
-      "label": "Select Link Color",
-      "options": [
-        {
-          "label": "White",
-          "value": "var(--white)"
-        },
-        {
-          "label": "Black",
-          "value": "var(--black)"
-        },
-        {
-          "label": "Deep Blue",
-          "value": "var(--deep-blue)"
-        },
-        {
-          "label": "Light Blue",
-          "value": "var(--light-blue)"
-        },
-        {
-          "label": "Grey 1",
-          "value": "var(--grey-1)"
-        },
-        {
-          "label": "Grey 2",
-          "value": "var(--grey-2)"
-        },
-        {
-          "label": "Grey 3",
-          "value": "var(--grey-3)"
-        },
-        {
-          "label": "Background",
-          "value": "var(--background)"
-        },
-        {
-          "label": "BG Blue",
-          "value": "var(--bg-blue)"
-        }
-      ],
-      "default": "var(--white)"
-    },
+    }
   ],
   "blocks": [
     {
-      "type": "benefit",
-      "name": "Benefit",
+      "type": "tab",
+      "name": "Tab",
       "limit": 4,
       "settings": [
         {
+          "type": "header",
+          "content": "Preview Settings",
+        },
+        {
+          "type": "text",
+          "id": "preview_title",
+          "label": "Enter Preview Title",
+          "default": "Perfect Fit"
+        },
+        {
           "type": "select",
-          "id": "icon",
-          "label": "Select Icon",
+          "id": "preview_title_color",
+          "label": "Select Preview Title Color",
+          "info": "Used for mobile Screens",
+          "options": [
+            {
+              "label": "White",
+              "value": "var(--white)"
+            },
+            {
+              "label": "Black",
+              "value": "var(--black)"
+            },
+            {
+              "label": "Deep Blue",
+              "value": "var(--deep-blue)"
+            },
+            {
+              "label": "Light Blue",
+              "value": "var(--light-blue)"
+            },
+            {
+              "label": "Grey 1",
+              "value": "var(--grey-1)"
+            },
+            {
+              "label": "Grey 2",
+              "value": "var(--grey-2)"
+            },
+            {
+              "label": "Grey 3",
+              "value": "var(--grey-3)"
+            },
+            {
+              "label": "Background",
+              "value": "var(--background)"
+            },
+            {
+              "label": "BG Blue",
+              "value": "var(--bg-blue)"
+            }
+          ],
+          "default": "var(--grey-3)"
+        },
+        {
+          "type": "select",
+          "id": "preview_icon",
+          "label": "Select Preview Icon",
           "options": [
             {
               "label": "None",
@@ -595,100 +635,23 @@
               "label": "Stars",
               "value": "stars"
             }
-          ]
+          ],
+          "default": "none"
         },
         {
-          "type": "select",
-          "id": "icon_bg",
-          "label": "Select Icon Background",
-          "options": [
-            {
-              "label": "White",
-              "value": "var(--white)"
-            },
-            {
-              "label": "Black",
-              "value": "var(--black)"
-            },
-            {
-              "label": "Deep Blue",
-              "value": "var(--deep-blue)"
-            },
-            {
-              "label": "Light Blue",
-              "value": "var(--light-blue)"
-            },
-            {
-              "label": "Grey 1",
-              "value": "var(--grey-1)"
-            },
-            {
-              "label": "Grey 2",
-              "value": "var(--grey-2)"
-            },
-            {
-              "label": "Grey 3",
-              "value": "var(--grey-3)"
-            },
-            {
-              "label": "Background",
-              "value": "var(--background)"
-            },
-            {
-              "label": "BG Blue",
-              "value": "var(--bg-blue)"
-            }
-          ],
-          "default": "var(--bg-blue)"
+          "type": "header",
+          "content": "Content Settings",
         },
         {
-          "type": "select",
-          "id": "icon_color",
-          "label": "Select Icon Color",
-          "options": [
-            {
-              "label": "White",
-              "value": "var(--white)"
-            },
-            {
-              "label": "Black",
-              "value": "var(--black)"
-            },
-            {
-              "label": "Deep Blue",
-              "value": "var(--deep-blue)"
-            },
-            {
-              "label": "Light Blue",
-              "value": "var(--light-blue)"
-            },
-            {
-              "label": "Grey 1",
-              "value": "var(--grey-1)"
-            },
-            {
-              "label": "Grey 2",
-              "value": "var(--grey-2)"
-            },
-            {
-              "label": "Grey 3",
-              "value": "var(--grey-3)"
-            },
-            {
-              "label": "Background",
-              "value": "var(--background)"
-            },
-            {
-              "label": "BG Blue",
-              "value": "var(--bg-blue)"
-            }
-          ],
-          "default": "var(--deep-blue)"
+          "type": "image_picker",
+          "id": "image",
+          "label": "Select Tab Image"
         },
         {
           "type": "text",
           "id": "title",
-          "label": "Enter Title"
+          "label": "Enter Title",
+          "default": "Custom Fit for Any Hot Tub Brand",
         },
         {
           "type": "select",
@@ -732,12 +695,13 @@
               "value": "var(--bg-blue)"
             }
           ],
-          "default": "var(--black)"
+          "default": "var(--white)"
         },
         {
-          "type": "text",
+          "type": "richtext",
           "id": "description",
-          "label": "Enter Description"
+          "label": "Enter Description",
+          "default": "<ul><li>Fits hot tubs from any brand, including Jacuzzi®, Sundance®, Coleman®, and more.</li><li>Designed to match your specific tub dimensions for a snug, secure fit.</li><li>Prevents energy loss and water contamination caused by poorly fitted covers.</li></ul>",
         },
         {
           "type": "select",
@@ -781,29 +745,130 @@
               "value": "var(--bg-blue)"
             }
           ],
-          "default": "var(--grey-2)"
+          "default": "var(--white)"
         },
-      ]
-    },
-    {
-      "type": "slide",
-      "name": "Slide",
-      "settings": [
+        {
+          "type": "header",
+          "content": "Link Settings"
+        },
+        {
+          "type": "select",
+          "id": "link_icon",
+          "label": "Select Icon",
+          "options": [
+            {
+              "label": "None",
+              "value": "none"
+            },
+            {
+              "label": "Phone",
+              "value": "phone"
+            },
+            {
+              "label": "e-Mail",
+              "value": "mail"
+            }
+          ],
+          "default": "none"
+        },
+        {
+          "type": "url",
+          "id": "link_url",
+          "label": "Enter Link URL"
+        },
         {
           "type": "text",
-          "id": "title",
-          "label": "Preview Text",
-          "default": "Black Pro-Tex"
+          "id": "link_text",
+          "label": "Enter Link Text",
+          "default": "+1 (866) 515-6446"
         },
         {
-          "type": "image_picker",
-          "id": "preview_image",
-          "label": "Preview Image"
+          "type": "select",
+          "id": "link_bg",
+          "label": "Select Link Background",
+          "options": [
+            {
+              "label": "White",
+              "value": "var(--white)"
+            },
+            {
+              "label": "Black",
+              "value": "var(--black)"
+            },
+            {
+              "label": "Deep Blue",
+              "value": "var(--deep-blue)"
+            },
+            {
+              "label": "Light Blue",
+              "value": "var(--light-blue)"
+            },
+            {
+              "label": "Grey 1",
+              "value": "var(--grey-1)"
+            },
+            {
+              "label": "Grey 2",
+              "value": "var(--grey-2)"
+            },
+            {
+              "label": "Grey 3",
+              "value": "var(--grey-3)"
+            },
+            {
+              "label": "Background",
+              "value": "var(--background)"
+            },
+            {
+              "label": "BG Blue",
+              "value": "var(--bg-blue)"
+            }
+          ],
+          "default": "var(--deep-blue)"
         },
         {
-          "type": "image_picker",
-          "id": "image",
-          "label": "Image"
+          "type": "select",
+          "id": "link_color",
+          "label": "Select Link Color",
+          "options": [
+            {
+              "label": "White",
+              "value": "var(--white)"
+            },
+            {
+              "label": "Black",
+              "value": "var(--black)"
+            },
+            {
+              "label": "Deep Blue",
+              "value": "var(--deep-blue)"
+            },
+            {
+              "label": "Light Blue",
+              "value": "var(--light-blue)"
+            },
+            {
+              "label": "Grey 1",
+              "value": "var(--grey-1)"
+            },
+            {
+              "label": "Grey 2",
+              "value": "var(--grey-2)"
+            },
+            {
+              "label": "Grey 3",
+              "value": "var(--grey-3)"
+            },
+            {
+              "label": "Background",
+              "value": "var(--background)"
+            },
+            {
+              "label": "BG Blue",
+              "value": "var(--bg-blue)"
+            }
+          ],
+          "default": "var(--white)"
         }
       ]
     }
