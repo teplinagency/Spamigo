@@ -212,6 +212,9 @@
     }
   },
   "sections": {
+    "s-hp-reviews": {
+      "verify": "Verify"
+    },
     "s-footer": {
       "email_placeholder": "what’s your email?"
     },

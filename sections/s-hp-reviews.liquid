@@ -1,0 +1,516 @@
+{{ "section-hp-reviews.css" | asset_url | stylesheet_tag }}
+
+{% render "section-padding" %}
+
+{% style %}
+  #shopify-section-{{ section.id }} {
+    background: {{ section.settings.section_bg }};
+  }
+
+  #shopify-section-{{ section.id }} .s-hp-reviews__title{
+    color: {{ section.settings.title_color }};
+  }
+
+  #shopify-section-{{ section.id }} .s-hp-reviews__title strong,
+  #shopify-section-{{ section.id }} .s-hp-reviews__title b{
+    color: {{ section.settings.accent_title_color }};
+  }
+
+  
+  #shopify-section-{{ section.id }} .s-hp-reviews__link {
+    background: {{ section.settings.link_bg }};
+    color: {{ section.settings.link_color }};
+  }
+
+  #shopify-section-{{ section.id }} .s-hp-reviews__link svg path {
+    fill: {{ section.settings.link_color }};
+  }
+
+  #shopify-section-{{ section.id }} .s-hp-reviews__link:hover {
+    background: {{ section.settings.link_color }};
+    color: {{ section.settings.link_bg }};
+  }
+
+  #shopify-section-{{ section.id }} .s-hp-reviews__link:hover svg path {
+    fill: {{ section.settings.link_bg }};
+  }
+
+{% endstyle %}
+
+<div class="s-hp-reviews container-m">
+  {% if section.settings.title != blank %}
+    <h2 class="s-hp-reviews__title">
+      {% if section.settings.title_image != blank %}
+        {% render "image-lazy", image: section.settings.title_image %}
+      {% endif %}
+
+      {{ section.settings.title }}
+    </h2>
+  {% endif %}
+
+  <div class="s-hp-reviews__wrapper">   
+    <div class="s-hp-reviews__list">
+      {% for block in section.blocks %}
+        <div class="s-hp-reviews__item">
+          {% if block.settings.image != blank %}
+            <div class="s-hp-reviews__item-image">
+              {% if block.settings.image_text != blank %}
+                <span class="s-hp-reviews__item-img-count">
+                  {% render "icons", icon: "picture" %}
+                  {{ block.settings.image_text }}
+                </span>
+              {% endif %}
+              {% render "image-lazy", image: block.settings.image %}
+            </div>
+          {% endif %}
+
+          <div class="s-hp-reviews__item-content">
+            <div class="s-hp-reviews__item-top">
+              <h3 class="s-hp-reviews__item-name">
+                {{ block.settings.title }}
+              </h3>
+
+              {% if block.settings.show_badge %}
+                <div class="s-hp-reviews__item-badge">
+                  {% render "icons", icon: "verify" %}
+                  {{ "sections.s-hp-reviews.verify" | t }}
+                </div>
+              {% endif %}
+
+              <span class="s-hp-reviews__item-date">{{ block.settings.date }}</span>
+            </div>
+
+            <div class="s-hp-reviews__item-rating">
+              {% for i in (1..5) %}
+                {% if i <= block.settings.stars %}
+                  {% render "icons", icon: "star-full" %}
+                {% else %}
+                  {% render "icons", icon: "star-empty" %}
+                {% endif %}
+              {% endfor %}
+            </div>
+
+            {% if block.settings.description != blank %}
+              <div class="s-hp-reviews__item-description">
+                {{ block.settings.description }}
+              </div>
+            {% endif %}
+
+            <div class="s-hp-reviews__item-product">
+              {% if block.settings.product_image != blank %}
+                {% render "image-lazy", image: block.settings.product_image, class: "s-hp-reviews__item-product-img" %}
+              {% endif %}
+
+              <div class="s-hp-reviews__item-product-info">
+                {% if block.settings.product_title != blank %}
+                  <h4 class="s-hp-reviews__item-product-title">
+                    {{ block.settings.product_title }}
+                  </h4>
+                {% endif %}
+
+                {% if block.settings.product_price != blank %}
+                  <span class="s-hp-reviews__item-product-price">
+                    {{ block.settings.product_price }}
+                  </span>
+                {% endif %}
+              </div>
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+    {% if section.settings.link_url != blank and section.settings.link_text != blank %}
+      <a class="s-hp-reviews__link" href="{{ section.settings.link_url }}">
+        {{ section.settings.link_text }}
+
+        {% if section.settings.show_chewron %}
+          {% render "icons", icon: "chewron-right" %}
+        {% endif %}
+      </a>
+    {% endif %}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Section HomePage Reviews",
+  "class": "section-hp-reviews",
+  "presets": [
+    {
+      "name": "Section HomePage Reviews"
+    }
+  ],
+  "settings": [
+    {
+      "type": "range",
+      "id": "padding-top",
+      "min": 0,
+      "max": 200,
+      "step": 10,
+      "unit": "px",
+      "label": "Padding top",
+      "default": 100
+    },
+    {
+      "type": "range",
+      "id": "padding-bottom",
+      "min": 0,
+      "max": 200,
+      "step": 10,
+      "unit": "px",
+      "label": "Padding bottom",
+      "default": 100
+    },
+    {
+      "type": "range",
+      "id": "padding-top-mobile",
+      "min": 0,
+      "max": 200,
+      "step": 10,
+      "unit": "px",
+      "label": "Padding top mobile",
+      "default": 70
+    },
+    {
+      "type": "range",
+      "id": "padding-bottom-mobile",
+      "min": 0,
+      "max": 200,
+      "step": 10,
+      "unit": "px",
+      "label": "Padding bottom mobile",
+      "default": 70
+    },
+    {
+      "type": "select",
+      "id": "section_bg",
+      "label": "Select Section Background",
+      "options": [
+        {
+          "label": "White",
+          "value": "var(--white)"
+        },
+        {
+          "label": "Black",
+          "value": "var(--black)"
+        },
+        {
+          "label": "Deep Blue",
+          "value": "var(--deep-blue)"
+        },
+        {
+          "label": "Light Blue",
+          "value": "var(--light-blue)"
+        },
+        {
+          "label": "Grey 1",
+          "value": "var(--grey-1)"
+        },
+        {
+          "label": "Grey 2",
+          "value": "var(--grey-2)"
+        },
+        {
+          "label": "Grey 3",
+          "value": "var(--grey-3)"
+        },
+        {
+          "label": "Background",
+          "value": "var(--background)"
+        },
+        {
+          "label": "BG Blue",
+          "value": "var(--bg-blue)"
+        }
+      ],
+      "default": "var(--background)"
+    },
+    {
+      "type": "header",
+      "content": "Title Settings"
+    },
+    {
+      "type": "richtext",
+      "id": "title",
+      "label": "Enter Title",
+      "default": "<p>Thousands of satisfied hot tub owners trust Spamigo to protect their investment. <strong>Here's why:</strong></p>",
+      "info": "Use \"Bold\" for accent color"
+    },
+    {
+      "type": "select",
+      "id": "title_color",
+      "label": "Select Title Color",
+      "options": [
+        {
+          "label": "White",
+          "value": "var(--white)"
+        },
+        {
+          "label": "Black",
+          "value": "var(--black)"
+        },
+        {
+          "label": "Deep Blue",
+          "value": "var(--deep-blue)"
+        },
+        {
+          "label": "Light Blue",
+          "value": "var(--light-blue)"
+        },
+        {
+          "label": "Grey 1",
+          "value": "var(--grey-1)"
+        },
+        {
+          "label": "Grey 2",
+          "value": "var(--grey-2)"
+        },
+        {
+          "label": "Grey 3",
+          "value": "var(--grey-3)"
+        },
+        {
+          "label": "Background",
+          "value": "var(--background)"
+        },
+        {
+          "label": "BG Blue",
+          "value": "var(--bg-blue)"
+        }
+      ],
+      "default": "var(--black)"
+    },
+    {
+      "type": "select",
+      "id": "accent_title_color",
+      "label": "Select Accent Title Color",
+      "options": [
+        {
+          "label": "White",
+          "value": "var(--white)"
+        },
+        {
+          "label": "Black",
+          "value": "var(--black)"
+        },
+        {
+          "label": "Deep Blue",
+          "value": "var(--deep-blue)"
+        },
+        {
+          "label": "Light Blue",
+          "value": "var(--light-blue)"
+        },
+        {
+          "label": "Grey 1",
+          "value": "var(--grey-1)"
+        },
+        {
+          "label": "Grey 2",
+          "value": "var(--grey-2)"
+        },
+        {
+          "label": "Grey 3",
+          "value": "var(--grey-3)"
+        },
+        {
+          "label": "Background",
+          "value": "var(--background)"
+        },
+        {
+          "label": "BG Blue",
+          "value": "var(--bg-blue)"
+        }
+      ],
+      "default": "var(--grey-2)"
+    },
+    {
+      "type": "image_picker",
+      "id": "title_image",
+      "label": "Select Title Image"
+    },
+    {
+      "type": "header",
+      "content": "Link Settings"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_chewron",
+      "default": true,
+      "label": "Show Chewron"
+    },
+    {
+      "type": "url",
+      "id": "link_url",
+      "label": "Enter Link URL"
+    },
+    {
+      "type": "text",
+      "id": "link_text",
+      "label": "Enter Link Text",
+      "default": "more reviews"
+    },
+    {
+      "type": "select",
+      "id": "link_bg",
+      "label": "Select Link Background",
+      "options": [
+        {
+          "label": "White",
+          "value": "var(--white)"
+        },
+        {
+          "label": "Black",
+          "value": "var(--black)"
+        },
+        {
+          "label": "Deep Blue",
+          "value": "var(--deep-blue)"
+        },
+        {
+          "label": "Light Blue",
+          "value": "var(--light-blue)"
+        },
+        {
+          "label": "Grey 1",
+          "value": "var(--grey-1)"
+        },
+        {
+          "label": "Grey 2",
+          "value": "var(--grey-2)"
+        },
+        {
+          "label": "Grey 3",
+          "value": "var(--grey-3)"
+        },
+        {
+          "label": "Background",
+          "value": "var(--background)"
+        },
+        {
+          "label": "BG Blue",
+          "value": "var(--bg-blue)"
+        }
+      ],
+      "default": "var(--black)"
+    },
+    {
+      "type": "select",
+      "id": "link_color",
+      "label": "Select Link Color",
+      "options": [
+        {
+          "label": "White",
+          "value": "var(--white)"
+        },
+        {
+          "label": "Black",
+          "value": "var(--black)"
+        },
+        {
+          "label": "Deep Blue",
+          "value": "var(--deep-blue)"
+        },
+        {
+          "label": "Light Blue",
+          "value": "var(--light-blue)"
+        },
+        {
+          "label": "Grey 1",
+          "value": "var(--grey-1)"
+        },
+        {
+          "label": "Grey 2",
+          "value": "var(--grey-2)"
+        },
+        {
+          "label": "Grey 3",
+          "value": "var(--grey-3)"
+        },
+        {
+          "label": "Background",
+          "value": "var(--background)"
+        },
+        {
+          "label": "BG Blue",
+          "value": "var(--bg-blue)"
+        }
+      ],
+      "default": "var(--white)"
+    },
+  ],
+  "blocks": [
+    {
+      "type": "review",
+      "name": "Review",
+      "limit": 8,
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Select Image"
+        },
+        {
+          "type": "text",
+          "id": "image_text",
+          "label": "Enter Image Counter"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Enter Title",
+          "default": "Mark V."
+        },
+        {
+          "type": "checkbox",
+          "id": "show_badge",
+          "label": "Show Verify Badge",
+          "default": true
+        },
+        {
+          "type": "text",
+          "id": "date",
+          "label": "Enter Date",
+          "default": "11.12.2024"
+        },
+        {
+          "type": "range",
+          "id": "stars",
+          "min": 1,
+          "max": 5,
+          "step": 1,
+          "default": 5,
+          "label": "Enter Rating"
+        },
+        {
+          "type": "text",
+          "id": "description",
+          "label": "Enter Description",
+          "default": "I loved the service from start to finish I recommend to all my friends without hesitation!! ☺️"
+        },
+        {
+          "type": "header",
+          "content": "Product Settings"
+        },
+        {
+          "type": "image_picker",
+          "id": "product_image",
+          "label": "Enter Product Image"
+        },
+        {
+          "type": "text",
+          "id": "product_title",
+          "default": "Custom hot tube covers",
+          "label": "Enter Product Title"
+        },
+        {
+          "type": "text",
+          "id": "product_price",
+          "default": "from $499",
+          "label": "Enter Product Price"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

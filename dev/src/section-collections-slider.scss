@@ -2,9 +2,9 @@
   margin: 0 auto;
 
   &__top {
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr auto;
     align-items: center;
-    justify-content: space-between;
     gap: 20px;
   }
 
@@ -13,6 +13,7 @@
     font-style: normal;
     font-weight: 500;
     line-height: normal;
+    margin: 0;
 
     @media (min-width: 768px) {
       font-size: 40px;

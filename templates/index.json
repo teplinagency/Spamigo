@@ -180,6 +180,7 @@
           "type": "tab",
           "settings": {
             "preview_title": "Perfect Fit",
+            "preview_title_color": "var(--grey-3)",
             "preview_icon": "prefect_fit",
             "image": "shopify:\/\/shop_images\/Frame_52.png",
             "title": "Custom Fit for Any Hot Tub Brand",
@@ -197,6 +198,7 @@
           "type": "tab",
           "settings": {
             "preview_title": "Guaranteed to Last",
+            "preview_title_color": "var(--grey-3)",
             "preview_icon": "license",
             "image": "shopify:\/\/shop_images\/Rectangle_6.png",
             "title": "Unmatched Warranty for Your Peace of Mind",
@@ -214,6 +216,7 @@
           "type": "tab",
           "settings": {
             "preview_title": "Winter-Ready",
+            "preview_title_color": "var(--grey-3)",
             "preview_icon": "snowflake",
             "image": "shopify:\/\/shop_images\/Rectangle_6_1.png",
             "title": "Designed for Extreme Winters",
@@ -231,6 +234,7 @@
           "type": "tab",
           "settings": {
             "preview_title": "Durable & UV-Resistant",
+            "preview_title_color": "var(--grey-3)",
             "preview_icon": "sun_2",
             "image": "shopify:\/\/shop_images\/Rectangle_6_2.png",
             "title": "Built to Last with Advanced Materials",
@@ -264,6 +268,157 @@
         "tab_color": "var(--grey-3)",
         "tab_bg_active": "var(--light-blue)",
         "tab_color_active": "var(--black)"
+      }
+    },
+    "s_hp_reviews_hYmFDY": {
+      "type": "s-hp-reviews",
+      "blocks": {
+        "review_itfQ7i": {
+          "type": "review",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/image_2.png",
+            "image_text": "",
+            "title": "Mark V.",
+            "show_badge": true,
+            "date": "11.12.2024",
+            "stars": 5,
+            "description": "I loved the service from start to finish I recommend to all my friends without hesitation!! ☺️",
+            "product_image": "shopify:\/\/shop_images\/Rectangle_9.png",
+            "product_title": "Custom hot tube covers",
+            "product_price": "from $499"
+          }
+        },
+        "review_wY43yR": {
+          "type": "review",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/image_cf514a70-67dd-4506-acaa-f3ad361afd07.png",
+            "image_text": "+4",
+            "title": "Keith Butt B.",
+            "show_badge": true,
+            "date": "11.12.2024",
+            "stars": 5,
+            "description": "Overall the quality of the cover is good. The corner radius is perfect and the cover fits like a glove. Customer service was great when ordering. Unfortunately it was fabricated with the lifter plates (option) and the handles, which I had requested both be installed on the front, both installed in the front half of the cover. I had to remove the foam inserts and switch them so the lifter plates were at the back. Not a big deal but I was worried I would catch and tear the vapour barrier with the zipper. The lifter plates (option) were not wide enough for my Hot Springs lifter, which I had specified. I had to fabricate aluminum plates to adapt to the narrower lifter plates. The handles were both installed on the front half as requested but are too far apart for one person to easily lift both handles. The hold down straps are a little too long even though I had specified the length. I paid extra for expedited delivery but it was still 5 weeks from time of order to receipt. Courier dropped the cover in the middle of my driveway and didn’t notify me (or ring the door bell) to tell me it had arrived. Luckily I got to it before any porch pirates. We will see how the cover stands up to the elements. Hopefully I won’t have to make a warranty claim. Overall I am happy with the cover, it’s fit, extra thickness and Pro-Tex fabric.",
+            "product_image": "shopify:\/\/shop_images\/Rectangle_9.png",
+            "product_title": "Custom hot tube covers",
+            "product_price": "from $499"
+          }
+        },
+        "review_yd3rdy": {
+          "type": "review",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/image_3.png",
+            "image_text": "",
+            "title": "Heather P.",
+            "show_badge": true,
+            "date": "11.12.2024",
+            "stars": 5,
+            "description": "Excellent quality. The stitching is fantastic, the cover is thick and insulating but lightweight and the colour is perfect (brown).",
+            "product_image": "shopify:\/\/shop_images\/Rectangle_9.png",
+            "product_title": "Custom hot tube covers",
+            "product_price": "from $499"
+          }
+        },
+        "review_YVxnkK": {
+          "type": "review",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/image_4.png",
+            "image_text": "",
+            "title": "Keith Butt B.",
+            "show_badge": true,
+            "date": "11.12.2024",
+            "stars": 5,
+            "description": "Fit like a glove. Thanks",
+            "product_image": "shopify:\/\/shop_images\/Rectangle_9.png",
+            "product_title": "Custom hot tube covers",
+            "product_price": "from $499"
+          }
+        },
+        "review_kiP4Vz": {
+          "type": "review",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/image_5.png",
+            "image_text": "+2",
+            "title": "Keith Butt B.",
+            "show_badge": true,
+            "date": "11.12.2024",
+            "stars": 4,
+            "description": "Glad I ordered the extra length skirt, it is the same length as the original cover.\u2028I do like the angled overlapping skirt at the joint better than the old (original) vertical overlapping skirt.\u2028The drainage hole on the underside of the cover should be beneficial, old cover had no drainage,",
+            "product_image": "shopify:\/\/shop_images\/Rectangle_9.png",
+            "product_title": "Custom hot tube covers",
+            "product_price": "from $499"
+          }
+        },
+        "review_emxtpA": {
+          "type": "review",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/image444.png",
+            "image_text": "",
+            "title": "Keith Butt B.",
+            "show_badge": true,
+            "date": "11.12.2024",
+            "stars": 4,
+            "description": "I’m a bit disappointed as the cover is slightly too large for my spa; we SOE d quite a lot of time on the phone to validate the size of the cover and finally this is not exact.\u2028Otherwise I’m happy: delivered as planned, good cover… \u2028Thanks !",
+            "product_image": "shopify:\/\/shop_images\/Rectangle_9.png",
+            "product_title": "Custom hot tube covers",
+            "product_price": "from $499"
+          }
+        },
+        "review_7mKPPr": {
+          "type": "review",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/66666.png",
+            "image_text": "",
+            "title": "Heather P.",
+            "show_badge": true,
+            "date": "11.12.2024",
+            "stars": 5,
+            "description": "Excellent service when ordering and the product perfectly meets my expectations",
+            "product_image": "shopify:\/\/shop_images\/Rectangle_9.png",
+            "product_title": "Custom hot tube covers",
+            "product_price": "from $499"
+          }
+        },
+        "review_EbCQ8A": {
+          "type": "review",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/image-1.png",
+            "image_text": "+2",
+            "title": "Jordan H.",
+            "show_badge": true,
+            "date": "11.12.2024",
+            "stars": 4,
+            "description": "The fit is perfect with the mesure i give ! Fast shipping ! Great product, hope it last more than 3 years !",
+            "product_image": "shopify:\/\/shop_images\/Rectangle_9.png",
+            "product_title": "Custom hot tube covers",
+            "product_price": "from $499"
+          }
+        }
+      },
+      "block_order": [
+        "review_itfQ7i",
+        "review_wY43yR",
+        "review_yd3rdy",
+        "review_YVxnkK",
+        "review_kiP4Vz",
+        "review_emxtpA",
+        "review_7mKPPr",
+        "review_EbCQ8A"
+      ],
+      "settings": {
+        "padding-top": 100,
+        "padding-bottom": 100,
+        "padding-top-mobile": 70,
+        "padding-bottom-mobile": 70,
+        "section_bg": "var(--background)",
+        "title": "<p>Thousands of satisfied hot tub owners trust Spamigo to protect their investment. <strong>Here's why:<\/strong><\/p>",
+        "title_color": "var(--black)",
+        "accent_title_color": "var(--grey-2)",
+        "title_image": "shopify:\/\/shop_images\/Frame_54.png",
+        "show_chewron": true,
+        "link_url": "shopify:\/\/pages\/reviews",
+        "link_text": "more reviews",
+        "link_bg": "var(--black)",
+        "link_color": "var(--white)"
       }
     },
     "s_collections_slider_HTPfAa": {
@@ -1185,6 +1340,7 @@
     "s_hero_banner_ktDWnc",
     "s_benefits_YM48Uh",
     "s_tabs_8WajiE",
+    "s_hp_reviews_hYmFDY",
     "s_collections_slider_HTPfAa",
     "s_hero_banner_ktDWnc_2",
     "8ba47ba3-de7f-4f0a-b30d-6f2a540748c3",
